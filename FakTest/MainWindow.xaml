@@ -1,0 +1,38 @@
+﻿<Window x:Class="FakTest.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FakTest"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="500" Width="800"
+        
+        Icon="./Resources/fak.ico">
+    <Canvas
+        Background="Azure"
+        >
+        <Image Source="Resources/LOGO.png" Height="100" Canvas.Left="350" Canvas.Top="10" Width="100"/>
+        <Button Content="Sprzedaż" Canvas.Left="100" Canvas.Top="100" Width="200" Height="100" Click="ButtonBase1_OnClick"/>
+        <Button Content="Obsługa" Canvas.Left="500" Canvas.Top="100" Width="200" Height="100" Click="ButtonBase2_OnClick"/>
+
+        <ListView Canvas.Left="500" Canvas.Top="250" Width="200" Height="200" HorizontalContentAlignment="Left">
+            <ListView.View>
+                <GridView>
+
+                    <GridViewColumn Header="Id transakcji"/>
+                    <GridViewColumn Header="Czas transakcji"/>
+
+                </GridView>
+            </ListView.View>
+
+            <TextBlock TextWrapping="Wrap" Text="Rekord5" />
+            <TextBlock TextWrapping="Wrap" Text="Rekord4" />
+            <TextBlock TextWrapping="Wrap" Text="Rekord3" />
+            <TextBlock TextWrapping="Wrap" Text="Rekord2" />
+            <TextBlock TextWrapping="Wrap" Text="Rekord1" />
+        </ListView>
+
+        <Image Source="Resources/Firma.png" Canvas.Left="100" Canvas.Top="250" Width="350" />
+
+    </Canvas>
+</Window>
