@@ -50,6 +50,7 @@
         <TextBlock Canvas.Left="50" TextWrapping="Wrap" Text="Typ produktu" Canvas.Top="149"/>
         <TextBlock Canvas.Left="170" TextWrapping="Wrap" Text="Nazwa Produktu" Canvas.Top="149"/>
         <TextBlock Canvas.Left="50" TextWrapping="Wrap" Text="Wyszukiwanie: nazwa Produktu lub id" Canvas.Top="82"/>
+        <Button Content="Powrót" Canvas.Left="50" Canvas.Top="20" Width="75" Click="Button_Click"/>
 
 
     </Canvas>

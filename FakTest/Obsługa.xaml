@@ -10,13 +10,14 @@
     <Canvas
          Background="Azure">
 
-        <Button Content="Nowa kategoria" Canvas.Left="48" Canvas.Top="38" Width="200" Height="100" />
-        <Button Content="Nowa stały klient" Canvas.Left="48" Canvas.Top="290" Width="200" Height="100" />
-        <Button Content="Nowa produkt" Canvas.Left="48" Canvas.Top="165" Width="200" Height="100" />
-        <Button Content="Generuj raport sprzedazy" Canvas.Left="310" Canvas.Top="38" Width="200" Height="100" />
-        <Button Content="Generuj JPK" Canvas.Left="310" Canvas.Top="165" Width="200" Height="100" />
-        <TextBlock Canvas.Left="111" TextWrapping="Wrap" Text="Obsługa bazy" Canvas.Top="17"/>
-        <TextBlock Canvas.Left="395" TextWrapping="Wrap" Text="Finanse" Canvas.Top="17"/>
+        <Button Content="Nowa kategoria" Canvas.Left="48" Canvas.Top="80" Width="200" Height="100" />
+        <Button Content="Nowa stały klient" Canvas.Left="48" Canvas.Top="300" Width="200" Height="100" />
+        <Button Content="Nowa produkt" Canvas.Left="48" Canvas.Top="190" Width="200" Height="100" />
+        <Button Content="Generuj raport sprzedazy" Canvas.Left="310" Canvas.Top="80" Width="200" Height="100" />
+        <Button Content="Generuj JPK" Canvas.Left="310" Canvas.Top="190" Width="200" Height="100" />
+        <TextBlock Canvas.Left="111" TextWrapping="Wrap" Text="Obsługa bazy" Canvas.Top="50"/>
+        <TextBlock Canvas.Left="395" TextWrapping="Wrap" Text="Finanse" Canvas.Top="50"/>
+        <Button Content="Powrót" Canvas.Left="50" Canvas.Top="20" Width="75" Click="Button_Click"/>
 
     </Canvas>
 </Window>
