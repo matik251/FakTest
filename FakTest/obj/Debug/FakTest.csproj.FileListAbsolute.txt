@@ -16,3 +16,4 @@ C:\Users\Matik\source\repos\FakTest\FakTest\obj\Debug\FakTest.csproj.GenerateRes
 C:\Users\Matik\source\repos\FakTest\FakTest\obj\Debug\FakTest.csproj.CoreCompileInputs.cache
 C:\Users\Matik\source\repos\FakTest\FakTest\obj\Debug\FakTest.exe
 C:\Users\Matik\source\repos\FakTest\FakTest\obj\Debug\FakTest.pdb
+C:\Users\MATIK\source\repos\FakTest\FakTest\obj\Debug\FakTest.csprojAssemblyReference.cache
