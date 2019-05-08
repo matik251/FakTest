@@ -8,10 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace FakTest.Properties
-{
-
-
+namespace FakTest.Properties {
+    using System;
+    
+    
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -19,52 +19,233 @@ namespace FakTest.Properties
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources
-    {
-
+    public class Resources {
+        
         private static global::System.Resources.ResourceManager resourceMan;
-
+        
         private static global::System.Globalization.CultureInfo resourceCulture;
-
+        
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resources()
-        {
+        internal Resources() {
         }
-
+        
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager
-        {
-            get
-            {
-                if ((resourceMan == null))
-                {
+        public static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("FakTest.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
             }
         }
-
+        
         /// <summary>
         ///   Overrides the current thread's CurrentUICulture property for all
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture
-        {
-            get
-            {
+        public static global::System.Globalization.CultureInfo Culture {
+            get {
                 return resourceCulture;
             }
-            set
-            {
+            set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Obsługa.
+        /// </summary>
+        public static string MW_ButtonOptions {
+            get {
+                return ResourceManager.GetString("MW_ButtonOptions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sprzedaż.
+        /// </summary>
+        public static string MW_ButtonSell {
+            get {
+                return ResourceManager.GetString("MW_ButtonSell", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Okno główne.
+        /// </summary>
+        public static string MW_MainWindowHeader {
+            get {
+                return ResourceManager.GetString("MW_MainWindowHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Obsługa bazy.
+        /// </summary>
+        public static string OW_BaseHeader {
+            get {
+                return ResourceManager.GetString("OW_BaseHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Generuj JPK.
+        /// </summary>
+        public static string OW_ButtonGenerateJPK {
+            get {
+                return ResourceManager.GetString("OW_ButtonGenerateJPK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Generuj raport sprzedaży.
+        /// </summary>
+        public static string OW_ButtonGenerateRaport {
+            get {
+                return ResourceManager.GetString("OW_ButtonGenerateRaport", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nowa kategoria.
+        /// </summary>
+        public static string OW_ButtonNewCat {
+            get {
+                return ResourceManager.GetString("OW_ButtonNewCat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nowy stały klient.
+        /// </summary>
+        public static string OW_ButtonNewClient {
+            get {
+                return ResourceManager.GetString("OW_ButtonNewClient", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nowy produkt.
+        /// </summary>
+        public static string OW_ButtonNewProd {
+            get {
+                return ResourceManager.GetString("OW_ButtonNewProd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Finanse.
+        /// </summary>
+        public static string OW_FinanceHeader {
+            get {
+                return ResourceManager.GetString("OW_FinanceHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Okno Obsługi.
+        /// </summary>
+        public static string OW_OptionsWindowHeader {
+            get {
+                return ResourceManager.GetString("OW_OptionsWindowHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Finalizuj.
+        /// </summary>
+        public static string SW_ButtonFinalize {
+            get {
+                return ResourceManager.GetString("SW_ButtonFinalize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Szukaj.
+        /// </summary>
+        public static string SW_ButtonSearch {
+            get {
+                return ResourceManager.GetString("SW_ButtonSearch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Faktura Vat.
+        /// </summary>
+        public static string SW_Option1 {
+            get {
+                return ResourceManager.GetString("SW_Option1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Paragon.
+        /// </summary>
+        public static string SW_Option2 {
+            get {
+                return ResourceManager.GetString("SW_Option2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Odroczony termin płatności.
+        /// </summary>
+        public static string SW_Option3 {
+            get {
+                return ResourceManager.GetString("SW_Option3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nazwa Produktu.
+        /// </summary>
+        public static string SW_ProductNameHeader {
+            get {
+                return ResourceManager.GetString("SW_ProductNameHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Typ produktu.
+        /// </summary>
+        public static string SW_ProductTypeHeader {
+            get {
+                return ResourceManager.GetString("SW_ProductTypeHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wyszukiwanie: nazwa Produktu lub id.
+        /// </summary>
+        public static string SW_SearchHeader {
+            get {
+                return ResourceManager.GetString("SW_SearchHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Okno sprzedaży.
+        /// </summary>
+        public static string SW_SellWindowHeader {
+            get {
+                return ResourceManager.GetString("SW_SellWindowHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Powrót.
+        /// </summary>
+        public static string U_ButtonBack {
+            get {
+                return ResourceManager.GetString("U_ButtonBack", resourceCulture);
             }
         }
     }

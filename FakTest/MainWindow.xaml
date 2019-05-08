@@ -4,16 +4,17 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FakTest"
+        xmlns:p="clr-namespace:FakTest.Properties"
         mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="800"
+        Title="{x:Static p:Resources.MW_MainWindowHeader}" Height="500" Width="800"
         
         Icon="./Resources/fak.ico">
     <Canvas
         Background="Azure"
         >
         <Image Source="Resources/LOGO.png" Height="100" Canvas.Left="350" Canvas.Top="10" Width="100"/>
-        <Button Content="Sprzedaż" Canvas.Left="100" Canvas.Top="100" Width="200" Height="100" Click="ButtonBase1_OnClick"/>
-        <Button Content="Obsługa" Canvas.Left="500" Canvas.Top="100" Width="200" Height="100" Click="ButtonBase2_OnClick"/>
+        <Button Content="{x:Static p:Resources.MW_ButtonSell}" Canvas.Left="100" Canvas.Top="100" Width="200" Height="100" Click="ButtonBase1_OnClick"/>
+        <Button Content="{x:Static p:Resources.MW_ButtonOptions}" Canvas.Left="500" Canvas.Top="100" Width="200" Height="100" Click="ButtonBase2_OnClick"/>
 
         <ListView Canvas.Left="500" Canvas.Top="250" Width="200" Height="200" HorizontalContentAlignment="Left">
             <ListView.View>
