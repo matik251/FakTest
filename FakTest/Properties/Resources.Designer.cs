@@ -135,9 +135,9 @@ namespace FakTest.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Nowy produkt.
         /// </summary>
-        public static string OW_ButtonNewProd {
+        public static string OW_ButtonNewProduct {
             get {
-                return ResourceManager.GetString("OW_ButtonNewProd", resourceCulture);
+                return ResourceManager.GetString("OW_ButtonNewProduct", resourceCulture);
             }
         }
         

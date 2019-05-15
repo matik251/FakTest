@@ -13,6 +13,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using FakTest.Properties;
+
+
 namespace FakTest
 {
     /// <summary>
@@ -20,6 +23,9 @@ namespace FakTest
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        FileHandler _fileHandler = new FileHandler();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -30,6 +36,7 @@ namespace FakTest
             Sprzedaż win = new Sprzedaż();
             win.Show();
             this.Close();
+            _fileHandler.writeMainFile();
         }
 
         private void ButtonBase2_OnClick(object sender, RoutedEventArgs e)
@@ -37,6 +44,13 @@ namespace FakTest
             Obsługa win = new Obsługa();
             win.Show();
             this.Close();
+        }
+
+        private void ButtonBase12_OnClick(object sender, RoutedEventArgs e)
+        {
+            string msg;
+            msg = _fileHandler.readMainFile();
+            MessageBox.Show(msg);
         }
     }
 }

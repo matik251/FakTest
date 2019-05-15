@@ -141,7 +141,7 @@
   <data name="OW_ButtonNewClient" xml:space="preserve">
     <value>Nowy stały klient</value>
   </data>
-  <data name="OW_ButtonNewProd" xml:space="preserve">
+  <data name="OW_ButtonNewProduct" xml:space="preserve">
     <value>Nowy produkt</value>
   </data>
   <data name="OW_FinanceHeader" xml:space="preserve">

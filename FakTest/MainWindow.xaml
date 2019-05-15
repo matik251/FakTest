@@ -34,6 +34,7 @@
         </ListView>
 
         <Image Source="Resources/Firma.png" Canvas.Left="100" Canvas.Top="250" Width="350" />
+        <Button Content="aa" Canvas.Left="34" Canvas.Top="45" Width="59" Height="29" Click="ButtonBase12_OnClick"/>
 
     </Canvas>
 </Window>
