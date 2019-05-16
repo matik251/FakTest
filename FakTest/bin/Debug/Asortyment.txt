@@ -1,3 +1,4 @@
-abc
-12
-1
+almanach,20,10,
+bilbia,111,12,
+cplusplus,10,1,
+cos,11110,355550,

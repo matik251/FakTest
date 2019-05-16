@@ -41,7 +41,7 @@ namespace FakTest
         {
             Przedmiot _przedmiot = new Przedmiot(_nazwa,_cena,_stawkaVat);
 
-            int qounter = _controler.Asortyment.Count();
+            int qounter = _controler.Asortyment.Count;
 
             _controler.Asortyment.Add(qounter, _przedmiot);
 

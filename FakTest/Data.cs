@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media.TextFormatting;
 
 namespace FakTest
 {
@@ -51,11 +52,15 @@ namespace FakTest
         {
             StreamWriter sw = File.CreateText(testFilePath);
 
-            Asortyment.TryGetValue(0, out Przedmiot linia);
-    
-            sw.Write(linia.nazwa + "\n");
-            sw.Write(linia.cena + "\n");
-            sw.Write(linia.VAT + "\n");
+            for (int i = 0; i < Asortyment.Count; i++)
+            {
+                Asortyment.TryGetValue(i, out Przedmiot linia);
+
+                sw.Write(linia.nazwa + ",");
+                sw.Write(linia.cena + ",");
+                sw.Write(linia.VAT + ",");
+                sw.Write(System.Environment.NewLine);
+            }
 
             sw.Close();
         }
