@@ -25,32 +25,42 @@ namespace FakTest
     {
 
         FileHandler _fileHandler = new FileHandler();
+        private Controler _controler;
 
         public MainWindow()
         {
             InitializeComponent();
+            _controler = new Controler();
+        }
+
+        public MainWindow(Controler controler)
+        {
+            InitializeComponent();
+            _controler = controler;
         }
 
         private void ButtonBase1_OnClick(object sender, RoutedEventArgs e)
         {
-            Sprzedaż win = new Sprzedaż();
+            Sprzedaż win = new Sprzedaż(_controler);
             win.Show();
             this.Close();
-            _fileHandler.writeMainFile();
         }
 
         private void ButtonBase2_OnClick(object sender, RoutedEventArgs e)
         {
-            Obsługa win = new Obsługa();
+            Obsługa win = new Obsługa(_controler);
             win.Show();
             this.Close();
         }
 
         private void ButtonBase12_OnClick(object sender, RoutedEventArgs e)
         {
-            string msg;
+            /*string msg;
             msg = _fileHandler.readMainFile();
-            MessageBox.Show(msg);
+            MessageBox.Show(msg);*/
+
+
+            _controler.writeMainFile();
         }
     }
 }

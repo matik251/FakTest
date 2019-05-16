@@ -14,21 +14,6 @@
     >
         <Image Source="Resources/Przedmiot.png" Height="200" Canvas.Left="530" Canvas.Top="20" Width="200"/>
 
-        <ListView Canvas.Left="50" Canvas.Top="250" Width="440" Height="200" HorizontalContentAlignment="Left">
-            <ListView.View>
-                <GridView>
-
-                    <GridViewColumn Header="Id Przedmiotu"/>
-                    <GridViewColumn Header="Nazwa"/>
-                    <GridViewColumn Header="Typ"/>
-                    <GridViewColumn Header="Cena Netto"/>
-                    <GridViewColumn Header="Stawka VAT"/>
-                    <GridViewColumn Header="Podatek"/>
-                    <GridViewColumn Header="Cena Brutto"/>
-                </GridView>
-            </ListView.View>
-
-        </ListView>
         <CheckBox Content="{x:Static p:Resources.SW_Option1}" Height="18" Canvas.Left="530" Canvas.Top="254" Width="81"/>
         <CheckBox Content="{x:Static p:Resources.SW_Option2}" Height="18" Canvas.Left="530" Canvas.Top="277" Width="81"/>
         <CheckBox Content="{x:Static p:Resources.SW_Option3}" Height="23" Canvas.Left="530" Canvas.Top="300" Width="170"/>
@@ -49,12 +34,54 @@
 
         <TextBox  Height="23" Canvas.Left="50" TextWrapping="Wrap" Text="{x:Static p:Resources.SW_SearchHeader}" Canvas.Top="103" Width="310"/>
         <Button Content="{x:Static p:Resources.SW_ButtonSearch}" Canvas.Left="393" Canvas.Top="103" Width="75" Click="ButtonBase_OnClick"/>
-        
+
         <TextBlock Canvas.Left="50" TextWrapping="Wrap" Text="Typ produktu" Canvas.Top="149"/>
         <TextBlock Canvas.Left="170" TextWrapping="Wrap" Text="Nazwa Produktu" Canvas.Top="149"/>
         <TextBlock Canvas.Left="50" TextWrapping="Wrap" Text="Wyszukiwanie: nazwa Produktu lub id" Canvas.Top="82"/>
 
         <Button Content="{x:Static p:Resources.U_ButtonBack}" Canvas.Left="50" Canvas.Top="20" Width="75" Click="Button_Click"/>
+
+        <DataGrid Height="240" Canvas.Left="50" Canvas.Top="210" Width="440">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="Id" Width="SizeToCells">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Nazwa">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Typ" >
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Netto" >
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Podatek" >
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Brutto" >
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+
+        </DataGrid>
 
 
     </Canvas>

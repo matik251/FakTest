@@ -55,6 +55,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Data.cs" />
+    <Compile Include="DodanieProduktu.xaml.cs">
+      <DependentUpon>DodanieProduktu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="FileHandler.cs" />
     <Compile Include="Obsługa.xaml.cs">
       <DependentUpon>Obsługa.xaml</DependentUpon>
@@ -62,6 +66,10 @@
     <Compile Include="Sprzedaż.xaml.cs">
       <DependentUpon>Sprzedaż.xaml</DependentUpon>
     </Compile>
+    <Page Include="DodanieProduktu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

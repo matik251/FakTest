@@ -1,0 +1,23 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FakTest"
+        xmlns:Properties="clr-namespace:FakTest.Properties" x:Class="FakTest.DodanieProduktu"
+        mc:Ignorable="d"
+        Title="DodanieProduktu" Height="300" Width="400">
+    <Grid>
+        <TextBox Name="tb_nazwa" HorizontalAlignment="Left" Height="23" Margin="160,52,0,0" TextWrapping="Wrap" Text="{Binding _nazwa}" VerticalAlignment="Top" Width="222"/>
+        <TextBox Name="tb_cena" HorizontalAlignment="Left" Height="23" Margin="160,98,0,0" TextWrapping="Wrap" Text="{Binding _cena}" VerticalAlignment="Top" Width="222"/>
+        <TextBox Name="tb_stawkaVAT" HorizontalAlignment="Left" Height="23" Margin="160,143,0,0" TextWrapping="Wrap" Text="{Binding _stawkaVat}" VerticalAlignment="Top" Width="222"/>
+        
+        <Label Content="Nazwa" HorizontalAlignment="Left" Height="23" Margin="20,52,0,0" VerticalAlignment="Top" Width="106"/>
+        <Label Content="Cena" HorizontalAlignment="Left" Height="23" Margin="20,98,0,0" VerticalAlignment="Top" Width="106"/>
+        <Label Content="Stawka VAT" HorizontalAlignment="Left" Height="23" Margin="20,143,0,0" VerticalAlignment="Top" Width="106"/>
+
+        <Button Content="{x:Static Properties:Resources.U_ButtonBack}" Click="Button_Click" Margin="10,10,307,222"/>
+        <Button Content="{x:Static Properties:Resources.OW_ButtonAddNewProduct}" Click="Add_Product" HorizontalAlignment="Left" Height="70" Margin="10,189,0,0" VerticalAlignment="Top" Width="372"/>
+
+</Grid>
+</Window>

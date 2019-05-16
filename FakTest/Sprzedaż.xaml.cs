@@ -19,9 +19,12 @@ namespace FakTest
     /// </summary>
     public partial class Sprzedaż : Window
     {
-        public Sprzedaż()
+        Controler _controler = new Controler();
+
+        public Sprzedaż(Controler controler)
         {
             InitializeComponent();
+            _controler = controler;
         }
 
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
@@ -31,7 +34,7 @@ namespace FakTest
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow win = new MainWindow();
+            MainWindow win = new MainWindow(_controler);
             win.Show();
             this.Close();
         }

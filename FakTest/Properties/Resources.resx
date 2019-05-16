@@ -129,6 +129,9 @@
   <data name="OW_BaseHeader" xml:space="preserve">
     <value>Obsługa bazy</value>
   </data>
+  <data name="OW_ButtonAddNewProduct" xml:space="preserve">
+    <value>Dodaj nowy produkt</value>
+  </data>
   <data name="OW_ButtonGenerateJPK" xml:space="preserve">
     <value>Generuj JPK</value>
   </data>

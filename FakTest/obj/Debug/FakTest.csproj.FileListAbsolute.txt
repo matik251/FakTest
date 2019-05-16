@@ -17,3 +17,5 @@ C:\Users\Matik\source\repos\FakTest\FakTest\obj\Debug\FakTest.csproj.CoreCompile
 C:\Users\Matik\source\repos\FakTest\FakTest\obj\Debug\FakTest.exe
 C:\Users\Matik\source\repos\FakTest\FakTest\obj\Debug\FakTest.pdb
 C:\Users\MATIK\source\repos\FakTest\FakTest\obj\Debug\FakTest.csprojAssemblyReference.cache
+C:\Users\Matik\source\repos\FakTest\FakTest\obj\Debug\DodanieProduktu.g.cs
+C:\Users\Matik\source\repos\FakTest\FakTest\obj\Debug\DodanieProduktu.baml

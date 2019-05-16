@@ -97,6 +97,15 @@ namespace FakTest.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Dodaj nowy produkt.
+        /// </summary>
+        public static string OW_ButtonAddNewProduct {
+            get {
+                return ResourceManager.GetString("OW_ButtonAddNewProduct", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Generuj JPK.
         /// </summary>
         public static string OW_ButtonGenerateJPK {

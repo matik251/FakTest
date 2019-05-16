@@ -19,21 +19,25 @@ namespace FakTest
     /// </summary>
     public partial class Obsługa : Window
     {
-        public Obsługa()
+        Controler _controler;
+
+        public Obsługa(Controler controler)
         {
             InitializeComponent();
+            _controler = controler;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow win = new MainWindow();
+            MainWindow win = new MainWindow(_controler);
             win.Show();
             this.Close();
         }
 
         private void addProduct(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            DodanieProduktu win = new DodanieProduktu(_controler);
+            win.Show();
         }
 
         private void addClient(object sender, RoutedEventArgs e)
