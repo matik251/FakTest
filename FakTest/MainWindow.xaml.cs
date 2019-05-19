@@ -53,14 +53,21 @@ namespace FakTest
             this.Close();
         }
 
-        private void ButtonBase12_OnClick(object sender, RoutedEventArgs e)
+        private void ButtonBase12_OnClickSave(object sender, RoutedEventArgs e)
         {
             /*string msg;
             msg = _fileHandler.readMainFile();
             MessageBox.Show(msg);*/
 
+            _controler.saveAsortyment();
+        }
+        private void ButtonBase12_OnClickLoad(object sender, RoutedEventArgs e)
+        {
+            /*string msg;
+            msg = _fileHandler.readMainFile();
+            MessageBox.Show(msg);*/
 
-            _controler.writeMainFile();
+            _controler.loadAsortyment();
         }
     }
 }

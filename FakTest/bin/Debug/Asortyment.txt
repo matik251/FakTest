@@ -1,4 +1,14 @@
-almanach,20,10,
-bilbia,111,12,
-cplusplus,10,1,
-cos,11110,355550,
+13;
+alembik,12330,20;
+bóbr,10,20;
+cydr,12330,20;
+dziennik wschodni,10,20;
+ekskalibur,1230,1;
+ziemiak,1,1;
+paczki na kiju,120,420;
+kartofle na miligramy,120,10;
+pyry,10,10;
+marfewki,120,120;
+cynamonek,120,120;
+wanililina,10,10;
+bledny rekord,0,0;

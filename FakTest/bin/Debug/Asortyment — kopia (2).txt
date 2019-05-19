@@ -1,0 +1,7 @@
+6;
+alembik,12330,20;
+bóbr,10,20;
+cydr,12330,20;
+dziennik wschodni,10,20;
+ekskalibur,1230,1;
+ziemiak,1,1;
