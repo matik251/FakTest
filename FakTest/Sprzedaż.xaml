@@ -41,44 +41,15 @@
 
         <Button Content="{x:Static p:Resources.U_ButtonBack}" Canvas.Left="50" Canvas.Top="20" Width="75" Click="Button_Click"/>
 
-        <DataGrid Height="240" Canvas.Left="50" Canvas.Top="210" Width="440">
+        <DataGrid Name="DataGridProduktow" Height="240" Canvas.Left="50" Canvas.Top="210" Width="440">
             <DataGrid.Columns>
-                <DataGridTemplateColumn Header="Id" Width="SizeToCells">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="Nazwa">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="Typ" >
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="Netto" >
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="Podatek" >
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="Brutto" >
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="Id" Binding="{Binding id}" Width="SizeToCells"/>
+                <DataGridTextColumn Header="Nazwa" Binding="{Binding nazwa}" Width="100"/>
+                <DataGridTextColumn Header="typ" Binding="{Binding typ}" Width="50"/>
+                <DataGridTextColumn Header="netto" Binding="{Binding netto}" Width="50"/>
+                <DataGridTextColumn Header="%" Binding="{Binding stawka}"  Width="50"/>
+                <DataGridTextColumn Header="Vat" Binding="{Binding podatek}" Width="50"/>
+                <DataGridTextColumn Header="brutto" Binding="{Binding brutto}" Width="100"/>
             </DataGrid.Columns>
 
         </DataGrid>

@@ -1,4 +1,4 @@
-13;
+12;
 alembik,12330,20;
 bóbr,10,20;
 cydr,12330,20;
@@ -11,4 +11,3 @@ pyry,10,10;
 marfewki,120,120;
 cynamonek,120,120;
 wanililina,10,10;
-bledny rekord,0,0;

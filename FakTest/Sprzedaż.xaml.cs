@@ -25,6 +25,29 @@ namespace FakTest
         {
             InitializeComponent();
             _controler = controler;
+
+            fillDataGrid();
+
+        }
+
+        public void fillDataGrid()
+        {
+           
+            for (int i = 0; i < _controler.Asortyment.Count; i++)
+            {
+                produkty produkt = new produkty();
+                _controler.Asortyment.TryGetValue(i, out Przedmiot linia);
+                produkt.id = i.ToString();
+                produkt.nazwa = linia.nazwa;
+                produkt.typ = "brak";
+                produkt.netto = linia.cena.ToString() + "zł";
+                produkt.stawka = linia.VAT.ToString() + "%";
+                int temp = (linia.cena * linia.VAT/100);
+                produkt.podatek = temp.ToString()  + " zł";
+                int temp2 = linia.cena + temp;
+                produkt.brutto = temp2.ToString() + " zł";
+                DataGridProduktow.Items.Add(produkt);
+            }
         }
 
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
@@ -37,6 +60,18 @@ namespace FakTest
             MainWindow win = new MainWindow(_controler);
             win.Show();
             this.Close();
+
+        }
+
+        public class produkty
+        {
+            public string id { get; set; }
+            public string nazwa { get; set; }
+            public string typ { get; set; }
+            public string netto { get; set; }
+            public string stawka { get; set; }
+            public string podatek { get; set; }
+            public string brutto { get; set; }
         }
     }
 }
