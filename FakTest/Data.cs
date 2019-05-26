@@ -116,7 +116,7 @@ namespace FakTest
                 length = length.Substring(0, length.IndexOf(';'));
                 Int32.TryParse(length, out l);
 
-                string linia;
+                string linia; 
 
                 for (int i = 0; i < l; i++)
                 {

@@ -1,4 +1,4 @@
-12;
+14;
 alembik,12330,20;
 bóbr,10,20;
 cydr,12330,20;
@@ -11,3 +11,5 @@ pyry,10,10;
 marfewki,120,120;
 cynamonek,120,120;
 wanililina,10,10;
+Pistacje,43,23;
+Konitury,40,6;
