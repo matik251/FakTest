@@ -37,6 +37,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -56,8 +58,14 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Data.cs" />
+    <Compile Include="DodanieKlienta.xaml.cs">
+      <DependentUpon>DodanieKlienta.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DodanieProduktu.xaml.cs">
       <DependentUpon>DodanieProduktu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DodanieTransakcji.xaml.cs">
+      <DependentUpon>DodanieTransakcji.xaml</DependentUpon>
     </Compile>
     <Compile Include="FileHandler.cs" />
     <Compile Include="Obsługa.xaml.cs">
@@ -66,7 +74,15 @@
     <Compile Include="Sprzedaż.xaml.cs">
       <DependentUpon>Sprzedaż.xaml</DependentUpon>
     </Compile>
+    <Page Include="DodanieKlienta.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="DodanieProduktu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DodanieTransakcji.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

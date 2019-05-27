@@ -42,7 +42,8 @@ namespace FakTest
 
         private void addClient(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            DodanieKlienta win = new DodanieKlienta(_controler);
+            win.Show();
         }
 
         private void generateRaport(object sender, RoutedEventArgs e)

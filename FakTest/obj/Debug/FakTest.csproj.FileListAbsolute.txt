@@ -19,3 +19,7 @@ C:\Users\Matik\source\repos\FakTest\FakTest\obj\Debug\FakTest.pdb
 C:\Users\MATIK\source\repos\FakTest\FakTest\obj\Debug\FakTest.csprojAssemblyReference.cache
 C:\Users\Matik\source\repos\FakTest\FakTest\obj\Debug\DodanieProduktu.g.cs
 C:\Users\Matik\source\repos\FakTest\FakTest\obj\Debug\DodanieProduktu.baml
+C:\Users\Matik\source\repos\FakTest\FakTest\obj\Debug\DodanieKlienta.g.cs
+C:\Users\Matik\source\repos\FakTest\FakTest\obj\Debug\DodanieKlienta.baml
+C:\Users\Matik\source\repos\FakTest\FakTest\obj\Debug\DodanieTransakcji.g.cs
+C:\Users\Matik\source\repos\FakTest\FakTest\obj\Debug\DodanieTransakcji.baml

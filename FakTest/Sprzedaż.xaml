@@ -18,7 +18,7 @@
         <CheckBox Content="{x:Static p:Resources.SW_Option2}" Height="18" Canvas.Left="530" Canvas.Top="277" Width="81"/>
         <CheckBox Content="{x:Static p:Resources.SW_Option3}" Height="23" Canvas.Left="530" Canvas.Top="300" Width="170"/>
 
-        <Button Content="{x:Static p:Resources.SW_ButtonFinalize}" Canvas.Left="530" Canvas.Top="350" Width="210" Height="100"/>
+        <Button Content="{x:Static p:Resources.SW_ButtonFinalize}" Canvas.Left="530" Canvas.Top="350" Width="210" Height="100" Click="finalizujBtnClk"/>
 
         <ComboBox Height="20" Canvas.Left="50" Canvas.Top="170" Width="112">
             <TextBlock>Typ1</TextBlock>
@@ -41,7 +41,8 @@
 
         <Button Content="{x:Static p:Resources.U_ButtonBack}" Canvas.Left="50" Canvas.Top="20" Width="75" Click="Button_Click"/>
 
-        <DataGrid Name="DataGridProduktow" Height="240" Canvas.Left="50" Canvas.Top="210" Width="440">
+        <DataGrid Name="DataGridProduktow" Height="240" Canvas.Left="50" Canvas.Top="210" Width="440" 
+                  SelectionMode="Extended" SelectionUnit="FullRow">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding id}" Width="SizeToCells"/>
                 <DataGridTextColumn Header="Nazwa" Binding="{Binding nazwa}" Width="100"/>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,9 +36,9 @@ namespace FakTest
            
             for (int i = 0; i < _controler.Asortyment.Count; i++)
             {
-                produkty produkt = new produkty();
+                dataGridProdukt produkt = new dataGridProdukt();
                 _controler.Asortyment.TryGetValue(i, out Przedmiot linia);
-                produkt.id = i.ToString();
+                produkt.id = i;//.ToString();
                 produkt.nazwa = linia.nazwa;
                 produkt.typ = "brak";
                 produkt.netto = linia.cena.ToString() + "zł";
@@ -63,15 +64,57 @@ namespace FakTest
 
         }
 
-        public class produkty
+        public class dataGridProdukt
         {
-            public string id { get; set; }
+            public int id { get; set; }
             public string nazwa { get; set; }
             public string typ { get; set; }
             public string netto { get; set; }
             public string stawka { get; set; }
             public string podatek { get; set; }
             public string brutto { get; set; }
+        }
+
+        public void finalizujBtnClk(object sender, RoutedEventArgs e)
+        {
+            string msg = "";
+            var cellInfos = DataGridProduktow.SelectedCells;
+            //var list1 = new List<Przedmiot>();
+            var temp = new List<int>();
+            var listaIndeksow = new List<int>();
+            foreach (DataGridCellInfo cellInfo in cellInfos)
+            {
+                if (cellInfo.IsValid)
+                {
+                    var content = cellInfo.Column.GetCellContent(cellInfo.Item);
+                    var row = (dataGridProdukt)content.DataContext;
+                    temp.Add(row.id);
+                }
+            }
+
+            foreach (int wartosc in temp)
+            {
+                bool dodac = true;
+                foreach (int sprawdzana in listaIndeksow)
+                {
+                    if (wartosc == sprawdzana)
+                    {
+                        dodac = false;
+                    }
+                }
+
+                if (dodac)
+                {
+                    listaIndeksow.Add(wartosc);
+                    msg = msg + wartosc.ToString();
+                }
+            }
+
+
+            MessageBox.Show(msg);
+
+            //Finalizowanie z wartosciami
+            //TODO
         }
     }
 }

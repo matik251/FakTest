@@ -56,9 +56,9 @@ namespace FakTest
 
         public void addLastElementToDataGrid()
         {
-            Sprzedaż.produkty produkt = new Sprzedaż.produkty();
+            Sprzedaż.dataGridProdukt produkt = new Sprzedaż.dataGridProdukt();
             _controler.Asortyment.TryGetValue((_controler.Asortyment.Count - 1), out Przedmiot linia);
-            produkt.id = (_controler.Asortyment.Count-1).ToString();
+            produkt.id = (_controler.Asortyment.Count - 1);//.ToString();
             produkt.nazwa = linia.nazwa;
             produkt.typ = "brak";
             produkt.netto = linia.cena.ToString() + "zł";
@@ -75,9 +75,9 @@ namespace FakTest
 
             for (int i = 0; i < _controler.Asortyment.Count; i++)
             {
-                Sprzedaż.produkty produkt = new Sprzedaż.produkty();
+                Sprzedaż.dataGridProdukt produkt = new Sprzedaż.dataGridProdukt();
                 _controler.Asortyment.TryGetValue(i, out Przedmiot linia);
-                produkt.id = i.ToString();
+                produkt.id = i;//.ToString();
                 produkt.nazwa = linia.nazwa;
                 produkt.typ = "brak";
                 produkt.netto = linia.cena.ToString() + "zł";
