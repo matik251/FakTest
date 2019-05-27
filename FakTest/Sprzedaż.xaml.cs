@@ -21,7 +21,7 @@ namespace FakTest
     public partial class Sprzedaż : Window
     {
         Controler _controler = new Controler();
-
+//-----------------------------------------------------------------------------------------------------
         public Sprzedaż(Controler controler)
         {
             InitializeComponent();
@@ -31,85 +31,10 @@ namespace FakTest
 
 
         }
-
-        public void fillDataGrid(DataGrid dataGrid)
+//-----------------------------------------------------------------------------------------------------
+        public List<int> getZaznaczoneProdukty(DataGrid dataGrid)
         {
-           
-            for (int i = 0; i < _controler.Asortyment.Count; i++)
-            {
-                dataGridProdukt produkt = new dataGridProdukt();
-                _controler.Asortyment.TryGetValue(i, out Przedmiot linia);
-                produkt.id = i;//.ToString();
-                produkt.nazwa = linia.nazwa;
-                produkt.typ = "brak";
-                produkt.netto = linia.cena.ToString() + "zł";
-                produkt.stawka = linia.VAT.ToString() + "%";
-                int temp = (linia.cena * linia.VAT/100);
-                produkt.podatek = temp.ToString()  + " zł";
-                int temp2 = linia.cena + temp;
-                produkt.brutto = temp2.ToString() + " zł";
-                dataGrid.Items.Add(produkt);
-            }
-        }
-
-        public void fillDataGridWithListedItems(DataGrid dataGrid, List<int> zaznaczone)
-        {
-            foreach (int i in zaznaczone)
-            {
-                dataGridProdukt produkt = new dataGridProdukt();
-                _controler.Asortyment.TryGetValue(i, out Przedmiot linia);
-                produkt.id = i;//.ToString();
-                produkt.nazwa = linia.nazwa;
-                produkt.typ = "brak";
-                produkt.netto = linia.cena.ToString() + "zł";
-                produkt.stawka = linia.VAT.ToString() + "%";
-                int temp = (linia.cena * linia.VAT / 100);
-                produkt.podatek = temp.ToString() + " zł";
-                int temp2 = linia.cena + temp;
-                produkt.brutto = temp2.ToString() + " zł";
-                dataGrid.Items.Add(produkt);
-            }
-        }
-
-        public void removeFromDataGridSelectedItems(DataGrid dataGrid, List<int> zaznaczone)
-        {
-            foreach (int i in zaznaczone)
-            {
-
-                //dataGrid.Items.Add(produkt);
-                //dataGrid.Rows.RemoveAt(0);
-                //dataGridView1.Rows.RemoveAt(oneCell.RowIndex);
-                dataGrid.Items.RemoveAt(0);
-            }
-        }
-
-        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Nie znaleziono podanego produktu");
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            MainWindow win = new MainWindow(_controler);
-            win.Show();
-            this.Close();
-
-        }
-
-        public class dataGridProdukt
-        {
-            public int id { get; set; }
-            public string nazwa { get; set; }
-            public string typ { get; set; }
-            public string netto { get; set; }
-            public string stawka { get; set; }
-            public string podatek { get; set; }
-            public string brutto { get; set; }
-        }
-
-        public List<int> getZaznaczoneProdukty()
-        {
-            var cellInfos = DataGridProduktow.SelectedCells;
+            var cellInfos = dataGrid.SelectedCells;
             //var list1 = new List<Przedmiot>();
             var temp = new List<int>();
             var listaIndeksow = new List<int>();
@@ -143,6 +68,71 @@ namespace FakTest
             return listaIndeksow;
         }
 
+        public void fillDataGrid(DataGrid dataGrid)
+        {
+           
+            for (int i = 0; i < _controler.Asortyment.Count; i++)
+            {
+                dataGridProdukt produkt = new dataGridProdukt();
+                _controler.Asortyment.TryGetValue(i, out Przedmiot linia);
+                produkt.id = i;//.ToString();
+                produkt.nazwa = linia.nazwa;
+                produkt.typ = "brak";
+                produkt.netto = linia.cena.ToString() + "zł";
+                produkt.stawka = linia.VAT.ToString() + "%";
+                int temp = (linia.cena * linia.VAT/100);
+                produkt.podatek = temp.ToString()  + " zł";
+                int temp2 = linia.cena + temp;
+                produkt.brutto = temp2.ToString() + " zł";
+                dataGrid.Items.Add(produkt);
+            }
+        }
+
+        public void clearDataGrid(DataGrid dataGrid, int index)
+        {
+            dataGrid.Items.RemoveAt((index));
+        }
+
+        public void fillDataGridWithListedItems(DataGrid dataGrid, List<int> zaznaczone)
+        {
+            foreach (int i in zaznaczone)
+            {
+                dataGridProdukt produkt = new dataGridProdukt();
+                _controler.Asortyment.TryGetValue(i, out Przedmiot linia);
+                produkt.id = i;//.ToString();
+                produkt.nazwa = linia.nazwa;
+                produkt.typ = "brak";
+                produkt.netto = linia.cena.ToString() + "zł";
+                produkt.stawka = linia.VAT.ToString() + "%";
+                int temp = (linia.cena * linia.VAT / 100);
+                produkt.podatek = temp.ToString() + " zł";
+                int temp2 = linia.cena + temp;
+                produkt.brutto = temp2.ToString() + " zł";
+                dataGrid.Items.Add(produkt);
+            }
+        }
+
+        public void removeFromDataGridSelectedItems(DataGrid dataGrid, List<int> zaznaczone)
+        {
+            foreach (int i in zaznaczone)
+            {
+                clearDataGrid(dataGrid, i);
+            }
+        }
+//-----------------------------------------------------------------------------------------------------
+        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Nie znaleziono podanego produktu");
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow win = new MainWindow(_controler);
+            win.Show();
+            this.Close();
+
+        }
+
         public void finalizujBtnClk(object sender, RoutedEventArgs e)
         {
             //Finalizowanie z wartosciami
@@ -155,7 +145,9 @@ namespace FakTest
         public void dodajDoKoszyka(object sender, RoutedEventArgs e)
         {
             //dodanie do koszyka
-            List<int> zaznaczone = getZaznaczoneProdukty();
+            List<int> zaznaczone = new List<int>();
+            zaznaczone = getZaznaczoneProdukty(DataGridProduktow);
+            _controler.addItemsToKoszyk(zaznaczone);
             fillDataGridWithListedItems(DataGridKoszyk, zaznaczone);
 
             //TODO
@@ -164,9 +156,26 @@ namespace FakTest
         public void usunZKoszyka(object sender, RoutedEventArgs e)
         {
             //usuwanie z koszyka
-            List<int> zaznaczone = getZaznaczoneProdukty();
-            removeFromDataGridSelectedItems(DataGridKoszyk, zaznaczone);
+            List<int> zaznaczone = new List<int>();
+            zaznaczone = getZaznaczoneProdukty(DataGridKoszyk);
+            if(zaznaczone.Count != 0)
+            {
+                removeFromDataGridSelectedItems(DataGridKoszyk, zaznaczone);
+                //
+            }
             //TODO
         }
+//-----------------------------------------------------------------------------------------------------
+        public class dataGridProdukt
+        {
+            public int id { get; set; }
+            public string nazwa { get; set; }
+            public string typ { get; set; }
+            public string netto { get; set; }
+            public string stawka { get; set; }
+            public string podatek { get; set; }
+            public string brutto { get; set; }
+        }
+
     }
 }

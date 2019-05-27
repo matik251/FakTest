@@ -41,7 +41,7 @@
         <Button Content="{x:Static p:Resources.U_ButtonBack}" Canvas.Left="50" Canvas.Top="20" Width="75" Click="Button_Click"/>
 
         <DataGrid x:Name="DataGridProduktow" Height="240" Canvas.Left="50" Canvas.Top="210" Width="440" 
-            SelectionMode="Extended" SelectionUnit="FullRow">
+            SelectionMode="Extended" SelectionUnit="FullRow" IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding id}" Width="SizeToCells"/>
                 <DataGridTextColumn Header="Nazwa" Binding="{Binding nazwa}" Width="100"/>
@@ -54,7 +54,7 @@
 
         </DataGrid>
         <DataGrid x:Name="DataGridKoszyk" Height="240" Canvas.Left="517" Canvas.Top="210" Width="440" 
-            SelectionMode="Extended" SelectionUnit="FullRow">
+            SelectionMode="Extended" SelectionUnit="FullRow" IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding id}" Width="SizeToCells"/>
                 <DataGridTextColumn Header="Nazwa" Binding="{Binding nazwa}" Width="100"/>

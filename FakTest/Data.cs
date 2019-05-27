@@ -45,7 +45,7 @@ namespace FakTest
         public Dictionary<int, Sprzedaz> Transkacje;
         public Dictionary<int, Klient> Klienci;
 
-
+        public List<int> KoszykList = new List<int>();
 
         string asortymentFilePath = @".\Asortyment.txt";
         string transakcjeFilePath = @".\Transkacje.txt";
@@ -102,7 +102,6 @@ namespace FakTest
             return temp;
         }
 
-
         public void loadAsortyment()
         {
             if(Asortyment.Count == 0)
@@ -134,5 +133,23 @@ namespace FakTest
                 MessageBox.Show(msg);
             }
         }
+//-----------------------------------------------------------------------------------------------------
+        public void addItemsToKoszyk(List<int> zaznaczone)
+        {
+            foreach(int nowa in zaznaczone)
+            {
+                KoszykList.Add(nowa);
+            }
+        }
+
+        public void removeItemsFromKoszyk(List<int> zaznaczone)
+        {
+            KoszykList = new List<int>();
+            foreach (int i in zaznaczone)
+            {
+                KoszykList.RemoveAt(i);
+            }
+        }
+//-----------------------------------------------------------------------------------------------------
     }
 }
