@@ -6,30 +6,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FakTest"
         mc:Ignorable="d"
-        Title="{x:Static p:Resources.SW_SellWindowHeader}" Height="500" Width="800"
+        Title="{x:Static p:Resources.SW_SellWindowHeader}" Height="500" Width="982.844"
         Icon="./Resources/fak.ico">
 
     <Canvas
-        Background="Azure"
+        Background="Azure" Margin="0,0,-22.2,0.4"
     >
-        <Image Source="Resources/Przedmiot.png" Height="200" Canvas.Left="530" Canvas.Top="20" Width="200"/>
 
-        <CheckBox Content="{x:Static p:Resources.SW_Option1}" Height="18" Canvas.Left="530" Canvas.Top="254" Width="81"/>
-        <CheckBox Content="{x:Static p:Resources.SW_Option2}" Height="18" Canvas.Left="530" Canvas.Top="277" Width="81"/>
-        <CheckBox Content="{x:Static p:Resources.SW_Option3}" Height="23" Canvas.Left="530" Canvas.Top="300" Width="170"/>
+        <CheckBox Content="{x:Static p:Resources.SW_Option1}" Height="18" Canvas.Left="772" Canvas.Top="50" Width="81"/>
+        <CheckBox Content="{x:Static p:Resources.SW_Option2}" Height="18" Canvas.Left="772" Canvas.Top="80" Width="81"/>
+        <CheckBox Content="{x:Static p:Resources.SW_Option3}" Height="23" Canvas.Left="772" Canvas.Top="110" Width="170"/>
 
-        <Button Content="{x:Static p:Resources.SW_ButtonFinalize}" Canvas.Left="530" Canvas.Top="350" Width="210" Height="100" Click="finalizujBtnClk"/>
+        <Button Content="{x:Static p:Resources.SW_ButtonFinalize}" Canvas.Left="517" Canvas.Top="38" Width="210" Height="100" Click="finalizujBtnClk"/>
 
         <ComboBox Height="20" Canvas.Left="50" Canvas.Top="170" Width="112">
-            <TextBlock>Typ1</TextBlock>
-            <TextBlock>Typ2</TextBlock>
+            <TextBlock><Run Text="Typ1"/></TextBlock>
+            <TextBlock><Run Text="Typ2"/></TextBlock>
         </ComboBox>
 
         <ComboBox Height="20" Canvas.Left="170" Canvas.Top="170" Width="320">
-            <TextBlock>Produkt1</TextBlock>
-            <TextBlock>Produkt2</TextBlock>
-            <TextBlock>Produkt3</TextBlock>
-            <TextBlock>Produkt4</TextBlock>
+            <TextBlock><Run Text="Produkt1"/></TextBlock>
+            <TextBlock><Run Text="Produkt2"/></TextBlock>
+            <TextBlock><Run Text="Produkt3"/></TextBlock>
+            <TextBlock><Run Text="Produkt4"/></TextBlock>
         </ComboBox>
 
         <TextBox  Height="23" Canvas.Left="50" TextWrapping="Wrap" Text="{x:Static p:Resources.SW_SearchHeader}" Canvas.Top="103" Width="310"/>
@@ -41,8 +40,8 @@
 
         <Button Content="{x:Static p:Resources.U_ButtonBack}" Canvas.Left="50" Canvas.Top="20" Width="75" Click="Button_Click"/>
 
-        <DataGrid Name="DataGridProduktow" Height="240" Canvas.Left="50" Canvas.Top="210" Width="440" 
-                  SelectionMode="Extended" SelectionUnit="FullRow">
+        <DataGrid x:Name="DataGridProduktow" Height="240" Canvas.Left="50" Canvas.Top="210" Width="440" 
+            SelectionMode="Extended" SelectionUnit="FullRow">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding id}" Width="SizeToCells"/>
                 <DataGridTextColumn Header="Nazwa" Binding="{Binding nazwa}" Width="100"/>
@@ -54,6 +53,21 @@
             </DataGrid.Columns>
 
         </DataGrid>
+        <DataGrid x:Name="DataGridKoszyk" Height="240" Canvas.Left="517" Canvas.Top="210" Width="440" 
+            SelectionMode="Extended" SelectionUnit="FullRow">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding id}" Width="SizeToCells"/>
+                <DataGridTextColumn Header="Nazwa" Binding="{Binding nazwa}" Width="100"/>
+                <DataGridTextColumn Header="typ" Binding="{Binding typ}" Width="50"/>
+                <DataGridTextColumn Header="netto" Binding="{Binding netto}" Width="50"/>
+                <DataGridTextColumn Header="%" Binding="{Binding stawka}"  Width="50"/>
+                <DataGridTextColumn Header="Vat" Binding="{Binding podatek}" Width="50"/>
+                <DataGridTextColumn Header="brutto" Binding="{Binding brutto}" Width="100"/>
+            </DataGrid.Columns>
+
+        </DataGrid>
+        <Button Content="{x:Static p:Resources.SW_ButtonAddProd}" Canvas.Left="491" Canvas.Top="292" Width="21" Height="21" Click="dodajDoKoszyka"/>
+        <Button Content="{x:Static p:Resources.SW_ButtonRemoveProd}" Canvas.Left="491" Canvas.Top="318" Width="21" Height="21" Click="usunZKoszyka"/>
 
 
     </Canvas>

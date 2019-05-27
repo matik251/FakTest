@@ -27,11 +27,12 @@ namespace FakTest
             InitializeComponent();
             _controler = controler;
 
-            fillDataGrid();
+            fillDataGrid(DataGridProduktow);
+
 
         }
 
-        public void fillDataGrid()
+        public void fillDataGrid(DataGrid dataGrid)
         {
            
             for (int i = 0; i < _controler.Asortyment.Count; i++)
@@ -47,9 +48,30 @@ namespace FakTest
                 produkt.podatek = temp.ToString()  + " zł";
                 int temp2 = linia.cena + temp;
                 produkt.brutto = temp2.ToString() + " zł";
-                DataGridProduktow.Items.Add(produkt);
+                dataGrid.Items.Add(produkt);
             }
         }
+
+
+        public void fillDataGridWithListedItems(DataGrid dataGrid, List<int> zaznaczone)
+        {
+            foreach (int i in zaznaczone)
+            {
+                dataGridProdukt produkt = new dataGridProdukt();
+                _controler.Asortyment.TryGetValue(i, out Przedmiot linia);
+                produkt.id = i;//.ToString();
+                produkt.nazwa = linia.nazwa;
+                produkt.typ = "brak";
+                produkt.netto = linia.cena.ToString() + "zł";
+                produkt.stawka = linia.VAT.ToString() + "%";
+                int temp = (linia.cena * linia.VAT / 100);
+                produkt.podatek = temp.ToString() + " zł";
+                int temp2 = linia.cena + temp;
+                produkt.brutto = temp2.ToString() + " zł";
+                dataGrid.Items.Add(produkt);
+            }
+        }
+
 
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
@@ -75,9 +97,8 @@ namespace FakTest
             public string brutto { get; set; }
         }
 
-        public void finalizujBtnClk(object sender, RoutedEventArgs e)
+        public List<int> getZaznaczoneProdukty()
         {
-            string msg = "";
             var cellInfos = DataGridProduktow.SelectedCells;
             //var list1 = new List<Przedmiot>();
             var temp = new List<int>();
@@ -106,14 +127,34 @@ namespace FakTest
                 if (dodac)
                 {
                     listaIndeksow.Add(wartosc);
-                    msg = msg + wartosc.ToString();
                 }
             }
 
+            return listaIndeksow;
+        }
 
+        public void finalizujBtnClk(object sender, RoutedEventArgs e)
+        {
+            //Finalizowanie z wartosciami
+            string msg = "";
             MessageBox.Show(msg);
 
-            //Finalizowanie z wartosciami
+            //TODO
+        }
+
+        public void dodajDoKoszyka(object sender, RoutedEventArgs e)
+        {
+            //dodanie do koszyka
+            List<int> zaznaczone = getZaznaczoneProdukty();
+            fillDataGridWithListedItems(DataGridKoszyk, zaznaczone);
+
+            //TODO
+        }
+
+        public void usunZKoszyka(object sender, RoutedEventArgs e)
+        {
+            //usuwanie z koszyka
+
             //TODO
         }
     }

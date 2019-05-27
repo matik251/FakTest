@@ -153,8 +153,14 @@
   <data name="OW_OptionsWindowHeader" xml:space="preserve">
     <value>Okno Obsługi</value>
   </data>
+  <data name="SW_ButtonAddProd" xml:space="preserve">
+    <value>&gt;</value>
+  </data>
   <data name="SW_ButtonFinalize" xml:space="preserve">
     <value>Finalizuj</value>
+  </data>
+  <data name="SW_ButtonRemoveProd" xml:space="preserve">
+    <value>&lt;</value>
   </data>
   <data name="SW_ButtonSearch" xml:space="preserve">
     <value>Szukaj</value>
