@@ -52,7 +52,6 @@ namespace FakTest
             }
         }
 
-
         public void fillDataGridWithListedItems(DataGrid dataGrid, List<int> zaznaczone)
         {
             foreach (int i in zaznaczone)
@@ -72,6 +71,17 @@ namespace FakTest
             }
         }
 
+        public void removeFromDataGridSelectedItems(DataGrid dataGrid, List<int> zaznaczone)
+        {
+            foreach (int i in zaznaczone)
+            {
+
+                //dataGrid.Items.Add(produkt);
+                //dataGrid.Rows.RemoveAt(0);
+                //dataGridView1.Rows.RemoveAt(oneCell.RowIndex);
+                dataGrid.Items.RemoveAt(0);
+            }
+        }
 
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
@@ -154,7 +164,8 @@ namespace FakTest
         public void usunZKoszyka(object sender, RoutedEventArgs e)
         {
             //usuwanie z koszyka
-
+            List<int> zaznaczone = getZaznaczoneProdukty();
+            removeFromDataGridSelectedItems(DataGridKoszyk, zaznaczone);
             //TODO
         }
     }
