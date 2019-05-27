@@ -5,18 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FakTest"
         mc:Ignorable="d"
-        Title="Sprzedaż" Height="500" Width="800"
+        Title="Sprzedaż" Height="500" Width="1000"
         Icon="./Resources/fak.ico">
 
-    <Canvas
-        Background="Azure"
-    >
-        <Image Source="Resources/Przedmiot.png" Height="200" Canvas.Left="530" Canvas.Top="20" Width="200"/>
+    <Canvas Background="Azure" Margin="0,0,-6.4,0.4">
 
         <ListView Canvas.Left="50" Canvas.Top="250" Width="440" Height="200" HorizontalContentAlignment="Left">
             <ListView.View>
                 <GridView>
-
                     <GridViewColumn Header="Id Przedmiotu"/>
                     <GridViewColumn Header="Nazwa"/>
                     <GridViewColumn Header="Typ"/>
@@ -28,10 +24,10 @@
             </ListView.View>
 
         </ListView>
-        <CheckBox Content="Faktura Vat" Height="18" Canvas.Left="530" Canvas.Top="254" Width="81"/>
-        <CheckBox Content="Paragon" Height="18" Canvas.Left="530" Canvas.Top="277" Width="81"/>
-        <CheckBox Content="Odroczony termin płatności" Height="23" Canvas.Left="530" Canvas.Top="300" Width="170"/>
-        <Button Content="Finalizuj" Canvas.Left="530" Canvas.Top="350" Width="210" Height="100"/>
+        <CheckBox Content="Faktura Vat" Height="18" Canvas.Left="824" Canvas.Top="69" Width="81"/>
+        <CheckBox Content="Paragon" Height="18" Canvas.Left="824" Canvas.Top="103" Width="81"/>
+        <CheckBox Content="Odroczony termin płatności" Height="23" Canvas.Left="794" Canvas.Top="137" Width="170" RenderTransformOrigin="2.83,-6.699"/>
+        <Button Content="Finalizuj" Canvas.Left="542" Canvas.Top="72" Width="210" Height="100"/>
 
         <ComboBox Height="20" Canvas.Left="50" Canvas.Top="170" Width="112">
             <TextBlock>Typ1</TextBlock>
@@ -50,6 +46,21 @@
         <TextBlock Canvas.Left="50" TextWrapping="Wrap" Text="Typ produktu" Canvas.Top="149"/>
         <TextBlock Canvas.Left="170" TextWrapping="Wrap" Text="Nazwa Produktu" Canvas.Top="149"/>
         <TextBlock Canvas.Left="50" TextWrapping="Wrap" Text="Wyszukiwanie: nazwa Produktu lub id" Canvas.Top="82"/>
+        
+        <ListView Canvas.Left="542" Canvas.Top="250" Width="440" Height="200" HorizontalContentAlignment="Left">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Id Przedmiotu"/>
+                    <GridViewColumn Header="Nazwa"/>
+                    <GridViewColumn Header="Typ"/>
+                    <GridViewColumn Header="Cena Netto"/>
+                    <GridViewColumn Header="Stawka VAT"/>
+                    <GridViewColumn Header="Podatek"/>
+                    <GridViewColumn Header="Cena Brutto"/>
+                </GridView>
+            </ListView.View>
+
+        </ListView>
 
 
     </Canvas>
