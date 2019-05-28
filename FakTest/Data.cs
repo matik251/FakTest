@@ -33,9 +33,21 @@ namespace FakTest
 
     public struct Klient
     {
-        string NIP;
-        string nazwa;
-        string telefon;
+        public string nazwa;
+        public string NIP;
+        public string telefon;
+        public string kod;
+        public string adres;
+
+        public Klient(string _nazwa, string _nip, string _telefon, string _kod, string _adres)
+        {
+            nazwa = _nazwa;
+            NIP = _nip;
+            telefon = _telefon;
+            kod = _kod;
+            adres = _adres;
+        }
+
     }
 
     public class Controler

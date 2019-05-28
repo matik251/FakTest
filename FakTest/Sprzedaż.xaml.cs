@@ -67,43 +67,7 @@ namespace FakTest
 
             return listaIndeksow;
         }
-
-        public List<int> getZaznaczoneProdukty_(DataGrid dataGrid)
-        {
-            var cellInfos = dataGrid.SelectedCells;
-            //var list1 = new List<Przedmiot>();
-            var temp = new List<int>();
-            var listaIndeksow = new List<int>();
-            foreach (DataGridCellInfo cellInfo in cellInfos)
-            {
-                if (cellInfo.IsValid)
-                {
-                    var content = cellInfo.Column.GetCellContent(cellInfo.Item);
-                    var row = (dataGridProdukt)content.DataContext;
-                    temp.Add(row.id);
-                }
-            }
-
-            foreach (int wartosc in temp)
-            {
-                bool dodac = true;
-                foreach (int sprawdzana in listaIndeksow)
-                {
-                    if (wartosc == sprawdzana)
-                    {
-                        dodac = false;
-                    }
-                }
-
-                if (dodac)
-                {
-                    listaIndeksow.Add(wartosc);
-                }
-            }
-
-            return listaIndeksow;
-        }
-
+        
         public void fillDataGrid(DataGrid dataGrid)
         {
            
@@ -202,7 +166,8 @@ namespace FakTest
             }
             zaznaczone = new List<int>();
         }
-//-----------------------------------------------------------------------------------------------------
+ //-----------------------------------------------------------------------------------------------------
+        //TODO pozbyc sie tego stont
         public class dataGridProdukt
         {
             public int id { get; set; }
@@ -212,6 +177,16 @@ namespace FakTest
             public string stawka { get; set; }
             public string podatek { get; set; }
             public string brutto { get; set; }
+        }
+
+        public class dataGridKlient
+        {
+            public int id { get; set; }
+            public string nazwa { get; set; }
+            public string nip { get; set; }
+            public string telefon { get; set; }
+            public string kod { get; set; }
+            public string adres { get; set; }
         }
 
     }

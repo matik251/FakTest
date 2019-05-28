@@ -41,11 +41,11 @@ namespace FakTest
 
         private void Add_Product(object sender, RoutedEventArgs e)
         {
-            Przedmiot _przedmiot = new Przedmiot(_nazwa,_cena,_stawkaVat);
+            Przedmiot _nowyPrzedmiot = new Przedmiot(_nazwa,_cena,_stawkaVat);
 
             int qounter = _controler.Asortyment.Count;
 
-            _controler.Asortyment.Add(qounter, _przedmiot);
+            _controler.Asortyment.Add(qounter, _nowyPrzedmiot);
 
             addLastElementToDataGrid();
 
@@ -72,7 +72,6 @@ namespace FakTest
 
         public void fillDataGrid()
         {
-
             for (int i = 0; i < _controler.Asortyment.Count; i++)
             {
                 Sprzedaż.dataGridProdukt produkt = new Sprzedaż.dataGridProdukt();
