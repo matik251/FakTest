@@ -112,7 +112,6 @@ namespace FakTest
                 dataGrid.Items.Add(produkt);
             }
         }
-
 //-----------------------------------------------------------------------------------------------------
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {

@@ -55,33 +55,15 @@ namespace FakTest
 
         public Dictionary<int, Przedmiot> Asortyment = new Dictionary<int, Przedmiot>();
         public Dictionary<int, Sprzedaz> Transkacje;
-        public Dictionary<int, Klient> Klienci;
+        public Dictionary<int, Klient> Klienci = new Dictionary<int, Klient>();
 
         public List<int> KoszykList = new List<int>();
 
+//-----------------------------------------------------------------------------------------------------
+//PLIKI
         string asortymentFilePath = @".\Asortyment.txt";
         string transakcjeFilePath = @".\Transkacje.txt";
         string klienciFilePath = @".\Klienci.txt";
-
-        public void saveAsortyment()
-        {
-            StreamWriter sw = File.CreateText(asortymentFilePath);
-
-            sw.WriteLine(Asortyment.Count +";");
-
-            for (int i = 0; i < Asortyment.Count; i++)
-            {
-                Asortyment.TryGetValue(i, out Przedmiot linia);
-                
-                sw.Write(linia.nazwa + ",");
-                sw.Write(linia.cena + ",");
-                sw.Write(linia.VAT + ";");
-                sw.Write(System.Environment.NewLine);
-            }
-
-            sw.Close();
-            
-        }
 
         public Przedmiot parsujStrPrzedmiot(string linia)
         {
@@ -112,6 +94,26 @@ namespace FakTest
             Przedmiot temp = new Przedmiot(nazwa, cena, podatek);
 
             return temp;
+        }
+
+        public void saveAsortyment()
+        {
+            StreamWriter sw = File.CreateText(asortymentFilePath);
+
+            sw.WriteLine(Asortyment.Count +";");
+
+            for (int i = 0; i < Asortyment.Count; i++)
+            {
+                Asortyment.TryGetValue(i, out Przedmiot linia);
+                
+                sw.Write(linia.nazwa + ",");
+                sw.Write(linia.cena + ",");
+                sw.Write(linia.VAT + ";");
+                sw.Write(System.Environment.NewLine);
+            }
+
+            sw.Close();
+            
         }
 
         public void loadAsortyment()
@@ -145,7 +147,64 @@ namespace FakTest
                 MessageBox.Show(msg);
             }
         }
-//-----------------------------------------------------------------------------------------------------
+
+
+        public void saveKlienci()
+        {
+            StreamWriter sw = File.CreateText(asortymentFilePath);
+
+            sw.WriteLine(Klienci.Count + ";");
+
+            for (int i = 0; i < Asortyment.Count; i++)
+            {
+                Klienci.TryGetValue(i, out Klient linia);
+
+                sw.Write(linia.nazwa + ",");
+                sw.Write(linia.NIP + ",");
+                sw.Write(linia.telefon + ";");
+                sw.Write(linia.kod + ";");
+                sw.Write(linia.adres + ";");
+                sw.Write(System.Environment.NewLine);
+            }
+
+            sw.Close();
+
+        }
+
+        public void loadKlienci()
+        {
+            if (Asortyment.Count == 0)
+            {
+                string msg;
+                msg = "Wczytyatanie";
+                //MessageBox.Show(msg);
+                StreamReader se = File.OpenText(asortymentFilePath);
+                int l = 0;
+                string length = se.ReadLine();
+                length = length.Substring(0, length.IndexOf(';'));
+                Int32.TryParse(length, out l);
+
+                string linia;
+
+                for (int i = 0; i < l; i++)
+                {
+                    linia = se.ReadLine();
+                    Asortyment.Add(Asortyment.Count, parsujStrPrzedmiot(linia));
+                }
+
+                se.Close();
+                MessageBox.Show("Wczytano: " + l + " rekordow.");
+            }
+            else
+            {
+                string msg;
+                msg = "Juz wczytano dane.";
+                MessageBox.Show(msg);
+            }
+        }
+        //-----------------------------------------------------------------------------------------------------
+        //Obsluga koszyka
+
         public void addItemsToKoszyk(List<int> zaznaczone)
         {
             foreach(int nowa in zaznaczone)

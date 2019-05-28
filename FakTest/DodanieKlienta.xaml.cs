@@ -32,6 +32,8 @@ namespace FakTest
             InitializeComponent();
             _controler = controler;
             DataContext = this;
+
+            fillDataGrid();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -43,7 +45,7 @@ namespace FakTest
         {
             Klient _nowyKlient = new Klient(_nazwa, _nip, _telefon, _kod, _adres);
 
-            int qounter = _controler.Asortyment.Count;
+            int qounter = _controler.Klienci.Count;
 
             _controler.Klienci.Add(qounter, _nowyKlient);
 
@@ -58,7 +60,6 @@ namespace FakTest
 
         public void addLastElementToDataGrid()
         {
-            //TODO
             Sprzedaż.dataGridKlient nowyKlient = new Sprzedaż.dataGridKlient();
             _controler.Klienci.TryGetValue((_controler.Klienci.Count - 1), out Klient linia);
             nowyKlient.id = (_controler.Klienci.Count - 1);//.ToString();
@@ -67,11 +68,23 @@ namespace FakTest
             nowyKlient.telefon = linia.telefon;
             nowyKlient.kod = linia.kod;
             nowyKlient.adres = linia.adres;
+            DataGridKlientow.Items.Add(nowyKlient);
         }
 
         public void fillDataGrid()
         {
-            //TODO
+            for (int i = 0; i < _controler.Klienci.Count; i++)
+            {
+                Sprzedaż.dataGridKlient nowyKlient = new Sprzedaż.dataGridKlient();
+                _controler.Klienci.TryGetValue(i, out Klient linia);
+                nowyKlient.id = (_controler.Klienci.Count - 1);//.ToString();
+                nowyKlient.nazwa = linia.nazwa;
+                nowyKlient.nip = linia.NIP;
+                nowyKlient.telefon = linia.telefon;
+                nowyKlient.kod = linia.kod;
+                nowyKlient.adres = linia.adres;
+                DataGridKlientow.Items.Add(nowyKlient);
+            }
         }
 
     }
