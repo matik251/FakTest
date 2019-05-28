@@ -33,7 +33,7 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding id}" Width="SizeToCells"/>
                 <DataGridTextColumn Header="Nazwa" Binding="{Binding nazwa}" Width="100"/>
-                <DataGridTextColumn Header="NIP" Binding="{Binding NIP}" Width="70"/>
+                <DataGridTextColumn Header="NIP" Binding="{Binding nip}" Width="70"/>
                 <DataGridTextColumn Header="Telefon" Binding="{Binding telefon}" Width="100"/>
                 <DataGridTextColumn Header="Kod" Binding="{Binding kod}" Width="50"/>
                 <DataGridTextColumn Header="Adres" Binding="{Binding adres}" Width="100"/>

@@ -185,14 +185,14 @@ namespace FakTest
 
             sw.WriteLine(Klienci.Count + ";");
 
-            for (int i = 0; i < Asortyment.Count; i++)
+            for (int i = 0; i < Klienci.Count; i++)
             {
                 Klienci.TryGetValue(i, out Klient linia);
 
                 sw.Write(linia.nazwa + ",");
                 sw.Write(linia.NIP + ",");
-                sw.Write(linia.telefon + ";");
-                sw.Write(linia.kod + ";");
+                sw.Write(linia.telefon + ",");
+                sw.Write(linia.kod + ",");
                 sw.Write(linia.adres + ";");
                 sw.Write(System.Environment.NewLine);
             }
