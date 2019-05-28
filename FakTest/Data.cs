@@ -144,10 +144,9 @@ namespace FakTest
 
         public void removeItemsFromKoszyk(List<int> zaznaczone)
         {
-            KoszykList = new List<int>();
             foreach (int i in zaznaczone)
             {
-                KoszykList.RemoveAt(i);
+                KoszykList.Remove(i);
             }
         }
 //-----------------------------------------------------------------------------------------------------

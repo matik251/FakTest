@@ -68,6 +68,42 @@ namespace FakTest
             return listaIndeksow;
         }
 
+        public List<int> getZaznaczoneProdukty_(DataGrid dataGrid)
+        {
+            var cellInfos = dataGrid.SelectedCells;
+            //var list1 = new List<Przedmiot>();
+            var temp = new List<int>();
+            var listaIndeksow = new List<int>();
+            foreach (DataGridCellInfo cellInfo in cellInfos)
+            {
+                if (cellInfo.IsValid)
+                {
+                    var content = cellInfo.Column.GetCellContent(cellInfo.Item);
+                    var row = (dataGridProdukt)content.DataContext;
+                    temp.Add(row.id);
+                }
+            }
+
+            foreach (int wartosc in temp)
+            {
+                bool dodac = true;
+                foreach (int sprawdzana in listaIndeksow)
+                {
+                    if (wartosc == sprawdzana)
+                    {
+                        dodac = false;
+                    }
+                }
+
+                if (dodac)
+                {
+                    listaIndeksow.Add(wartosc);
+                }
+            }
+
+            return listaIndeksow;
+        }
+
         public void fillDataGrid(DataGrid dataGrid)
         {
            
@@ -88,9 +124,10 @@ namespace FakTest
             }
         }
 
-        public void clearDataGrid(DataGrid dataGrid, int index)
+        public void clearDataGrid(DataGrid dataGrid)
         {
-            dataGrid.Items.RemoveAt((index));
+            dataGrid.Items.Clear();
+            dataGrid.Items.Refresh();
         }
 
         public void fillDataGridWithListedItems(DataGrid dataGrid, List<int> zaznaczone)
@@ -112,13 +149,6 @@ namespace FakTest
             }
         }
 
-        public void removeFromDataGridSelectedItems(DataGrid dataGrid, List<int> zaznaczone)
-        {
-            foreach (int i in zaznaczone)
-            {
-                clearDataGrid(dataGrid, i);
-            }
-        }
 //-----------------------------------------------------------------------------------------------------
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
@@ -137,6 +167,10 @@ namespace FakTest
         {
             //Finalizowanie z wartosciami
             string msg = "";
+            foreach(int index in _controler.KoszykList)
+            {
+                msg = msg + " " + index.ToString();
+            }
             MessageBox.Show(msg);
 
             //TODO
@@ -147,10 +181,12 @@ namespace FakTest
             //dodanie do koszyka
             List<int> zaznaczone = new List<int>();
             zaznaczone = getZaznaczoneProdukty(DataGridProduktow);
-            _controler.addItemsToKoszyk(zaznaczone);
-            fillDataGridWithListedItems(DataGridKoszyk, zaznaczone);
-
-            //TODO
+            if (zaznaczone.Count != 0)
+            {
+                _controler.addItemsToKoszyk(zaznaczone);
+                fillDataGridWithListedItems(DataGridKoszyk, zaznaczone);
+                zaznaczone = new List<int>();
+            }
         }
 
         public void usunZKoszyka(object sender, RoutedEventArgs e)
@@ -160,10 +196,11 @@ namespace FakTest
             zaznaczone = getZaznaczoneProdukty(DataGridKoszyk);
             if(zaznaczone.Count != 0)
             {
-                removeFromDataGridSelectedItems(DataGridKoszyk, zaznaczone);
-                //
+                clearDataGrid(DataGridKoszyk);
+                _controler.removeItemsFromKoszyk(zaznaczone);
+                fillDataGridWithListedItems(DataGridKoszyk, _controler.KoszykList);
             }
-            //TODO
+            zaznaczone = new List<int>();
         }
 //-----------------------------------------------------------------------------------------------------
         public class dataGridProdukt
