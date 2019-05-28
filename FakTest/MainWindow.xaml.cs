@@ -60,6 +60,7 @@ namespace FakTest
             MessageBox.Show(msg);*/
 
             _controler.saveAsortyment();
+            _controler.saveKlienci();
         }
         private void ButtonBase12_OnClickLoad(object sender, RoutedEventArgs e)
         {
@@ -68,6 +69,7 @@ namespace FakTest
             MessageBox.Show(msg);*/
 
             _controler.loadAsortyment();
+            _controler.loadKlienci();
         }
     }
 }

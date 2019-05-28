@@ -50,6 +50,8 @@ namespace FakTest
 
     }
 
+ //-----------------------------------------------------------------------------------------------------
+ //Controler
     public class Controler
     {
 
@@ -60,11 +62,13 @@ namespace FakTest
         public List<int> KoszykList = new List<int>();
 
 //-----------------------------------------------------------------------------------------------------
-//PLIKI
+//Nazwy plikow zapisu
         string asortymentFilePath = @".\Asortyment.txt";
         string transakcjeFilePath = @".\Transkacje.txt";
         string klienciFilePath = @".\Klienci.txt";
 
+//-----------------------------------------------------------------------------------------------------
+//Zapis asortymentu
         public Przedmiot parsujStrPrzedmiot(string linia)
         {
             int cena = 0, podatek = 0;
@@ -148,10 +152,36 @@ namespace FakTest
             }
         }
 
+//-----------------------------------------------------------------------------------------------------
+//Zapis klientow
+        public Klient parsujStrKlient(string linia)
+        {
+            string nazwa, nip, telefon, kod, adres;
+            //MessageBox.Show(linia);
+
+            nazwa = linia.Substring(0, linia.IndexOf(','));
+            linia = linia.Substring((linia.IndexOf(',') + 1), linia.Length - (linia.IndexOf(',') + 1));
+
+            nip = linia.Substring(0, linia.IndexOf(','));
+            linia = linia.Substring((linia.IndexOf(',') + 1), linia.Length - (linia.IndexOf(',') + 1));
+
+            telefon = linia.Substring(0, linia.IndexOf(','));
+            linia = linia.Substring((linia.IndexOf(',') + 1), linia.Length - (linia.IndexOf(',') + 1));
+
+            kod = linia.Substring(0, linia.IndexOf(','));
+            linia = linia.Substring((linia.IndexOf(',') + 1), linia.Length - (linia.IndexOf(',') + 1));
+
+            adres = linia.Substring(0, (linia.Length - 1));
+            
+
+            Klient temp = new Klient(nazwa, nip, telefon, kod, adres);
+
+            return temp;
+        }
 
         public void saveKlienci()
         {
-            StreamWriter sw = File.CreateText(asortymentFilePath);
+            StreamWriter sw = File.CreateText(klienciFilePath);
 
             sw.WriteLine(Klienci.Count + ";");
 
@@ -173,12 +203,12 @@ namespace FakTest
 
         public void loadKlienci()
         {
-            if (Asortyment.Count == 0)
+            if (Klienci.Count == 0)
             {
                 string msg;
-                msg = "Wczytyatanie";
+                msg = "Wczytywanie";
                 //MessageBox.Show(msg);
-                StreamReader se = File.OpenText(asortymentFilePath);
+                StreamReader se = File.OpenText(klienciFilePath);
                 int l = 0;
                 string length = se.ReadLine();
                 length = length.Substring(0, length.IndexOf(';'));
@@ -189,7 +219,7 @@ namespace FakTest
                 for (int i = 0; i < l; i++)
                 {
                     linia = se.ReadLine();
-                    Asortyment.Add(Asortyment.Count, parsujStrPrzedmiot(linia));
+                    Klienci.Add(Klienci.Count, parsujStrKlient(linia));
                 }
 
                 se.Close();
@@ -202,8 +232,8 @@ namespace FakTest
                 MessageBox.Show(msg);
             }
         }
-        //-----------------------------------------------------------------------------------------------------
-        //Obsluga koszyka
+//-----------------------------------------------------------------------------------------------------
+//Obsluga koszyka
 
         public void addItemsToKoszyk(List<int> zaznaczone)
         {
