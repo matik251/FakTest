@@ -6,7 +6,11 @@
         xmlns:local="clr-namespace:FakTest"
         xmlns:Properties="clr-namespace:FakTest.Properties"
         mc:Ignorable="d"
-        Title="DodanieKlienta" Height="450" Width="1053.283">
+        Title="DodanieKlienta" 
+        Height="450" 
+        Width="1053.283"
+        WindowStartupLocation="CenterScreen"
+        Icon="./Resources/fak.ico">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="963*"/>

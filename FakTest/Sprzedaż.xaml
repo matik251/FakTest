@@ -6,7 +6,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FakTest"
         mc:Ignorable="d"
-        Title="{x:Static p:Resources.SW_SellWindowHeader}" Height="500" Width="982.844"
+        Title="{x:Static p:Resources.SW_SellWindowHeader}" 
+        Height="500"
+        Width="982.844"
+        WindowStartupLocation="CenterScreen"
         Icon="./Resources/fak.ico">
 
     <Canvas
@@ -30,7 +33,7 @@
         <TextBlock Canvas.Left="30" TextWrapping="Wrap" Text="Typ produktu" Canvas.Top="114"/>
         <TextBlock Canvas.Left="30" TextWrapping="Wrap" Text="Wyszukiwanie: nazwa Produktu lub id" Canvas.Top="55"/>
 
-        <Button Content="{x:Static p:Resources.U_ButtonBack}" Canvas.Left="50" Canvas.Top="20" Width="75" Click="Button_Click"/>
+        <Button Content="{x:Static p:Resources.U_ButtonBack}" Canvas.Left="31" Canvas.Top="24" Width="75" Click="Button_Click"/>
 
         <TextBlock Canvas.Left="30" TextWrapping="Wrap" Text="{x:Static p:Resources.SW_AsortymentHeader}" Canvas.Top="155" Height="18"/>
         <TextBlock Canvas.Left="517" TextWrapping="Wrap" Text="{x:Static p:Resources.SW_KoszykHeader}" Canvas.Top="155" Height="18"/>

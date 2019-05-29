@@ -6,8 +6,10 @@
         xmlns:local="clr-namespace:FakTest"
         xmlns:p="clr-namespace:FakTest.Properties"
         mc:Ignorable="d"
-        Title="{x:Static p:Resources.MW_MainWindowHeader}" Height="500" Width="800"
-        
+        Title="{x:Static p:Resources.MW_MainWindowHeader}"
+        Height="500" 
+        Width="800"
+        WindowStartupLocation="CenterScreen"
         Icon="./Resources/fak.ico">
     <Canvas
         Background="Azure"
