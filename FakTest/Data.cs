@@ -120,6 +120,7 @@ namespace FakTest
 
         public void saveAsortyment()
         {
+            string temp;
             StreamWriter sw = File.CreateText(asortymentFilePath);
 
             sw.WriteLine(Asortyment.Count +";");
@@ -129,7 +130,10 @@ namespace FakTest
                 Asortyment.TryGetValue(i, out Przedmiot linia);
                 
                 sw.Write(linia.nazwa + ",");
-                sw.Write(linia.cena + ",");
+                //sw.Write(linia.cena + ",");
+                temp = linia.cena.ToString();
+                //temp.Replace(',','.');
+                sw.Write(temp + ",");
                 sw.Write(linia.VAT + ";");
                 sw.Write(System.Environment.NewLine);
             }
