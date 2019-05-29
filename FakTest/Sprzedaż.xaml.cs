@@ -28,8 +28,6 @@ namespace FakTest
             _controler = controler;
 
             fillDataGrid(DataGridProduktow);
-
-
         }
 //-----------------------------------------------------------------------------------------------------
         public List<int> getZaznaczoneProdukty(DataGrid dataGrid)

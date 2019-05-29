@@ -80,9 +80,9 @@ namespace FakTest
 
 //-----------------------------------------------------------------------------------------------------
 //Nazwy plikow zapisu
-        string asortymentFilePath = @".\Asortyment.txt";
-        string transakcjeFilePath = @".\Transkacje.txt";
-        string klienciFilePath = @".\Klienci.txt";
+        string asortymentFilePath = @".\Asortyment.csv";
+        string transakcjeFilePath = @".\Transkacje.csv";
+        string klienciFilePath = @".\Klienci.csv";
 
 //-----------------------------------------------------------------------------------------------------
 //Zapis asortymentu
