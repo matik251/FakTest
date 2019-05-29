@@ -25,10 +25,27 @@ namespace FakTest
     
     public struct Sprzedaz
     {
-        string NIP;
-        int nr_dok;
+        int idFirmy;
+        string nipFirmy;
+        string adresFirmy;
+        string nr_dok;
         int[] tabIDs;
         string data;
+        int kwotaNetto;
+        int podatekVat;
+
+        public Sprzedaz(int _idFirmy, string _nipFirmy, string _adresFirmy, string _nr_dok, int[] _tabIDs, string _data, int _kwotaNetto, int _podatekVat)
+        {
+            idFirmy = _idFirmy;
+            nipFirmy = _nipFirmy;
+            adresFirmy = _adresFirmy;
+            nr_dok = _nr_dok;
+            tabIDs = _tabIDs;
+            data = _data;
+            kwotaNetto = _kwotaNetto;
+            podatekVat = _podatekVat;
+        }
+
     }
 
     public struct Klient
