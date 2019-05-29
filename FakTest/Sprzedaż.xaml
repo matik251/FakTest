@@ -40,7 +40,7 @@
 
         <Button Content="{x:Static p:Resources.U_ButtonBack}" Canvas.Left="50" Canvas.Top="20" Width="75" Click="Button_Click"/>
 
-        <DataGrid x:Name="DataGridProduktow" Height="240" Canvas.Left="50" Canvas.Top="210" Width="440" 
+        <DataGrid x:Name="DataGridProduktow" Height="240" Canvas.Left="30" Canvas.Top="210" Width="456" 
             SelectionMode="Extended" SelectionUnit="FullRow" IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding id}" Width="SizeToCells"/>
@@ -66,8 +66,8 @@
             </DataGrid.Columns>
 
         </DataGrid>
-        <Button Content="{x:Static p:Resources.SW_ButtonAddProd}" Canvas.Left="491" Canvas.Top="292" Width="21" Height="21" Click="dodajDoKoszyka"/>
-        <Button Content="{x:Static p:Resources.SW_ButtonRemoveProd}" Canvas.Left="491" Canvas.Top="318" Width="21" Height="21" Click="usunZKoszyka"/>
+        <Button Content="{x:Static p:Resources.SW_ButtonAddProd}" Canvas.Left="491" Canvas.Top="299" Width="21" Height="21" Click="dodajDoKoszyka"/>
+        <Button Content="{x:Static p:Resources.SW_ButtonRemoveProd}" Canvas.Left="491" Canvas.Top="325" Width="21" Height="21" Click="usunZKoszyka"/>
 
 
     </Canvas>
