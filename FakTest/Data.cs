@@ -102,6 +102,13 @@ namespace FakTest
             podatek_s = linia.Substring(0, (linia.Length - 1));
             //MessageBox.Show(cena_s +" "+ podatek_s);
 
+            //cena_s.Replace(@".", @",");//TODO
+            char[] abc = cena_s.ToCharArray();
+            if (cena_s.Contains('.'))
+            { 
+                //abc[cena_s.IndexOf('.')] = ',';
+                cena_s = cena_s.Substring(0, cena_s.IndexOf('.')) + "," + cena_s.Substring((cena_s.IndexOf('.')+1), (cena_s.Length-2));
+            }
             try
             {
                 cena = Convert.ToDouble(cena_s);
@@ -132,7 +139,7 @@ namespace FakTest
                 sw.Write(linia.nazwa + ",");
                 //sw.Write(linia.cena + ",");
                 temp = linia.cena.ToString();
-                //temp.Replace(',','.');
+                temp.Replace(',','.');//TODo
                 sw.Write(temp + ",");
                 sw.Write(linia.VAT + ";");
                 sw.Write(System.Environment.NewLine);

@@ -62,6 +62,7 @@ namespace FakTest
             produkt.nazwa = linia.nazwa;
             produkt.typ = "brak";
             produkt.netto = linia.cena.ToString() + "zł";
+            //produkt.netto = linia.cena.ToString() + "zł";
             produkt.stawka = linia.VAT.ToString() + "%";
             double temp = (linia.cena * linia.VAT / 100);
             produkt.podatek = temp.ToString() + " zł";
