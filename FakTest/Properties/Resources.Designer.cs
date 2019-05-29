@@ -61,11 +61,245 @@ namespace FakTest.Properties {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Adres.
+        /// </summary>
+        public static string DKW_Adres {
+            get {
+                return ResourceManager.GetString("DKW_Adres", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu iddd.
+        /// </summary>
+        public static string DKW_DataGrid_1 {
+            get {
+                return ResourceManager.GetString("DKW_DataGrid_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Id.
+        /// </summary>
+        public static string DKW_DG_1 {
+            get {
+                return ResourceManager.GetString("DKW_DG_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Nazwa.
+        /// </summary>
+        public static string DKW_DG_2 {
+            get {
+                return ResourceManager.GetString("DKW_DG_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu NIP.
+        /// </summary>
+        public static string DKW_DG_3 {
+            get {
+                return ResourceManager.GetString("DKW_DG_3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Telefon.
+        /// </summary>
+        public static string DKW_DG_4 {
+            get {
+                return ResourceManager.GetString("DKW_DG_4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Kod.
+        /// </summary>
+        public static string DKW_DG_5 {
+            get {
+                return ResourceManager.GetString("DKW_DG_5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Adres.
+        /// </summary>
+        public static string DKW_DG_6 {
+            get {
+                return ResourceManager.GetString("DKW_DG_6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Dodaj nowego klienta.
+        /// </summary>
+        public static string DKW_Dodaj {
+            get {
+                return ResourceManager.GetString("DKW_Dodaj", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Kod.
+        /// </summary>
+        public static string DKW_Kod {
+            get {
+                return ResourceManager.GetString("DKW_Kod", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Nazwa.
+        /// </summary>
+        public static string DKW_Nazwa {
+            get {
+                return ResourceManager.GetString("DKW_Nazwa", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu NIP.
+        /// </summary>
+        public static string DKW_NIP {
+            get {
+                return ResourceManager.GetString("DKW_NIP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Telefon.
+        /// </summary>
+        public static string DKW_Telefon {
+            get {
+                return ResourceManager.GetString("DKW_Telefon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Cena.
+        /// </summary>
+        public static string DPW_Cena {
+            get {
+                return ResourceManager.GetString("DPW_Cena", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Id.
+        /// </summary>
+        public static string DPW_DG_1 {
+            get {
+                return ResourceManager.GetString("DPW_DG_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Nazwa.
+        /// </summary>
+        public static string DPW_DG_2 {
+            get {
+                return ResourceManager.GetString("DPW_DG_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Typ.
+        /// </summary>
+        public static string DPW_DG_3 {
+            get {
+                return ResourceManager.GetString("DPW_DG_3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Netto.
+        /// </summary>
+        public static string DPW_DG_4 {
+            get {
+                return ResourceManager.GetString("DPW_DG_4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu %.
+        /// </summary>
+        public static string DPW_DG_5 {
+            get {
+                return ResourceManager.GetString("DPW_DG_5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Vat.
+        /// </summary>
+        public static string DPW_DG_6 {
+            get {
+                return ResourceManager.GetString("DPW_DG_6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Brutto.
+        /// </summary>
+        public static string DPW_DG_7 {
+            get {
+                return ResourceManager.GetString("DPW_DG_7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Dodaj nowy produkt.
+        /// </summary>
+        public static string DPW_Dodaj {
+            get {
+                return ResourceManager.GetString("DPW_Dodaj", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Nazwa.
+        /// </summary>
+        public static string DPW_Nazwa {
+            get {
+                return ResourceManager.GetString("DPW_Nazwa", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Stawka VAT.
+        /// </summary>
+        public static string DPW_Vat {
+            get {
+                return ResourceManager.GetString("DPW_Vat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Wczytaj.
+        /// </summary>
+        public static string MW_ButtonLoad {
+            get {
+                return ResourceManager.GetString("MW_ButtonLoad", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Obsługa.
         /// </summary>
         public static string MW_ButtonOptions {
             get {
                 return ResourceManager.GetString("MW_ButtonOptions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Zapisz.
+        /// </summary>
+        public static string MW_ButtonSave {
+            get {
+                return ResourceManager.GetString("MW_ButtonSave", resourceCulture);
             }
         }
         
@@ -169,6 +403,15 @@ namespace FakTest.Properties {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Asortyment.
+        /// </summary>
+        public static string SW_AsortymentHeader {
+            get {
+                return ResourceManager.GetString("SW_AsortymentHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu &gt;.
         /// </summary>
         public static string SW_ButtonAddProd {
@@ -201,6 +444,15 @@ namespace FakTest.Properties {
         public static string SW_ButtonSearch {
             get {
                 return ResourceManager.GetString("SW_ButtonSearch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Koszyk.
+        /// </summary>
+        public static string SW_KoszykHeader {
+            get {
+                return ResourceManager.GetString("SW_KoszykHeader", resourceCulture);
             }
         }
         

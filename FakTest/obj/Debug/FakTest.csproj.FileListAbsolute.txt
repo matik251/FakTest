@@ -23,6 +23,9 @@ C:\Users\Matik\source\repos\FakTest\FakTest\obj\Debug\DodanieKlienta.g.cs
 C:\Users\Matik\source\repos\FakTest\FakTest\obj\Debug\DodanieKlienta.baml
 C:\Users\Matik\source\repos\FakTest\FakTest\obj\Debug\DodanieTransakcji.g.cs
 C:\Users\Matik\source\repos\FakTest\FakTest\obj\Debug\DodanieTransakcji.baml
+C:\Users\HP\Documents\GitHub\FakTest\FakTest\bin\Debug\FakTest.exe.config
+C:\Users\HP\Documents\GitHub\FakTest\FakTest\bin\Debug\FakTest.exe
+C:\Users\HP\Documents\GitHub\FakTest\FakTest\bin\Debug\FakTest.pdb
 C:\Users\HP\Documents\GitHub\FakTest\FakTest\obj\Debug\DodanieKlienta.g.cs
 C:\Users\HP\Documents\GitHub\FakTest\FakTest\obj\Debug\DodanieProduktu.g.cs
 C:\Users\HP\Documents\GitHub\FakTest\FakTest\obj\Debug\DodanieTransakcji.g.cs
@@ -32,9 +35,6 @@ C:\Users\HP\Documents\GitHub\FakTest\FakTest\obj\Debug\Sprzedaż.g.cs
 C:\Users\HP\Documents\GitHub\FakTest\FakTest\obj\Debug\App.g.cs
 C:\Users\HP\Documents\GitHub\FakTest\FakTest\obj\Debug\FakTest_MarkupCompile.cache
 C:\Users\HP\Documents\GitHub\FakTest\FakTest\obj\Debug\FakTest_MarkupCompile.lref
-C:\Users\HP\Documents\GitHub\FakTest\FakTest\bin\Debug\FakTest.exe.config
-C:\Users\HP\Documents\GitHub\FakTest\FakTest\bin\Debug\FakTest.exe
-C:\Users\HP\Documents\GitHub\FakTest\FakTest\bin\Debug\FakTest.pdb
 C:\Users\HP\Documents\GitHub\FakTest\FakTest\obj\Debug\DodanieKlienta.baml
 C:\Users\HP\Documents\GitHub\FakTest\FakTest\obj\Debug\DodanieProduktu.baml
 C:\Users\HP\Documents\GitHub\FakTest\FakTest\obj\Debug\DodanieTransakcji.baml
@@ -47,4 +47,3 @@ C:\Users\HP\Documents\GitHub\FakTest\FakTest\obj\Debug\FakTest.csproj.GenerateRe
 C:\Users\HP\Documents\GitHub\FakTest\FakTest\obj\Debug\FakTest.csproj.CoreCompileInputs.cache
 C:\Users\HP\Documents\GitHub\FakTest\FakTest\obj\Debug\FakTest.exe
 C:\Users\HP\Documents\GitHub\FakTest\FakTest\obj\Debug\FakTest.pdb
-C:\Users\HP\Documents\GitHub\FakTest\FakTest\obj\Debug\FakTest.csprojAssemblyReference.cache

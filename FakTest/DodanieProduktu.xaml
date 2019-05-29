@@ -17,21 +17,21 @@
         <TextBox Name="tb_cena" HorizontalAlignment="Left" Height="23" Margin="160,98,0,0" TextWrapping="Wrap" Text="{Binding _cena}" VerticalAlignment="Top" Width="222"/>
         <TextBox Name="tb_stawkaVAT" HorizontalAlignment="Left" Height="23" Margin="160,143,0,0" TextWrapping="Wrap" Text="{Binding _stawkaVat}" VerticalAlignment="Top" Width="222"/>
 
-        <Label Content="Nazwa" HorizontalAlignment="Left" Height="23" Margin="20,52,0,0" VerticalAlignment="Top" Width="106"/>
-        <Label Content="Cena" HorizontalAlignment="Left" Height="23" Margin="20,98,0,0" VerticalAlignment="Top" Width="106"/>
-        <Label Content="Stawka VAT" HorizontalAlignment="Left" Height="23" Margin="20,143,0,0" VerticalAlignment="Top" Width="106"/>
+        <Label Content="{x:Static Properties:Resources.DKW_Nazwa}" HorizontalAlignment="Left" Height="23" Margin="20,52,0,0" VerticalAlignment="Top" Width="106"/>
+        <Label Content="{x:Static Properties:Resources.DPW_Cena}" HorizontalAlignment="Left" Height="23" Margin="20,98,0,0" VerticalAlignment="Top" Width="106"/>
+        <Label Content="{x:Static Properties:Resources.DPW_Vat}" HorizontalAlignment="Left" Height="23" Margin="20,143,0,0" VerticalAlignment="Top" Width="106"/>
 
         <Button Content="{x:Static Properties:Resources.U_ButtonBack}" Click="Button_Click" Margin="20,12,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="86" Height="35"/>
         <Button Content="{x:Static Properties:Resources.OW_ButtonAddNewProduct}" Click="Add_Product" HorizontalAlignment="Left" Height="70" Margin="10,189,0,0" VerticalAlignment="Top" Width="372"/>
         <DataGrid x:Name="DataGridProduktow" Margin="402,17,10,11" Grid.ColumnSpan="2">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Id" Binding="{Binding id}" Width="SizeToCells"/>
-                <DataGridTextColumn Header="Nazwa" Binding="{Binding nazwa}" Width="100"/>
-                <DataGridTextColumn Header="typ" Binding="{Binding typ}" Width="50"/>
-                <DataGridTextColumn Header="netto" Binding="{Binding netto}" Width="50"/>
-                <DataGridTextColumn Header="%" Binding="{Binding stawka}"  Width="50"/>
-                <DataGridTextColumn Header="Vat" Binding="{Binding podatek}" Width="50"/>
-                <DataGridTextColumn Header="brutto" Binding="{Binding brutto}" Width="100"/>
+                <DataGridTextColumn Header="{x:Static Properties:Resources.DPW_DG_1}" Binding="{Binding id}" Width="SizeToCells"/>
+                <DataGridTextColumn Header="{x:Static Properties:Resources.DPW_DG_2}" Binding="{Binding nazwa}" Width="100"/>
+                <DataGridTextColumn Header="{x:Static Properties:Resources.DPW_DG_3}" Binding="{Binding typ}" Width="50"/>
+                <DataGridTextColumn Header="{x:Static Properties:Resources.DPW_DG_4}" Binding="{Binding netto}" Width="50"/>
+                <DataGridTextColumn Header="{x:Static Properties:Resources.DPW_DG_5}" Binding="{Binding stawka}"  Width="50"/>
+                <DataGridTextColumn Header="{x:Static Properties:Resources.DPW_DG_6}" Binding="{Binding podatek}" Width="50"/>
+                <DataGridTextColumn Header="{x:Static Properties:Resources.DPW_DG_7}" Binding="{Binding brutto}" Width="100"/>
             </DataGrid.Columns>
 
         </DataGrid>

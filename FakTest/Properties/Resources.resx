@@ -117,8 +117,83 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="DKW_Adres" xml:space="preserve">
+    <value>Adres</value>
+  </data>
+  <data name="DKW_DG_1" xml:space="preserve">
+    <value>Id</value>
+  </data>
+  <data name="DKW_DG_2" xml:space="preserve">
+    <value>Nazwa</value>
+  </data>
+  <data name="DKW_DG_3" xml:space="preserve">
+    <value>NIP</value>
+  </data>
+  <data name="DKW_DG_4" xml:space="preserve">
+    <value>Telefon</value>
+  </data>
+  <data name="DKW_DG_5" xml:space="preserve">
+    <value>Kod</value>
+  </data>
+  <data name="DKW_DG_6" xml:space="preserve">
+    <value>Adres</value>
+  </data>
+  <data name="DKW_Dodaj" xml:space="preserve">
+    <value>Dodaj nowego klienta</value>
+  </data>
+  <data name="DKW_Kod" xml:space="preserve">
+    <value>Kod</value>
+  </data>
+  <data name="DKW_Nazwa" xml:space="preserve">
+    <value>Nazwa</value>
+  </data>
+  <data name="DKW_NIP" xml:space="preserve">
+    <value>NIP</value>
+  </data>
+  <data name="DKW_Telefon" xml:space="preserve">
+    <value>Telefon</value>
+  </data>
+  <data name="DPW_Cena" xml:space="preserve">
+    <value>Cena</value>
+  </data>
+  <data name="DPW_DG_1" xml:space="preserve">
+    <value>Id</value>
+  </data>
+  <data name="DPW_DG_2" xml:space="preserve">
+    <value>Nazwa</value>
+  </data>
+  <data name="DPW_DG_3" xml:space="preserve">
+    <value>Typ</value>
+  </data>
+  <data name="DPW_DG_4" xml:space="preserve">
+    <value>Netto</value>
+  </data>
+  <data name="DPW_DG_5" xml:space="preserve">
+    <value>%</value>
+  </data>
+  <data name="DPW_DG_6" xml:space="preserve">
+    <value>Vat</value>
+  </data>
+  <data name="DPW_DG_7" xml:space="preserve">
+    <value>Brutto</value>
+  </data>
+  <data name="DPW_Dodaj" xml:space="preserve">
+    <value>Dodaj nowy produkt</value>
+  </data>
+  <data name="DPW_Nazwa" xml:space="preserve">
+    <value>Nazwa</value>
+  </data>
+  <data name="DPW_Vat" xml:space="preserve">
+    <value>Stawka VAT</value>
+  </data>
+  <data name="MW_ButtonLoad" xml:space="preserve">
+    <value>Wczytaj</value>
+  </data>
   <data name="MW_ButtonOptions" xml:space="preserve">
     <value>Obsługa</value>
+  </data>
+  <data name="MW_ButtonSave" xml:space="preserve">
+    <value>Zapisz</value>
   </data>
   <data name="MW_ButtonSell" xml:space="preserve">
     <value>Sprzedaż</value>
@@ -188,5 +263,14 @@
   </data>
   <data name="U_ButtonBack" xml:space="preserve">
     <value>Powrót</value>
+  </data>
+  <data name="DKW_DataGrid_1" xml:space="preserve">
+    <value>iddd</value>
+  </data>
+  <data name="SW_AsortymentHeader" xml:space="preserve">
+    <value>Asortyment</value>
+  </data>
+  <data name="SW_KoszykHeader" xml:space="preserve">
+    <value>Koszyk</value>
   </data>
 </root>
