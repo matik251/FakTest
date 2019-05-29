@@ -12,10 +12,10 @@ namespace FakTest
     public struct Przedmiot
     {
         public string nazwa;
-        public int cena;
+        public double cena;
         public int VAT;
 
-        public Przedmiot(string _nazwa, int _cena, int _vat)
+        public Przedmiot(string _nazwa, double _cena, int _vat)
         {
             nazwa = _nazwa;
             cena = _cena;
@@ -88,7 +88,8 @@ namespace FakTest
 //Zapis asortymentu
         public Przedmiot parsujStrPrzedmiot(string linia)
         {
-            int cena = 0, podatek = 0;
+            double cena = 0;
+            int podatek = 0;
             string nazwa, cena_s, podatek_s;
             //MessageBox.Show(linia);
 
@@ -103,13 +104,13 @@ namespace FakTest
 
             try
             {
-                cena = Int32.Parse(cena_s);
+                cena = Convert.ToDouble(cena_s);
                 podatek = Int32.Parse(podatek_s);
             }
             catch (FormatException)
             {
                 string msg;
-                msg = "Blad parsowania string to int";
+                msg = "Blad parsowania stringow ";
                 MessageBox.Show(msg);
             }
             Przedmiot temp = new Przedmiot(nazwa, cena, podatek);
@@ -142,7 +143,7 @@ namespace FakTest
             if(Asortyment.Count == 0)
             {
                 string msg;
-                msg = "Wczytyatanie";
+                msg = "Wczytywanie";
                 //MessageBox.Show(msg);
                 StreamReader se = File.OpenText(asortymentFilePath);
                 int l = 0;

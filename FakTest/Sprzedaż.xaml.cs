@@ -78,9 +78,9 @@ namespace FakTest
                 produkt.typ = "brak";
                 produkt.netto = linia.cena.ToString() + "zł";
                 produkt.stawka = linia.VAT.ToString() + "%";
-                int temp = (linia.cena * linia.VAT/100);
+                double temp = (linia.cena * linia.VAT/100);
                 produkt.podatek = temp.ToString()  + " zł";
-                int temp2 = linia.cena + temp;
+                double temp2 = linia.cena + temp;
                 produkt.brutto = temp2.ToString() + " zł";
                 dataGrid.Items.Add(produkt);
             }
@@ -103,9 +103,9 @@ namespace FakTest
                 produkt.typ = "brak";
                 produkt.netto = linia.cena.ToString() + "zł";
                 produkt.stawka = linia.VAT.ToString() + "%";
-                int temp = (linia.cena * linia.VAT / 100);
+                double temp = (linia.cena * linia.VAT / 100);
                 produkt.podatek = temp.ToString() + " zł";
-                int temp2 = linia.cena + temp;
+                double temp2 = linia.cena + temp;
                 produkt.brutto = temp2.ToString() + " zł";
                 dataGrid.Items.Add(produkt);
             }
