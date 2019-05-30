@@ -150,6 +150,7 @@ namespace FakTest
                 fillDataGridWithListedItems(DataGridKoszyk, zaznaczone);
                 zaznaczone = new List<int>();
             }
+            updateSumy();
         }
 
         public void usunZKoszyka(object sender, RoutedEventArgs e)
@@ -164,6 +165,7 @@ namespace FakTest
                 fillDataGridWithListedItems(DataGridKoszyk, _controler.KoszykList);
             }
             zaznaczone = new List<int>();
+            updateSumy();
         }
 
         public void updateSumy()
