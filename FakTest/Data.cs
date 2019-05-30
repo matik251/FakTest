@@ -12,10 +12,10 @@ namespace FakTest
     public struct Przedmiot
     {
         public string nazwa;
-        public double cena;
+        public decimal cena;
         public int VAT;
 
-        public Przedmiot(string _nazwa, double _cena, int _vat)
+        public Przedmiot(string _nazwa, decimal _cena, int _vat)
         {
             nazwa = _nazwa;
             cena = _cena;
@@ -77,6 +77,7 @@ namespace FakTest
         public Dictionary<int, Klient> Klienci = new Dictionary<int, Klient>();
 
         public List<int> KoszykList = new List<int>();
+        public decimal KoszykSuma = 0;
 
 //-----------------------------------------------------------------------------------------------------
 //Nazwy plikow zapisu
@@ -88,7 +89,7 @@ namespace FakTest
 //Zapis asortymentu
         public Przedmiot parsujStrPrzedmiot(string linia)
         {
-            double cena = 0;
+            decimal cena = 0;
             int podatek = 0;
             string nazwa, cena_s, podatek_s;
             //MessageBox.Show(linia);
@@ -111,7 +112,7 @@ namespace FakTest
             }
             try
             {
-                cena = Convert.ToDouble(cena_s);
+                cena = Convert.ToDecimal(cena_s);
                 podatek = Int32.Parse(podatek_s);
             }
             catch (FormatException)

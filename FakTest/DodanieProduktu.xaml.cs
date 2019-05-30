@@ -22,7 +22,7 @@ namespace FakTest
         Controler _controler;
 
         public string _nazwa { get; set; }
-        public double _cena { get; set; }
+        public decimal _cena { get; set; }
         public int _stawkaVat { get; set; }
 
         public DodanieProduktu(Controler controler)
@@ -50,7 +50,7 @@ namespace FakTest
             addLastElementToDataGrid();
 
             tb_nazwa.Text = "";
-            tb_cena.Text = "0";
+            tb_cena.Text = "0.0";
             tb_stawkaVAT.Text = "0";
         }
 
@@ -64,9 +64,9 @@ namespace FakTest
             produkt.netto = linia.cena.ToString() + "zł";
             //produkt.netto = linia.cena.ToString() + "zł";
             produkt.stawka = linia.VAT.ToString() + "%";
-            double temp = (linia.cena * linia.VAT / 100);
+            decimal temp = (linia.cena * linia.VAT / 100);
             produkt.podatek = temp.ToString() + " zł";
-            double temp2 = linia.cena + temp;
+            decimal temp2 = linia.cena + temp;
             produkt.brutto = temp2.ToString() + " zł";
             DataGridProduktow.Items.Add(produkt);
         }
@@ -82,9 +82,9 @@ namespace FakTest
                 produkt.typ = "brak";
                 produkt.netto = linia.cena.ToString() + "zł";
                 produkt.stawka = linia.VAT.ToString() + "%";
-                double temp = (linia.cena * linia.VAT / 100);
+                decimal temp = (linia.cena * linia.VAT / 100);
                 produkt.podatek = temp.ToString() + " zł";
-                double temp2 = linia.cena + temp;
+                decimal temp2 = linia.cena + temp;
                 produkt.brutto = temp2.ToString() + " zł";
                 DataGridProduktow.Items.Add(produkt);
             }
