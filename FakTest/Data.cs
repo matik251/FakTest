@@ -87,6 +87,21 @@ namespace FakTest
 
 //-----------------------------------------------------------------------------------------------------
 //Zapis asortymentu
+        public string zamiana(string liczba, char stary, char nowy)
+        {
+            if (liczba.Contains(stary))
+            {
+                int len = liczba.Length - (liczba.IndexOf(stary) + 1);
+                string calkowita, ulamkowa;
+                calkowita = liczba.Substring(0, liczba.IndexOf(stary));
+                ulamkowa = liczba.Substring(liczba.IndexOf(stary) + 1, len);
+                liczba = calkowita + nowy + ulamkowa;
+                //cena_s = cena_s.Substring(0, cena_s.IndexOf('.')) + "," + cena_s.Substring((cena_s.IndexOf('.') + 1), (cena_s.Length - 2));
+                //cena_s = zamiana(cena_s,'.',',');
+            }
+            return liczba;
+        }
+
         public Przedmiot parsujStrPrzedmiot(string linia)
         {
             decimal cena = 0;
@@ -101,15 +116,8 @@ namespace FakTest
             linia = linia.Substring((linia.IndexOf(',') + 1), linia.Length - (linia.IndexOf(',') + 1));
 
             podatek_s = linia.Substring(0, (linia.Length - 1));
-            //MessageBox.Show(cena_s +" "+ podatek_s);
-
-            //cena_s.Replace(@".", @",");//TODO
-            char[] abc = cena_s.ToCharArray();
-            if (cena_s.Contains('.'))
-            { 
-                //abc[cena_s.IndexOf('.')] = ',';
-                cena_s = cena_s.Substring(0, cena_s.IndexOf('.')) + "," + cena_s.Substring((cena_s.IndexOf('.')+1), (cena_s.Length-2));
-            }
+            
+            cena_s = zamiana(cena_s, '.', ',');
             try
             {
                 cena = Convert.ToDecimal(cena_s);
@@ -140,7 +148,7 @@ namespace FakTest
                 sw.Write(linia.nazwa + ",");
                 //sw.Write(linia.cena + ",");
                 temp = linia.cena.ToString();
-                temp.Replace(',','.');//TODo
+                temp = zamiana(temp, ',', '.');
                 sw.Write(temp + ",");
                 sw.Write(linia.VAT + ";");
                 sw.Write(System.Environment.NewLine);

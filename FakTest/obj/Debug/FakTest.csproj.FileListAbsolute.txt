@@ -47,4 +47,3 @@ C:\Users\HP\Documents\GitHub\FakTest\FakTest\obj\Debug\FakTest.csproj.GenerateRe
 C:\Users\HP\Documents\GitHub\FakTest\FakTest\obj\Debug\FakTest.csproj.CoreCompileInputs.cache
 C:\Users\HP\Documents\GitHub\FakTest\FakTest\obj\Debug\FakTest.exe
 C:\Users\HP\Documents\GitHub\FakTest\FakTest\obj\Debug\FakTest.pdb
-C:\Users\HP\Documents\GitHub\FakTest\FakTest\obj\Debug\FakTest.csprojAssemblyReference.cache
