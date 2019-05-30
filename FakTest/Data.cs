@@ -270,14 +270,27 @@ namespace FakTest
                 MessageBox.Show(msg);
             }
         }
-//-----------------------------------------------------------------------------------------------------
-//Obsluga koszyka
+        //-----------------------------------------------------------------------------------------------------
+        //Obsluga koszyka
+
+        public void dodajDoKoszykCena(int index)
+        {
+            Asortyment.TryGetValue(index, out Przedmiot linia);
+            KoszykSuma = KoszykSuma + linia.cena;
+        }
+
+        public void usunZKoszykCena(int index)
+        {
+            Asortyment.TryGetValue(index, out Przedmiot linia);
+            KoszykSuma = KoszykSuma - linia.cena;
+        }
 
         public void addItemsToKoszyk(List<int> zaznaczone)
         {
             foreach(int nowa in zaznaczone)
             {
                 KoszykList.Add(nowa);
+                dodajDoKoszykCena(nowa);
             }
         }
 
@@ -286,6 +299,7 @@ namespace FakTest
             foreach (int i in zaznaczone)
             {
                 KoszykList.Remove(i);
+                usunZKoszykCena(i);
             }
         }
 //-----------------------------------------------------------------------------------------------------

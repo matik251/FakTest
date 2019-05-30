@@ -130,8 +130,10 @@ namespace FakTest
             string msg = "";
             foreach(int index in _controler.KoszykList)
             {
-                msg = msg + " " + index.ToString();
+                msg = msg + " " + index.ToString();        
             }
+            msg = msg + Environment.NewLine + "Suma= " + _controler.KoszykSuma + "zł";
+
             MessageBox.Show(msg);
 
             //TODO
@@ -162,6 +164,11 @@ namespace FakTest
                 fillDataGridWithListedItems(DataGridKoszyk, _controler.KoszykList);
             }
             zaznaczone = new List<int>();
+        }
+
+        public void updateSumy()
+        {
+            sumaKoszykaTextView.Text = _controler.KoszykSuma.ToString() + "zł";
         }
  //-----------------------------------------------------------------------------------------------------
         //TODO pozbyc sie tego stont

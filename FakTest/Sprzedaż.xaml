@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:FakTest"
         mc:Ignorable="d"
         Title="{x:Static p:Resources.SW_SellWindowHeader}" 
-        Height="500"
+        Height="514.4"
         Width="982.844"
         WindowStartupLocation="CenterScreen"
         Icon="./Resources/fak.ico">
@@ -66,6 +66,8 @@
         </DataGrid>
         <Button Content="{x:Static p:Resources.SW_ButtonAddProd}" Canvas.Left="491" Canvas.Top="299" Width="21" Height="21" Click="dodajDoKoszyka"/>
         <Button Content="{x:Static p:Resources.SW_ButtonRemoveProd}" Canvas.Left="491" Canvas.Top="325" Width="21" Height="21" Click="usunZKoszyka"/>
+        
+        <TextBlock Canvas.Left="886" Name="sumaKoszykaTextView" TextWrapping="Wrap" Text="Suma = " Canvas.Top="455"/>
 
 
     </Canvas>
