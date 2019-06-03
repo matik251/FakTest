@@ -67,8 +67,30 @@ namespace FakTest
 
     }
 
- //-----------------------------------------------------------------------------------------------------
- //Controler
+    public class dataGridProdukt
+    {
+        public int id { get; set; }
+        public string nazwa { get; set; }
+        public string typ { get; set; }
+        public string netto { get; set; }
+        public string stawka { get; set; }
+        public string podatek { get; set; }
+        public string brutto { get; set; }
+    }
+
+    public class dataGridKlient
+    {
+        public int id { get; set; }
+        public string nazwa { get; set; }
+        public string nip { get; set; }
+        public string telefon { get; set; }
+        public string kod { get; set; }
+        public string adres { get; set; }
+    }
+
+
+    //-----------------------------------------------------------------------------------------------------
+    //Controler
     public class Controler
     {
 

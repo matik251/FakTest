@@ -40,7 +40,7 @@ namespace FakTest
 
             fillDataGrid();
         }
-
+//-----------------------------------------------------------------------------------------------------
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
@@ -62,10 +62,10 @@ namespace FakTest
             tb_kod.Text = "";
             tb_adres.Text = "";
         }
-
+//-----------------------------------------------------------------------------------------------------
         public void addLastElementToDataGrid()
         {
-            Sprzedaż.dataGridKlient nowyKlient = new Sprzedaż.dataGridKlient();
+            dataGridKlient nowyKlient = new dataGridKlient();
             _controler.Klienci.TryGetValue((_controler.Klienci.Count - 1), out Klient linia);
             nowyKlient.id = (_controler.Klienci.Count - 1);//.ToString();
             nowyKlient.nazwa = linia.nazwa;
@@ -80,9 +80,9 @@ namespace FakTest
         {
             for (int i = 0; i < _controler.Klienci.Count; i++)
             {
-                Sprzedaż.dataGridKlient nowyKlient = new Sprzedaż.dataGridKlient();
+                dataGridKlient nowyKlient = new dataGridKlient();
                 _controler.Klienci.TryGetValue(i, out Klient linia);
-                nowyKlient.id = (_controler.Klienci.Count - 1);//.ToString();
+                nowyKlient.id = i;//.ToString();
                 nowyKlient.nazwa = linia.nazwa;
                 nowyKlient.nip = linia.NIP;
                 nowyKlient.telefon = linia.telefon;
@@ -92,6 +92,33 @@ namespace FakTest
             }
         }
 
+        public int getZaznaczony(DataGrid dataGrid)
+        {
+            var cellInfos = dataGrid.SelectedCells;
+            //var list1 = new List<Przedmiot>();
+            int temp = -1;
+            var listaIndeksow = new List<int>();
+            foreach (DataGridCellInfo cellInfo in cellInfos)
+            {
+                if (cellInfo.IsValid)
+                {
+                    var content = cellInfo.Column.GetCellContent(cellInfo.Item);
+                    var row = (dataGridKlient)content.DataContext;
+                    temp = row.id;
+                }
+            }
+
+            return temp;
+        }
+
+//-----------------------------------------------------------------------------------------------------
+        public void ContinueTransaction(object sender, RoutedEventArgs e)
+        {
+            int wybranyKlient = getZaznaczony(DataGridKlientow);
+
+            MessageBox.Show("KLientID: " + wybranyKlient);
+
+        }
 
 
     }

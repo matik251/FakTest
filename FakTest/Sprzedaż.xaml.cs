@@ -142,7 +142,7 @@ namespace FakTest
 
             DodanieKlienta win = new DodanieKlienta(_controler);
             win.Show();
-            this.Close();
+            //this.Close();
 
         }
 
@@ -181,7 +181,7 @@ namespace FakTest
         }
  //-----------------------------------------------------------------------------------------------------
         //TODO pozbyc sie tego stont
-        public class dataGridProdukt
+        /*public class dataGridProdukt
         {
             public int id { get; set; }
             public string nazwa { get; set; }
@@ -200,7 +200,7 @@ namespace FakTest
             public string telefon { get; set; }
             public string kod { get; set; }
             public string adres { get; set; }
-        }
+        }*/
 
     }
 }
