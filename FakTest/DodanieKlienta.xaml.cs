@@ -33,6 +33,11 @@ namespace FakTest
             _controler = controler;
             DataContext = this;
 
+            if(_controler.transakcjaWToku == true)
+            {
+                ContinueTransacitionBtn.Visibility = System.Windows.Visibility.Visible;
+            }
+
             fillDataGrid();
         }
 
@@ -86,6 +91,8 @@ namespace FakTest
                 DataGridKlientow.Items.Add(nowyKlient);
             }
         }
+
+
 
     }
 }

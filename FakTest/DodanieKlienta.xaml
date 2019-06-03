@@ -31,8 +31,9 @@
         <Label Content="{x:Static Properties:Resources.DKW_Adres}" HorizontalAlignment="Left" Height="23" Margin="20,224,0,0" VerticalAlignment="Top" Width="106"/>
 
         <Button Content="{x:Static Properties:Resources.U_ButtonBack}" Click="Button_Click" Margin="20,12,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="86" Height="35"/>
-        <Button Content="{x:Static Properties:Resources.OW_ButtonAddNewProduct}" Click="Add_Client" HorizontalAlignment="Left" Height="70" Margin="20,339,0,0" VerticalAlignment="Top" Width="372"/>
-        
+        <Button Content="{x:Static Properties:Resources.DKW_Dodaj}" Click="Add_Client" HorizontalAlignment="Left" Height="70" Margin="20,264,0,0" VerticalAlignment="Top" Width="372"/>
+        <Button Content="{x:Static Properties:Resources.DKW_ButtonContinueTransaction}" Name ="ContinueTransacitionBtn" Visibility="Hidden" Click="Add_Client" HorizontalAlignment="Left" Height="70" Margin="20,339,0,0" VerticalAlignment="Top" Width="372"/>
+
         <DataGrid x:Name="DataGridKlientow" Margin="402,17,10,11" Grid.ColumnSpan="2">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="{x:Static Properties:Resources.DKW_DG_1}" Binding="{Binding id}" Width="SizeToCells"/>
@@ -44,6 +45,5 @@
             </DataGrid.Columns>
 
         </DataGrid>
-
     </Grid>
 </Window>

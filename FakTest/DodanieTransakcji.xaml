@@ -4,10 +4,11 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FakTest"
+        xmlns:Properties="clr-namespace:FakTest.Properties"
         mc:Ignorable="d"
         Title="DodanieTransakcji" 
-        Height="450"
-        Width="800"
+        Height="450" 
+        Width="1053.283"
         WindowStartupLocation="CenterScreen"
         Icon="./Resources/fak.ico">
     <Grid>

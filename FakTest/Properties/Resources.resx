@@ -273,4 +273,7 @@
   <data name="SW_KoszykHeader" xml:space="preserve">
     <value>Koszyk</value>
   </data>
+  <data name="DKW_ButtonContinueTransaction" xml:space="preserve">
+    <value>Kontynuuj transakcje</value>
+  </data>
 </root>

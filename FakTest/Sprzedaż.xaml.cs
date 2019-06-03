@@ -137,6 +137,13 @@ namespace FakTest
             MessageBox.Show(msg);
 
             //TODO
+
+            _controler.transakcjaWToku = true;
+
+            DodanieKlienta win = new DodanieKlienta(_controler);
+            win.Show();
+            this.Close();
+
         }
 
         public void dodajDoKoszyka(object sender, RoutedEventArgs e)

@@ -70,6 +70,15 @@ namespace FakTest.Properties {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Kontynuuj transakcje.
+        /// </summary>
+        public static string DKW_ButtonContinueTransaction {
+            get {
+                return ResourceManager.GetString("DKW_ButtonContinueTransaction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu iddd.
         /// </summary>
         public static string DKW_DataGrid_1 {

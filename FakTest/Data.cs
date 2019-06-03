@@ -73,12 +73,13 @@ namespace FakTest
     {
 
         public Dictionary<int, Przedmiot> Asortyment = new Dictionary<int, Przedmiot>();
-        public Dictionary<int, Sprzedaz> Transkacje;
+        public Dictionary<int, Sprzedaz> Transkacje = new Dictionary<int, Sprzedaz>();
         public Dictionary<int, Klient> Klienci = new Dictionary<int, Klient>();
 
         public List<int> KoszykList = new List<int>();
         public decimal KoszykSuma = 0;
 
+        public bool transakcjaWToku = false;
 //-----------------------------------------------------------------------------------------------------
 //Nazwy plikow zapisu
         string asortymentFilePath = @".\Asortyment.csv";
@@ -272,7 +273,6 @@ namespace FakTest
         }
 //-----------------------------------------------------------------------------------------------------
 //Obsluga koszyka
-
         public void dodajDoKoszykCena(int index)
         {
             Asortyment.TryGetValue(index, out Przedmiot linia);
@@ -303,5 +303,11 @@ namespace FakTest
             }
         }
 //-----------------------------------------------------------------------------------------------------
+//Obsluga transakcji
+       public void utworzTransakcje(Klient kupujacy)
+        {
+            Sprzedaz nowyRekordSprzedazy = new Sprzedaz();
+        }
+
     }
 }
