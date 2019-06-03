@@ -29,12 +29,12 @@ namespace FakTest
         string nipFirmy;
         string adresFirmy;
         string nr_dok;
-        int[] tabIDs;
+        List<int> tabIDs;
         string data;
-        int kwotaNetto;
-        int podatekVat;
+        decimal kwotaNetto;
+        decimal podatekVat;
 
-        public Sprzedaz(int _idFirmy, string _nipFirmy, string _adresFirmy, string _nr_dok, int[] _tabIDs, string _data, int _kwotaNetto, int _podatekVat)
+        public Sprzedaz(int _idFirmy, string _nipFirmy, string _adresFirmy, string _nr_dok, List<int> _tabIDs, string _data, decimal _kwotaNetto, decimal _podatekVat)
         {
             idFirmy = _idFirmy;
             nipFirmy = _nipFirmy;
@@ -100,8 +100,8 @@ namespace FakTest
 
         public List<int> KoszykList = new List<int>();
         public decimal KoszykSuma = 0;
-
         public bool transakcjaWToku = false;
+        public int KlientID = -1;
 //-----------------------------------------------------------------------------------------------------
 //Nazwy plikow zapisu
         string asortymentFilePath = @".\Asortyment.csv";
@@ -294,6 +294,31 @@ namespace FakTest
             }
         }
 //-----------------------------------------------------------------------------------------------------
+//Zapis klientow
+
+        public void saveTransakcje()
+        {
+            StreamWriter sw = File.CreateText(transakcjeFilePath);
+
+            sw.WriteLine(Klienci.Count + ";");
+
+            for (int i = 0; i < Klienci.Count; i++)
+            {
+                Klienci.TryGetValue(i, out Klient linia);
+
+                sw.Write(linia.nazwa + ",");
+                sw.Write(linia.NIP + ",");
+                sw.Write(linia.telefon + ",");
+                sw.Write(linia.kod + ",");
+                sw.Write(linia.adres + ";");
+                sw.Write(System.Environment.NewLine);
+            }
+
+            sw.Close();
+
+        }
+
+//-----------------------------------------------------------------------------------------------------
 //Obsluga koszyka
         public void dodajDoKoszykCena(int index)
         {
@@ -328,7 +353,25 @@ namespace FakTest
 //Obsluga transakcji
        public void utworzTransakcje(Klient kupujacy)
         {
-            Sprzedaz nowyRekordSprzedazy = new Sprzedaz();
+            Klienci.TryGetValue(KlientID, out Klient linia);
+            Sprzedaz nowyRekordSprzedazy = new Sprzedaz(
+                KlientID,
+                linia.NIP,
+                linia.adres,
+                "0/0/0",
+                KoszykList,
+                "03:06:2019",
+                KoszykSuma,
+                KoszykSuma
+                );
+
+            int counter = Transkacje.Count;
+
+            Transkacje.Add(counter, nowyRekordSprzedazy);
+
+            KoszykSuma = 0;
+            KlientID = 0;
+            KoszykList.Clear();
         }
 
     }
