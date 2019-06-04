@@ -151,6 +151,8 @@ namespace FakTest
                 string msg;
                 msg = "Blad parsowania stringow ";
                 MessageBox.Show(msg);
+                cena = 0;
+                podatek = 0;
             }
             Przedmiot temp = new Przedmiot(nazwa, cena, podatek);
 
@@ -296,9 +298,84 @@ namespace FakTest
 //-----------------------------------------------------------------------------------------------------
 //Zapis transakcji
 
+        public int[] parsujStrIntTab(string linia)
+        {
+            string count_s, temp;
+            int count = 0;
+            count_s = linia.Substring(0, linia.IndexOf('{'));
+            linia = linia.Substring((linia.IndexOf('{') + 1), linia.Length - (linia.IndexOf('{') + 1));
+            count = Int32.Parse(count_s);
+            int[] tabInts = new int[count];
+
+            for (int i = 0; i < count; i++)
+            {
+                temp = linia.Substring(0, linia.IndexOf(','));
+                linia = linia.Substring((linia.IndexOf(',') + 1), linia.Length - (linia.IndexOf(',') + 1));
+                tabInts[i] = Int32.Parse(temp);
+            }
+
+            return tabInts;
+        }
+
+        public Sprzedaz parsujstrSprzedaz(string linia)
+        {
+            string id_s, nip, adres, nr, tab_s, data, netto_s, vat_s;
+            int[] tabOfIDs;
+            int id;
+            decimal netto, vat;
+            //MessageBox.Show(linia);
+
+            id_s = linia.Substring(0, linia.IndexOf(','));
+            linia = linia.Substring((linia.IndexOf(',') + 1), linia.Length - (linia.IndexOf(',') + 1));
+            Int32.TryParse(id_s, out id);
+
+            nip = linia.Substring(0, linia.IndexOf(','));
+            linia = linia.Substring((linia.IndexOf(',') + 1), linia.Length - (linia.IndexOf(',') + 1));
+
+            adres = linia.Substring(0, linia.IndexOf(','));
+            linia = linia.Substring((linia.IndexOf(',') + 1), linia.Length - (linia.IndexOf(',') + 1));
+
+            nr = linia.Substring(0, linia.IndexOf(','));
+            linia = linia.Substring((linia.IndexOf(',') + 1), linia.Length - (linia.IndexOf(',') + 1));
+
+            tab_s = linia.Substring(0, linia.IndexOf('}'));
+            linia = linia.Substring((linia.IndexOf('}') + 1), linia.Length - (linia.IndexOf('}') + 1));
+
+            tabOfIDs = parsujStrIntTab(tab_s);
+
+            data = linia.Substring(0, linia.IndexOf(','));
+            linia = linia.Substring((linia.IndexOf(',') + 1), linia.Length - (linia.IndexOf(',') + 1));
+
+            netto_s = linia.Substring(0, linia.IndexOf(','));
+            linia = linia.Substring((linia.IndexOf(',') + 1), linia.Length - (linia.IndexOf(',') + 1));
+
+            vat_s = linia.Substring(0, (linia.Length - 1));
+
+            netto_s = zamiana(netto_s, '.', ',');
+            vat_s = zamiana(vat_s, '.', ',');
+            try
+            {
+                netto = Convert.ToDecimal(netto_s);
+                vat = Convert.ToDecimal(vat_s);
+            }
+            catch (FormatException)
+            {
+                string msg;
+                msg = "Blad parsowania stringow ";
+                MessageBox.Show(msg);
+                netto = 0;
+                vat = 0;
+            }
+
+            Sprzedaz temp = new Sprzedaz(id, nip, adres, nr, tabOfIDs, data, netto, vat);
+            
+            return temp;
+        }
+
         public void saveTransakcje()
         {
             StreamWriter sw = File.CreateText(transakcjeFilePath);
+            String temp;
 
             sw.WriteLine(Transkacje.Count + ";");
 
@@ -313,14 +390,19 @@ namespace FakTest
                 sw.Write(linia.tabIDs.Length + "{");
                 //int[] temp = linia.tabIDs.ToArray();
                 int j = 0;
-                for (j = 0 ; j < linia.tabIDs.Length-1; j++)
+                for (j = 0 ; j < (linia.tabIDs.Length); j++)
                 {
                     sw.Write(linia.tabIDs[j]+",");
                 }
-                sw.Write(linia.tabIDs[j+1] + "}");
+                sw.Write( "},");
                 sw.Write(linia.data + ",");
-                sw.Write(linia.kwotaNetto + ",");
-                sw.Write(linia.podatekVat + ";");
+
+                temp = linia.kwotaNetto.ToString();
+                temp = zamiana(temp, ',', '.');
+                sw.Write(temp + ",");
+                temp = linia.podatekVat.ToString();
+                temp = zamiana(temp, ',', '.');
+                sw.Write(temp + ";");
                 sw.Write(System.Environment.NewLine);
             }
 
@@ -328,8 +410,41 @@ namespace FakTest
 
         }
 
+        public void loadTransakcje()
+        {
+            if (Transkacje.Count == 0)
+            {
+                string msg;
+                msg = "Wczytywanie";
+                //MessageBox.Show(msg);
+                StreamReader se = File.OpenText(transakcjeFilePath);
+                int l = 0;
+                string length = se.ReadLine();
+                length = length.Substring(0, length.IndexOf(';'));
+                Int32.TryParse(length, out l);
+
+                string linia;
+
+                for (int i = 0; i < l; i++)
+                {
+                    linia = se.ReadLine();
+                    Transkacje.Add(Transkacje.Count, parsujstrSprzedaz(linia));
+                }
+
+                se.Close();
+                MessageBox.Show("Wczytano: " + l + " rekordow.");
+            }
+            else
+            {
+                string msg;
+                msg = "Juz wczytano dane.";
+                MessageBox.Show(msg);
+            }
+        }
+
 //-----------------------------------------------------------------------------------------------------
 //Obsluga koszyka
+
         public void dodajDoKoszykCena(int index)
         {
             Asortyment.TryGetValue(index, out Przedmiot linia);
@@ -361,6 +476,7 @@ namespace FakTest
         }
 //-----------------------------------------------------------------------------------------------------
 //Obsluga transakcji
+
        public void utworzTransakcje()
         {
             Klienci.TryGetValue(KlientID, out Klient linia);

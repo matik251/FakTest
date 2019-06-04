@@ -71,6 +71,7 @@ namespace FakTest
 
             _controler.loadAsortyment();
             _controler.loadKlienci();
+            _controler.loadTransakcje();
         }
     }
 }
