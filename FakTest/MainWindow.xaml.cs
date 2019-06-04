@@ -61,6 +61,7 @@ namespace FakTest
 
             _controler.saveAsortyment();
             _controler.saveKlienci();
+            _controler.saveTransakcje();
         }
         private void ButtonBase12_OnClickLoad(object sender, RoutedEventArgs e)
         {

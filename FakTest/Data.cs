@@ -25,16 +25,16 @@ namespace FakTest
     
     public struct Sprzedaz
     {
-        int idFirmy;
-        string nipFirmy;
-        string adresFirmy;
-        string nr_dok;
-        List<int> tabIDs;
-        string data;
-        decimal kwotaNetto;
-        decimal podatekVat;
+        public int idFirmy;
+        public string nipFirmy;
+        public string adresFirmy;
+        public string nr_dok;
+        public int[] tabIDs;
+        public string data;
+        public decimal kwotaNetto;
+        public decimal podatekVat;
 
-        public Sprzedaz(int _idFirmy, string _nipFirmy, string _adresFirmy, string _nr_dok, List<int> _tabIDs, string _data, decimal _kwotaNetto, decimal _podatekVat)
+        public Sprzedaz(int _idFirmy, string _nipFirmy, string _adresFirmy, string _nr_dok, int[] _tabIDs, string _data, decimal _kwotaNetto, decimal _podatekVat)
         {
             idFirmy = _idFirmy;
             nipFirmy = _nipFirmy;
@@ -294,23 +294,33 @@ namespace FakTest
             }
         }
 //-----------------------------------------------------------------------------------------------------
-//Zapis klientow
+//Zapis transakcji
 
         public void saveTransakcje()
         {
             StreamWriter sw = File.CreateText(transakcjeFilePath);
 
-            sw.WriteLine(Klienci.Count + ";");
+            sw.WriteLine(Transkacje.Count + ";");
 
-            for (int i = 0; i < Klienci.Count; i++)
+            for (int i = 0; i < Transkacje.Count; i++)
             {
-                Klienci.TryGetValue(i, out Klient linia);
+                Transkacje.TryGetValue(i, out Sprzedaz linia);
 
-                sw.Write(linia.nazwa + ",");
-                sw.Write(linia.NIP + ",");
-                sw.Write(linia.telefon + ",");
-                sw.Write(linia.kod + ",");
-                sw.Write(linia.adres + ";");
+                sw.Write(linia.idFirmy + ",");
+                sw.Write(linia.nipFirmy + ",");
+                sw.Write(linia.adresFirmy + ",");
+                sw.Write(linia.nr_dok + ",");
+                sw.Write(linia.tabIDs.Length + "{");
+                //int[] temp = linia.tabIDs.ToArray();
+                int j = 0;
+                for (j = 0 ; j < linia.tabIDs.Length-1; j++)
+                {
+                    sw.Write(linia.tabIDs[j]+",");
+                }
+                sw.Write(linia.tabIDs[j+1] + "}");
+                sw.Write(linia.data + ",");
+                sw.Write(linia.kwotaNetto + ",");
+                sw.Write(linia.podatekVat + ";");
                 sw.Write(System.Environment.NewLine);
             }
 
@@ -351,7 +361,7 @@ namespace FakTest
         }
 //-----------------------------------------------------------------------------------------------------
 //Obsluga transakcji
-       public void utworzTransakcje(Klient kupujacy)
+       public void utworzTransakcje()
         {
             Klienci.TryGetValue(KlientID, out Klient linia);
             Sprzedaz nowyRekordSprzedazy = new Sprzedaz(
@@ -359,7 +369,7 @@ namespace FakTest
                 linia.NIP,
                 linia.adres,
                 "0/0/0",
-                KoszykList,
+                KoszykList.ToArray(),
                 "03:06:2019",
                 KoszykSuma,
                 KoszykSuma

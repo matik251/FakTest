@@ -116,7 +116,7 @@ namespace FakTest
         {
             _controler.KlientID = getZaznaczony(DataGridKlientow);
             MessageBox.Show("KLientID: " + _controler.KlientID);
-
+            _controler.utworzTransakcje();
         }
 
 
