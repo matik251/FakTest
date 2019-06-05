@@ -300,4 +300,10 @@
   <data name="TW_DG_8" xml:space="preserve">
     <value>Vat</value>
   </data>
+  <data name="MW_DG_1" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="MW_DG_2" xml:space="preserve">
+    <value>Data transakcji</value>
+  </data>
 </root>

@@ -322,6 +322,24 @@ namespace FakTest.Properties {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu ID.
+        /// </summary>
+        public static string MW_DG_1 {
+            get {
+                return ResourceManager.GetString("MW_DG_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Data transakcji.
+        /// </summary>
+        public static string MW_DG_2 {
+            get {
+                return ResourceManager.GetString("MW_DG_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Okno główne.
         /// </summary>
         public static string MW_MainWindowHeader {

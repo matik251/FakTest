@@ -31,6 +31,7 @@ namespace FakTest
         {
             InitializeComponent();
             _controler = new Controler();
+            fillDataGrid();
         }
 
         public MainWindow(Controler controler)
@@ -72,6 +73,29 @@ namespace FakTest
             _controler.loadAsortyment();
             _controler.loadKlienci();
             _controler.loadTransakcje();
+        }
+
+
+        public void fillDataGrid()
+        {
+            int count = _controler.Transkacje.Count;
+            int forCounter = 0;
+            for (int i = count; i > 0; i--)
+            {
+                dataGridTransakcje transakcja = new dataGridTransakcje();
+                _controler.Transkacje.TryGetValue(i, out Sprzedaz linia);
+
+                transakcja.id = i;
+                transakcja.data = linia.data;
+
+                DataGridOstatnich.Items.Add(transakcja);
+
+                if(forCounter > 9)
+                {
+                    i = 0;
+                }
+                forCounter++;
+            }
         }
     }
 }

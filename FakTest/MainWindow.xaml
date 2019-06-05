@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FakTest"
         xmlns:p="clr-namespace:FakTest.Properties"
+        xmlns:Properties="clr-namespace:FakTest.Properties"
         mc:Ignorable="d"
         Title="{x:Static p:Resources.MW_MainWindowHeader}"
         Height="500" 
@@ -18,22 +19,15 @@
         <Button Content="{x:Static p:Resources.MW_ButtonSell}" Canvas.Left="100" Canvas.Top="100" Width="200" Height="100" Click="ButtonBase1_OnClick"/>
         <Button Content="{x:Static p:Resources.MW_ButtonOptions}" Canvas.Left="500" Canvas.Top="100" Width="200" Height="100" Click="ButtonBase2_OnClick"/>
 
-        <ListView Canvas.Left="500" Canvas.Top="250" Width="200" Height="200" HorizontalContentAlignment="Left">
-            <ListView.View>
-                <GridView>
+        <DataGrid x:Name="DataGridOstatnich" Grid.ColumnSpan="2" Canvas.Left="500" Canvas.Top="250" Width="200" Height="200">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="{x:Static Properties:Resources.MW_DG_1}" Binding="{Binding id}" Width="50"/>
+                <DataGridTextColumn Header="{x:Static Properties:Resources.MW_DG_2}" Binding="{Binding data}" Width="150"/>
+            </DataGrid.Columns>
 
-                    <GridViewColumn Header="Id transakcji"/>
-                    <GridViewColumn Header="Czas transakcji"/>
+        </DataGrid>
 
-                </GridView>
-            </ListView.View>
-
-            <TextBlock TextWrapping="Wrap" Text="Rekord5" />
-            <TextBlock TextWrapping="Wrap" Text="Rekord4" />
-            <TextBlock TextWrapping="Wrap" Text="Rekord3" />
-            <TextBlock TextWrapping="Wrap" Text="Rekord2" />
-            <TextBlock TextWrapping="Wrap" Text="Rekord1" />
-        </ListView>
+        
 
         <Image Source="Resources/Firma.png" Canvas.Left="100" Canvas.Top="250" Width="350" />
         <Button Content="load" Canvas.Left="34" Canvas.Top="45" Width="59" Height="29" Click="ButtonBase12_OnClickLoad"/>
