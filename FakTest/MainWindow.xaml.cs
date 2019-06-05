@@ -31,6 +31,7 @@ namespace FakTest
         {
             InitializeComponent();
             _controler = new Controler();
+
             fillDataGrid();
         }
 
@@ -38,6 +39,7 @@ namespace FakTest
         {
             InitializeComponent();
             _controler = controler;
+            fillDataGrid();
         }
 
         private void ButtonBase1_OnClick(object sender, RoutedEventArgs e)
@@ -64,6 +66,7 @@ namespace FakTest
             _controler.saveKlienci();
             _controler.saveTransakcje();
         }
+
         private void ButtonBase12_OnClickLoad(object sender, RoutedEventArgs e)
         {
             /*string msg;
@@ -73,28 +76,36 @@ namespace FakTest
             _controler.loadAsortyment();
             _controler.loadKlienci();
             _controler.loadTransakcje();
+            fillDataGrid();
         }
-
 
         public void fillDataGrid()
         {
             int count = _controler.Transkacje.Count;
             int forCounter = 0;
-            for (int i = count; i > 0; i--)
+            for (int i = (count-1); i > 0; i--)
             {
                 dataGridTransakcje transakcja = new dataGridTransakcje();
                 _controler.Transkacje.TryGetValue(i, out Sprzedaz linia);
 
                 transakcja.id = i;
+                transakcja.id_firmy = linia.idFirmy;
+                transakcja.nip = linia.nipFirmy;
+                transakcja.adres = linia.adresFirmy;
+                transakcja.nr_fak = linia.nr_dok;
+                transakcja.id_prod = _controler.parsujIntTabStr(linia.tabIDs);
                 transakcja.data = linia.data;
+                transakcja.netto = linia.kwotaNetto.ToString() + "zł";
+                transakcja.vat = linia.podatekVat.ToString() + "zł";
 
                 DataGridOstatnich.Items.Add(transakcja);
 
-                if(forCounter > 9)
+                forCounter++;
+
+                if (forCounter > 7)
                 {
                     i = 0;
                 }
-                forCounter++;
             }
         }
     }

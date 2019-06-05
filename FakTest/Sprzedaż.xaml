@@ -66,8 +66,9 @@
         </DataGrid>
         <Button Content="{x:Static p:Resources.SW_ButtonAddProd}" Canvas.Left="491" Canvas.Top="299" Width="21" Height="21" Click="dodajDoKoszyka"/>
         <Button Content="{x:Static p:Resources.SW_ButtonRemoveProd}" Canvas.Left="491" Canvas.Top="325" Width="21" Height="21" Click="usunZKoszyka"/>
-        
-        <TextBlock Canvas.Left="886" Name="sumaKoszykaTextView" TextWrapping="Wrap" Text="Suma = " Canvas.Top="455"/>
+
+        <TextBlock Canvas.Left="835" Name="sumaKoszykaTextView" TextWrapping="Wrap" Text="Suma = " Canvas.Top="455"/>
+        <TextBlock Canvas.Left="913" Name="sumaVatTextView" TextWrapping="Wrap" Text="Vat = " Canvas.Top="455"/>
 
 
     </Canvas>

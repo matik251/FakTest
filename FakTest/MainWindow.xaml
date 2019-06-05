@@ -21,8 +21,8 @@
 
         <DataGrid x:Name="DataGridOstatnich" Grid.ColumnSpan="2" Canvas.Left="500" Canvas.Top="250" Width="200" Height="200">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="{x:Static Properties:Resources.MW_DG_1}" Binding="{Binding id}" Width="50"/>
-                <DataGridTextColumn Header="{x:Static Properties:Resources.MW_DG_2}" Binding="{Binding data}" Width="150"/>
+                <DataGridTextColumn Header="{x:Static Properties:Resources.MW_DG_1}" Binding="{Binding id}" Width="25"/>
+                <DataGridTextColumn Header="{x:Static Properties:Resources.MW_DG_2}" Binding="{Binding data}" Width="170"/>
             </DataGrid.Columns>
 
         </DataGrid>

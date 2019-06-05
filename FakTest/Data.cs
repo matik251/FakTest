@@ -113,6 +113,7 @@ namespace FakTest
 
         public List<int> KoszykList = new List<int>();
         public decimal KoszykSuma = 0;
+        public decimal koszykPodatek = 0;
         public bool transakcjaWToku = false;
         public int KlientID = -1;
 //-----------------------------------------------------------------------------------------------------
@@ -472,12 +473,14 @@ namespace FakTest
         {
             Asortyment.TryGetValue(index, out Przedmiot linia);
             KoszykSuma = KoszykSuma + linia.cena;
+            koszykPodatek = koszykPodatek + (linia.cena * linia.VAT / 100);
         }
 
         public void usunZKoszykCena(int index)
         {
             Asortyment.TryGetValue(index, out Przedmiot linia);
             KoszykSuma = KoszykSuma - linia.cena;
+            koszykPodatek = koszykPodatek - (linia.cena * linia.VAT /100);
         }
 
         public void addItemsToKoszyk(List<int> zaznaczone)
@@ -506,7 +509,7 @@ namespace FakTest
             DateTime data = DateTime.UtcNow.ToLocalTime();
             string nr_fak = "0/0/0";
             nr_fak = data.ToString("yyyy") + '/' + data.ToString("MM") + '/' + counter.ToString();
-            string czas = data.ToString("dd-MM-yyyy hh:mm:ss");
+            string czas = data.ToString("dd-MM-yyyy HH:mm:ss");
             Klienci.TryGetValue(KlientID, out Klient linia);
             Sprzedaz nowyRekordSprzedazy = new Sprzedaz(
                 KlientID,
@@ -518,13 +521,14 @@ namespace FakTest
                 //"03:06:2019",
                 czas,
                 KoszykSuma,
-                KoszykSuma
+                koszykPodatek
                 );
 
 
             Transkacje.Add(counter, nowyRekordSprzedazy);
 
             KoszykSuma = 0;
+            koszykPodatek = 0;
             KlientID = 0;
             KoszykList.Clear();
         }
