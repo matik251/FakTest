@@ -12,6 +12,18 @@
         WindowStartupLocation="CenterScreen"
         Icon="./Resources/fak.ico">
     <Grid>
-        
+        <Button Content="{x:Static Properties:Resources.U_ButtonBack}" Click="Button_Click" Margin="20,12,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="86" Height="35"/>
+        <DataGrid x:Name="DataGridTransakcji" Margin="20,20,20,20" Grid.ColumnSpan="2">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="{x:Static Properties:Resources.TW_DG_1}" Binding="{Binding id}" Width="SizeToCells"/>
+                <DataGridTextColumn Header="{x:Static Properties:Resources.TW_DG_2}" Binding="{Binding nip}" Width="100"/>
+                <DataGridTextColumn Header="{x:Static Properties:Resources.TW_DG_3}" Binding="{Binding adres}" Width="50"/>
+                <DataGridTextColumn Header="{x:Static Properties:Resources.TW_DG_4}" Binding="{Binding nr_fak}" Width="50"/>
+                <DataGridTextColumn Header="{x:Static Properties:Resources.TW_DG_5}" Binding="{Binding stawka}"  Width="50"/>
+                <DataGridTextColumn Header="{x:Static Properties:Resources.TW_DG_6}" Binding="{Binding podatek}" Width="50"/>
+                <DataGridTextColumn Header="{x:Static Properties:Resources.TW_DG_7}" Binding="{Binding brutto}" Width="100"/>
+            </DataGrid.Columns>
+
+        </DataGrid>
     </Grid>
 </Window>

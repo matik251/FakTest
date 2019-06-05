@@ -17,7 +17,7 @@
 
         <Button Content="{x:Static p:Resources.OW_ButtonNewProduct}" Canvas.Left="48" Canvas.Top="80" Width="200" Height="100" Click="addProduct"/>
         <Button Content="{x:Static p:Resources.OW_ButtonNewClient}" Canvas.Left="48" Canvas.Top="300" Width="200" Height="100" Click="addClient" />
-        <Button Content="{x:Static p:Resources.OW_ButtonNewCat}" Canvas.Left="48" Canvas.Top="190" Width="200" Height="100" />
+        <Button Content="{x:Static p:Resources.OW_ButtonShowTransactions}" Canvas.Left="48" Canvas.Top="190" Width="200" Height="100" />
 
         <Button Content="{x:Static p:Resources.OW_ButtonGenerateRaport}" Canvas.Left="310" Canvas.Top="80" Width="200" Height="100" Click="generateRaport"/>
         <Button Content="{x:Static p:Resources.OW_ButtonGenerateJPK}" Canvas.Left="310" Canvas.Top="190" Width="200" Height="100" Click="generateJPK"/>

@@ -213,8 +213,8 @@
   <data name="OW_ButtonGenerateRaport" xml:space="preserve">
     <value>Generuj raport sprzedaży</value>
   </data>
-  <data name="OW_ButtonNewCat" xml:space="preserve">
-    <value>Nowa kategoria</value>
+  <data name="OW_ButtonShowTransactions" xml:space="preserve">
+    <value>Pokaż transakcje</value>
   </data>
   <data name="OW_ButtonNewClient" xml:space="preserve">
     <value>Nowy stały klient</value>

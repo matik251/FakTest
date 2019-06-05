@@ -367,15 +367,6 @@ namespace FakTest.Properties {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Nowa kategoria.
-        /// </summary>
-        public static string OW_ButtonNewCat {
-            get {
-                return ResourceManager.GetString("OW_ButtonNewCat", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Nowy stały klient.
         /// </summary>
         public static string OW_ButtonNewClient {
@@ -390,6 +381,15 @@ namespace FakTest.Properties {
         public static string OW_ButtonNewProduct {
             get {
                 return ResourceManager.GetString("OW_ButtonNewProduct", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Pokaż transakcje.
+        /// </summary>
+        public static string OW_ButtonShowTransactions {
+            get {
+                return ResourceManager.GetString("OW_ButtonShowTransactions", resourceCulture);
             }
         }
         

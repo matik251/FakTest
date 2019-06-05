@@ -46,6 +46,11 @@ namespace FakTest
             win.Show();
         }
 
+        private void showTransactions(object sneder, RoutedEventArgs e)
+        {
+
+        }
+
         private void generateRaport(object sender, RoutedEventArgs e)
         {
             throw new NotImplementedException();
