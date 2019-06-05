@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media.TextFormatting;
@@ -533,5 +534,39 @@ namespace FakTest
             KoszykList.Clear();
         }
 
+//-----------------------------------------------------------------------------------------------------
+//Obsluga ladowania i zapisu
+
+        public void loadData()
+        {
+            Thread asortymenThread = new Thread(loadAsortyment);
+            Thread transakcjeThread = new Thread(loadTransakcje);
+            Thread klienciThread = new Thread(loadKlienci);
+
+            asortymenThread.Start();
+            transakcjeThread.Start();
+            klienciThread.Start();
+            asortymenThread.Join();
+            transakcjeThread.Join();
+            klienciThread.Join();
+
+        }
+
+        public void saveData()
+        {
+            Thread asortymenThread = new Thread(saveAsortyment);
+            Thread transakcjeThread = new Thread(saveTransakcje);
+            Thread klienciThread = new Thread(saveKlienci);
+
+            asortymenThread.Start();
+            transakcjeThread.Start();
+            klienciThread.Start();
+            asortymenThread.Join();
+            transakcjeThread.Join();
+            klienciThread.Join();
+
+        }
+
     }
+
 }

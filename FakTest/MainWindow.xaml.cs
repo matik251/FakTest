@@ -61,10 +61,11 @@ namespace FakTest
             /*string msg;
             msg = _fileHandler.readMainFile();
             MessageBox.Show(msg);*/
-
+            /*
             _controler.saveAsortyment();
             _controler.saveKlienci();
-            _controler.saveTransakcje();
+            _controler.saveTransakcje();*/
+            _controler.saveData();
         }
 
         private void ButtonBase12_OnClickLoad(object sender, RoutedEventArgs e)
@@ -73,9 +74,10 @@ namespace FakTest
             msg = _fileHandler.readMainFile();
             MessageBox.Show(msg);*/
 
-            _controler.loadAsortyment();
+            /*_controler.loadAsortyment();
             _controler.loadKlienci();
-            _controler.loadTransakcje();
+            _controler.loadTransakcje();*/
+            _controler.loadData();
             fillDataGrid();
         }
 
