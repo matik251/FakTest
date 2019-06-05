@@ -502,19 +502,25 @@ namespace FakTest
 
        public void utworzTransakcje()
         {
+            int counter = Transkacje.Count;
+            DateTime data = DateTime.UtcNow.ToLocalTime();
+            string nr_fak = "0/0/0";
+            nr_fak = data.ToString("yyyy") + '/' + data.ToString("MM") + '/' + counter.ToString();
+            string czas = data.ToString("dd-MM-yyyy hh:mm:ss");
             Klienci.TryGetValue(KlientID, out Klient linia);
             Sprzedaz nowyRekordSprzedazy = new Sprzedaz(
                 KlientID,
                 linia.NIP,
                 linia.adres,
-                "0/0/0",
+                //"0/0/0",
+                nr_fak,
                 KoszykList.ToArray(),
-                "03:06:2019",
+                //"03:06:2019",
+                czas,
                 KoszykSuma,
                 KoszykSuma
                 );
 
-            int counter = Transkacje.Count;
 
             Transkacje.Add(counter, nowyRekordSprzedazy);
 
