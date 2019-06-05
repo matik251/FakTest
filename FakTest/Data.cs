@@ -88,6 +88,19 @@ namespace FakTest
         public string adres { get; set; }
     }
 
+    public class dataGridTransakcje
+    {
+        public int id { get; set; }
+        public int id_firmy { get; set; }
+        public string nip { get; set; }
+        public string adres { get; set; }
+        public string nr_fak { get; set; }
+        public string id_prod { get; set; }
+        public string data { get; set; }
+        public string netto { get; set; }
+        public string vat { get; set; }
+    }
+
 
     //-----------------------------------------------------------------------------------------------------
     //Controler
@@ -317,6 +330,16 @@ namespace FakTest
             return tabInts;
         }
 
+        public string parsujIntTabStr(int[] tab)
+        {
+            string temp = "";
+            for(int i=0; i < tab.Length; i++)
+            {
+                temp = tab[i].ToString() + ',' + temp;
+            }
+            return temp;
+        }
+
         public Sprzedaz parsujstrSprzedaz(string linia)
         {
             string id_s, nip, adres, nr, tab_s, data, netto_s, vat_s;
@@ -394,7 +417,7 @@ namespace FakTest
                 {
                     sw.Write(linia.tabIDs[j]+",");
                 }
-                sw.Write( "},");
+                sw.Write( "}");
                 sw.Write(linia.data + ",");
 
                 temp = linia.kwotaNetto.ToString();

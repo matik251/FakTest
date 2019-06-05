@@ -276,4 +276,28 @@
   <data name="DKW_ButtonContinueTransaction" xml:space="preserve">
     <value>Kontynuuj transakcje</value>
   </data>
+  <data name="TW_DG_1" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="TW_DG_2" xml:space="preserve">
+    <value>NIP</value>
+  </data>
+  <data name="TW_DG_3" xml:space="preserve">
+    <value>Adres</value>
+  </data>
+  <data name="TW_DG_4" xml:space="preserve">
+    <value>Nr fak</value>
+  </data>
+  <data name="TW_DG_5" xml:space="preserve">
+    <value>Id produktów</value>
+  </data>
+  <data name="TW_DG_6" xml:space="preserve">
+    <value>Data</value>
+  </data>
+  <data name="TW_DG_7" xml:space="preserve">
+    <value>Netto</value>
+  </data>
+  <data name="TW_DG_8" xml:space="preserve">
+    <value>Vat</value>
+  </data>
 </root>

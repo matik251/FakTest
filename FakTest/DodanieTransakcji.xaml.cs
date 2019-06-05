@@ -41,20 +41,22 @@ namespace FakTest
 
         public void fillDataGrid()
         {
-            for (int i = 0; i < _controler.Asortyment.Count; i++)
+            for (int i = 0; i < _controler.Transkacje.Count; i++)
             {
-                dataGridProdukt produkt = new dataGridProdukt();
-                _controler.Asortyment.TryGetValue(i, out Przedmiot linia);
-                produkt.id = i;//.ToString();
-                produkt.nazwa = linia.nazwa;
-                produkt.typ = "brak";
-                produkt.netto = linia.cena.ToString() + "zł";
-                produkt.stawka = linia.VAT.ToString() + "%";
-                decimal temp = (linia.cena * linia.VAT / 100);
-                produkt.podatek = temp.ToString() + " zł";
-                decimal temp2 = linia.cena + temp;
-                produkt.brutto = temp2.ToString() + " zł";
-                DataGridTransakcji`.Items.Add(produkt);
+                dataGridTransakcje transakcja = new dataGridTransakcje();
+                _controler.Transkacje.TryGetValue(i, out Sprzedaz linia);
+
+                transakcja.id = i;
+                transakcja.id_firmy = linia.idFirmy;
+                transakcja.nip = linia.nipFirmy;
+                transakcja.adres = linia.adresFirmy;
+                transakcja.nr_fak = linia.nr_dok;
+                transakcja.id_prod = _controler.parsujIntTabStr(linia.tabIDs);
+                transakcja.data = linia.data;
+                transakcja.netto = linia.kwotaNetto.ToString() + "zł";
+                transakcja.vat = linia.podatekVat.ToString() + "zł";
+
+                DataGridTransakcji.Items.Add(transakcja);
             }
         }
     }

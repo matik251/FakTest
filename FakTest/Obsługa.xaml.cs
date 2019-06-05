@@ -48,7 +48,8 @@ namespace FakTest
 
         private void showTransactions(object sneder, RoutedEventArgs e)
         {
-
+            DodanieTransakcji win = new DodanieTransakcji(_controler);
+            win.Show();
         }
 
         private void generateRaport(object sender, RoutedEventArgs e)

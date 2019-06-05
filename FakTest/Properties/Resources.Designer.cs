@@ -529,6 +529,78 @@ namespace FakTest.Properties {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu ID.
+        /// </summary>
+        public static string TW_DG_1 {
+            get {
+                return ResourceManager.GetString("TW_DG_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu NIP.
+        /// </summary>
+        public static string TW_DG_2 {
+            get {
+                return ResourceManager.GetString("TW_DG_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Adres.
+        /// </summary>
+        public static string TW_DG_3 {
+            get {
+                return ResourceManager.GetString("TW_DG_3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Nr fak.
+        /// </summary>
+        public static string TW_DG_4 {
+            get {
+                return ResourceManager.GetString("TW_DG_4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Id produktów.
+        /// </summary>
+        public static string TW_DG_5 {
+            get {
+                return ResourceManager.GetString("TW_DG_5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Data.
+        /// </summary>
+        public static string TW_DG_6 {
+            get {
+                return ResourceManager.GetString("TW_DG_6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Netto.
+        /// </summary>
+        public static string TW_DG_7 {
+            get {
+                return ResourceManager.GetString("TW_DG_7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Vat.
+        /// </summary>
+        public static string TW_DG_8 {
+            get {
+                return ResourceManager.GetString("TW_DG_8", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Powrót.
         /// </summary>
         public static string U_ButtonBack {
