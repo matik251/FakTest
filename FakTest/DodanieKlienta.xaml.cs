@@ -122,10 +122,97 @@ namespace FakTest
         }
 
 
-//-----------------------------------------------------------------------------------------------------
+ //-----------------------------------------------------------------------------------------------------
+
+        public void verifyNazwa(object sender, RoutedEventArgs e)
+        {
+            if (tb_nazwa.Text.Length == 0)
+            {
+                tb_nazwa.Background = Brushes.Red;
+            }
+            else
+            {
+                if (!_controler.sprawdzenieRegex(tb_nazwa.Text))
+                {
+                    tb_nazwa.Background = Brushes.Red;
+                }
+                else
+                {
+                    tb_nazwa.Background = Brushes.GreenYellow;
+                }
+            }
+        }
+        public void verifyNip(object sender, RoutedEventArgs e)
+        {
+            if (tb_nip.Text.Length == 0)
+            {
+                tb_nip.Background = Brushes.Red;
+            }
+            else
+            {
+                if (!_controler.nipRegex(tb_nip.Text))
+                {
+                    tb_nip.Background = Brushes.Red;
+                }
+                else
+                {
+                    tb_nip.Background = Brushes.GreenYellow;
+                }
+            }
+        }
         public void verifyKodPocztowy(object sender, RoutedEventArgs e)
         {
-
+            if (tb_kod.Text.Length == 0)
+            {
+                tb_kod.Background = Brushes.Red;
+            }
+            else
+            {
+                if (!_controler.kodPocztowyRegex(tb_kod.Text))
+                {
+                    tb_kod.Background = Brushes.Red;
+                }
+                else
+                {
+                    tb_kod.Background = Brushes.GreenYellow;
+                }
+            }
+        }
+        public void verifyKodNumerTel(object sender, RoutedEventArgs e)
+        {
+            if (tb_telefon.Text.Length == 0)
+            {
+                tb_telefon.Background = Brushes.Red;
+            }
+            else
+            {
+                if (!_controler.telefonRegex(tb_telefon.Text))
+                {
+                    tb_telefon.Background = Brushes.Red;
+                }
+                else
+                {
+                    tb_telefon.Background = Brushes.GreenYellow;
+                }
+            }
+        }
+        public void verifyAdres(object sender, RoutedEventArgs e)
+        {
+            if (tb_adres.Text.Length == 0)
+            {
+                tb_adres.Background = Brushes.Red;
+            }
+            else
+            {
+                if (!_controler.sprawdzenieRegex(tb_adres.Text))
+                {
+                    tb_adres.Background = Brushes.Red;
+                }
+                else
+                {
+                    tb_adres.Background = Brushes.GreenYellow;
+                }
+            }
         }
     }
 

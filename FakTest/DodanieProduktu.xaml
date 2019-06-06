@@ -17,9 +17,9 @@
             <ColumnDefinition Width="35*"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <TextBox Name="tb_nazwa" HorizontalAlignment="Left" Height="23" Margin="160,52,0,0" TextWrapping="Wrap" Text="{Binding _nazwa}" VerticalAlignment="Top" Width="222"/>
-        <TextBox Name="tb_cena" HorizontalAlignment="Left" Height="23" Margin="160,98,0,0" TextWrapping="Wrap" Text="{Binding _cena}" VerticalAlignment="Top" Width="222"/>
-        <TextBox Name="tb_stawkaVAT" HorizontalAlignment="Left" Height="23" Margin="160,143,0,0" TextWrapping="Wrap" Text="{Binding _stawkaVat}" VerticalAlignment="Top" Width="222"/>
+        <TextBox Name="tb_nazwa" HorizontalAlignment="Left" Height="23" Margin="160,52,0,0" TextWrapping="Wrap" Text="{Binding _nazwa}" VerticalAlignment="Top" Width="222" TextChanged="verifyNazwa"/>
+        <TextBox Name="tb_cena" HorizontalAlignment="Left" Height="23" Margin="160,98,0,0" TextWrapping="Wrap" Text="{Binding _cena}" VerticalAlignment="Top" Width="222" TextChanged="verifyCena"/>
+        <TextBox Name="tb_stawkaVAT" HorizontalAlignment="Left" Height="23" Margin="160,143,0,0" TextWrapping="Wrap" Text="{Binding _stawkaVat}" VerticalAlignment="Top" Width="222" TextChanged="verifyVat"/>
 
         <Label Content="{x:Static Properties:Resources.DKW_Nazwa}" HorizontalAlignment="Left" Height="23" Margin="20,52,0,0" VerticalAlignment="Top" Width="106"/>
         <Label Content="{x:Static Properties:Resources.DPW_Cena}" HorizontalAlignment="Left" Height="23" Margin="20,98,0,0" VerticalAlignment="Top" Width="106"/>

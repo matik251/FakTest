@@ -118,14 +118,14 @@ namespace FakTest
         public decimal koszykPodatek = 0;
         public bool transakcjaWToku = false;
         public int KlientID = -1;
-//-----------------------------------------------------------------------------------------------------
-//Nazwy plikow zapisu
+        //-----------------------------------------------------------------------------------------------------
+        //Nazwy plikow zapisu
         string asortymentFilePath = @".\Asortyment.csv";
         string transakcjeFilePath = @".\Transkacje.csv";
         string klienciFilePath = @".\Klienci.csv";
 
-//-----------------------------------------------------------------------------------------------------
-//Zapis asortymentu
+        //-----------------------------------------------------------------------------------------------------
+        //Zapis asortymentu
         public string zamiana(string liczba, char stary, char nowy)
         {
             if (liczba.Contains(stary))
@@ -155,7 +155,7 @@ namespace FakTest
             linia = linia.Substring((linia.IndexOf(',') + 1), linia.Length - (linia.IndexOf(',') + 1));
 
             podatek_s = linia.Substring(0, (linia.Length - 1));
-            
+
             cena_s = zamiana(cena_s, '.', ',');
             try
             {
@@ -180,12 +180,12 @@ namespace FakTest
             string temp;
             StreamWriter sw = File.CreateText(asortymentFilePath);
 
-            sw.WriteLine(Asortyment.Count +";");
+            sw.WriteLine(Asortyment.Count + ";");
 
             for (int i = 0; i < Asortyment.Count; i++)
             {
                 Asortyment.TryGetValue(i, out Przedmiot linia);
-                
+
                 sw.Write(linia.nazwa + ",");
                 //sw.Write(linia.cena + ",");
                 temp = linia.cena.ToString();
@@ -196,12 +196,12 @@ namespace FakTest
             }
 
             sw.Close();
-            
+
         }
 
         public void loadAsortyment()
         {
-            if(Asortyment.Count == 0)
+            if (Asortyment.Count == 0)
             {
                 string msg;
                 msg = "Wczytywanie";
@@ -212,7 +212,7 @@ namespace FakTest
                 length = length.Substring(0, length.IndexOf(';'));
                 Int32.TryParse(length, out l);
 
-                string linia; 
+                string linia;
 
                 for (int i = 0; i < l; i++)
                 {
@@ -231,8 +231,8 @@ namespace FakTest
             }
         }
 
-//-----------------------------------------------------------------------------------------------------
-//Zapis klientow
+        //-----------------------------------------------------------------------------------------------------
+        //Zapis klientow
         public Klient parsujStrKlient(string linia)
         {
             string nazwa, nip, telefon, kod, adres;
@@ -251,7 +251,7 @@ namespace FakTest
             linia = linia.Substring((linia.IndexOf(',') + 1), linia.Length - (linia.IndexOf(',') + 1));
 
             adres = linia.Substring(0, (linia.Length - 1));
-            
+
 
             Klient temp = new Klient(nazwa, nip, telefon, kod, adres);
 
@@ -311,8 +311,8 @@ namespace FakTest
                 MessageBox.Show(msg);
             }
         }
-//-----------------------------------------------------------------------------------------------------
-//Zapis transakcji
+        //-----------------------------------------------------------------------------------------------------
+        //Zapis transakcji
 
         public int[] parsujStrIntTab(string linia)
         {
@@ -336,7 +336,7 @@ namespace FakTest
         public string parsujIntTabStr(int[] tab)
         {
             string temp = "";
-            for(int i=0; i < tab.Length; i++)
+            for (int i = 0; i < tab.Length; i++)
             {
                 temp = tab[i].ToString() + ',' + temp;
             }
@@ -394,7 +394,7 @@ namespace FakTest
             }
 
             Sprzedaz temp = new Sprzedaz(id, nip, adres, nr, tabOfIDs, data, netto, vat);
-            
+
             return temp;
         }
 
@@ -416,11 +416,11 @@ namespace FakTest
                 sw.Write(linia.tabIDs.Length + "{");
                 //int[] temp = linia.tabIDs.ToArray();
                 int j = 0;
-                for (j = 0 ; j < (linia.tabIDs.Length); j++)
+                for (j = 0; j < (linia.tabIDs.Length); j++)
                 {
-                    sw.Write(linia.tabIDs[j]+",");
+                    sw.Write(linia.tabIDs[j] + ",");
                 }
-                sw.Write( "}");
+                sw.Write("}");
                 sw.Write(linia.data + ",");
 
                 temp = linia.kwotaNetto.ToString();
@@ -468,8 +468,8 @@ namespace FakTest
             }
         }
 
-//-----------------------------------------------------------------------------------------------------
-//Obsluga koszyka
+        //-----------------------------------------------------------------------------------------------------
+        //Obsluga koszyka
 
         public void dodajDoKoszykCena(int index)
         {
@@ -482,12 +482,12 @@ namespace FakTest
         {
             Asortyment.TryGetValue(index, out Przedmiot linia);
             KoszykSuma = KoszykSuma - linia.cena;
-            koszykPodatek = koszykPodatek - (linia.cena * linia.VAT /100);
+            koszykPodatek = koszykPodatek - (linia.cena * linia.VAT / 100);
         }
 
         public void addItemsToKoszyk(List<int> zaznaczone)
         {
-            foreach(int nowa in zaznaczone)
+            foreach (int nowa in zaznaczone)
             {
                 KoszykList.Add(nowa);
                 dodajDoKoszykCena(nowa);
@@ -502,10 +502,10 @@ namespace FakTest
                 usunZKoszykCena(i);
             }
         }
-//-----------------------------------------------------------------------------------------------------
-//Obsluga transakcji
+        //-----------------------------------------------------------------------------------------------------
+        //Obsluga transakcji
 
-       public void utworzTransakcje()
+        public void utworzTransakcje()
         {
             int counter = Transkacje.Count;
             DateTime data = DateTime.UtcNow.ToLocalTime();
@@ -535,8 +535,8 @@ namespace FakTest
             KoszykList.Clear();
         }
 
-//-----------------------------------------------------------------------------------------------------
-//Obsluga ladowania i zapisu wielowatkowo
+        //-----------------------------------------------------------------------------------------------------
+        //Obsluga ladowania i zapisu wielowatkowo
 
         public void loadData()
         {
@@ -568,20 +568,49 @@ namespace FakTest
 
         }
 
-//-----------------------------------------------------------------------------------------------------
-//Regex input
-        public void regexik()
+        //-----------------------------------------------------------------------------------------------------
+        //Regex input
+
+        public bool sprawdzenieRegex(string linia)
         {
-            Regex regEmail, telefonWzor, kodPocztowyWzor, cenaWzor;
-            regEmail = new Regex(@"^[a-z][a-z0-9_]*@[a-z0-9]*\.[a-z]{2,3}$");
-            telefonWzor = new Regex(@"(((00)|[+])(([[:digit:]]){10,12}))|(([[:digit:]]){9})");
-            kodPocztowyWzor = new Regex("[0-9]{2}-[0-9]{3}");
-            cenaWzor = new Regex(@"\d +\,\d{ 1, 2 }");
+            Regex txRegex;
+            txRegex = new Regex(@"^[^,;]+$");
+            return txRegex.IsMatch(linia);
+        }
 
-            telefonWzor.IsMatch("604987358");
+        public bool kodPocztowyRegex(string linia)
+        {
+            Regex kodPocztowyWzor;
+            kodPocztowyWzor = new Regex(@"[0-9]{2}-[0-9]{3}$");
 
-            string msg = "blad inputu";
-            MessageBox.Show(msg);
+            return kodPocztowyWzor.IsMatch(linia);
+        }
+        public bool telefonRegex(string linia)
+        {
+            Regex telefonWzor;
+            telefonWzor = new Regex(@"(((00)|[+])(([0-9]){10,12}))$|(([0-9]){9})$");
+
+            return telefonWzor.IsMatch(linia);
+        }
+        public bool nipRegex(string linia)
+        {
+            Regex nipRegex;
+            nipRegex = new Regex(@"\d{9}$|\d{10}$|\d{14}$");
+
+            return nipRegex.IsMatch(linia);
+        }
+
+        public bool cenaRegex(string linia)
+        {
+            Regex cenaWzor;
+            cenaWzor = new Regex(@"[0-9]+\.[0-9]{2}$");
+            return cenaWzor.IsMatch(linia);
+        }
+        public bool vatRegex(string linia)
+        {
+            Regex vat;
+            vat = new Regex(@"[0-9]{1}$|[0-9]{2}$");
+            return vat.IsMatch(linia);
         }
     }
 

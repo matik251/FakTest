@@ -89,5 +89,60 @@ namespace FakTest
                 DataGridProduktow.Items.Add(produkt);
             }
         }
+
+        public void verifyNazwa(object sender, RoutedEventArgs e)
+        {
+            if (tb_nazwa.Text.Length == 0)
+            {
+                tb_nazwa.Background = Brushes.Red;
+            }
+            else
+            {
+                if (!_controler.sprawdzenieRegex(tb_nazwa.Text))
+                {
+                    tb_nazwa.Background = Brushes.Red;
+                }
+                else
+                {
+                    tb_nazwa.Background = Brushes.GreenYellow;
+                }
+            }
+        }
+        public void verifyCena(object sender, RoutedEventArgs e)
+        {
+            if (tb_cena.Text.Length == 0)
+            {
+                tb_cena.Background = Brushes.Red;
+            }
+            else
+            {
+                if (!_controler.cenaRegex(tb_cena.Text))
+                {
+                    tb_cena.Background = Brushes.Red;
+                }
+                else
+                {
+                    tb_cena.Background = Brushes.GreenYellow;
+                }
+            }
+        }
+        public void verifyVat(object sender, RoutedEventArgs e)
+        {
+            if (tb_stawkaVAT.Text.Length == 0)
+            {
+                tb_stawkaVAT.Background = Brushes.Red;
+            }
+            else
+            {
+                if (!_controler.vatRegex(tb_stawkaVAT.Text))
+                {
+                    tb_stawkaVAT.Background = Brushes.Red;
+                }
+                else
+                {
+                    tb_stawkaVAT.Background = Brushes.GreenYellow;
+                }
+            }
+        }
     }
 }
