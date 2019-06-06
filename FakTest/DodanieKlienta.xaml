@@ -21,7 +21,7 @@
         <TextBox Name="tb_nazwa" HorizontalAlignment="Left" Height="23" Margin="160,52,0,0" TextWrapping="Wrap" Text="{Binding _nazwa}" VerticalAlignment="Top" Width="222"/>
         <TextBox Name="tb_nip" HorizontalAlignment="Left" Height="23" Margin="160,98,0,0" TextWrapping="Wrap" Text="{Binding _nip}" VerticalAlignment="Top" Width="222"/>
         <TextBox Name="tb_telefon" HorizontalAlignment="Left" Height="23" Margin="160,143,0,0" TextWrapping="Wrap" Text="{Binding _telefon}" VerticalAlignment="Top" Width="222"/>
-        <TextBox Name="tb_kod" HorizontalAlignment="Left" Height="23" Margin="160,183,0,0" TextWrapping="Wrap" Text="{Binding _kod}" VerticalAlignment="Top" Width="222"/>
+        <TextBox Name="tb_kod" HorizontalAlignment="Left" Height="23" Margin="160,183,0,0" TextWrapping="Wrap" Text="{Binding _kod}" VerticalAlignment="Top" Width="222" TextChanged="werifyKodPocztowy"/>
         <TextBox Name="tb_adres" HorizontalAlignment="Left" Height="23" Margin="160,224,0,0" TextWrapping="Wrap" Text="{Binding _adres}" VerticalAlignment="Top" Width="222"/>
 
         <Label Content="{x:Static Properties:Resources.DKW_Adres}" HorizontalAlignment="Left" Height="23" Margin="20,52,0,0" VerticalAlignment="Top" Width="106"/>

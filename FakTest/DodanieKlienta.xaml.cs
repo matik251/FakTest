@@ -48,6 +48,8 @@ namespace FakTest
 
         private void Add_Client(object sender, RoutedEventArgs e)
         {
+            //TODO sprawdzanie regexem inputu
+
             Klient _nowyKlient = new Klient(_nazwa, _nip, _telefon, _kod, _adres);
 
             int qounter = _controler.Klienci.Count;
@@ -120,5 +122,11 @@ namespace FakTest
         }
 
 
+//-----------------------------------------------------------------------------------------------------
+        public void verifyKodPocztowy(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
+
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
@@ -535,7 +536,7 @@ namespace FakTest
         }
 
 //-----------------------------------------------------------------------------------------------------
-//Obsluga ladowania i zapisu
+//Obsluga ladowania i zapisu wielowatkowo
 
         public void loadData()
         {
@@ -567,6 +568,21 @@ namespace FakTest
 
         }
 
+//-----------------------------------------------------------------------------------------------------
+//Regex input
+        public void regexik()
+        {
+            Regex regEmail, telefonWzor, kodPocztowyWzor, cenaWzor;
+            regEmail = new Regex(@"^[a-z][a-z0-9_]*@[a-z0-9]*\.[a-z]{2,3}$");
+            telefonWzor = new Regex(@"(((00)|[+])(([[:digit:]]){10,12}))|(([[:digit:]]){9})");
+            kodPocztowyWzor = new Regex("[0-9]{2}-[0-9]{3}");
+            cenaWzor = new Regex(@"\d +\,\d{ 1, 2 }");
+
+            telefonWzor.IsMatch("604987358");
+
+            string msg = "blad inputu";
+            MessageBox.Show(msg);
+        }
     }
 
 }
