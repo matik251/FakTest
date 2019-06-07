@@ -7,6 +7,10 @@ using System.IO;
 using System.Net.Http;
 using System.Text;
 
+using iText.Kernel.Pdf;
+using iText.Layout;
+using iText.Layout.Element;
+
 namespace FakTest
 {
     public class FileHandler
@@ -43,5 +47,9 @@ namespace FakTest
             throw new NotImplementedException();
         }
 
+    }
+
+    public class PdfHandler
+    {
     }
 }

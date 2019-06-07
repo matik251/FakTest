@@ -9,6 +9,10 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media.TextFormatting;
 
+using iText.Kernel.Pdf;
+using iText.Layout;
+using iText.Layout.Element;
+
 namespace FakTest
 {
     public struct Przedmiot
@@ -558,13 +562,16 @@ namespace FakTest
             Thread asortymenThread = new Thread(saveAsortyment);
             Thread transakcjeThread = new Thread(saveTransakcje);
             Thread klienciThread = new Thread(saveKlienci);
+            Thread pdfThread = new Thread(createPDF);
 
             asortymenThread.Start();
             transakcjeThread.Start();
             klienciThread.Start();
+            pdfThread.Start();
             asortymenThread.Join();
             transakcjeThread.Join();
             klienciThread.Join();
+            pdfThread.Join();
 
         }
 
@@ -611,6 +618,24 @@ namespace FakTest
             Regex vat;
             vat = new Regex(@"[0-9]{1}$|[0-9]{2}$");
             return vat.IsMatch(linia);
+        }
+        //--------------------------------------------------------------------
+
+
+        static void createPDF()
+        {
+            var exportFolder = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            var exportFile = System.IO.Path.Combine(@"./Test.pdf");
+            string pdfFilePath = @".\PDF";
+
+            using (var writer = new PdfWriter(exportFile))
+            {
+                using (var pdf = new PdfDocument(writer))
+                {
+                    var doc = new Document(pdf);
+                    doc.Add(new Paragraph("Faktura"));
+                }
+            }
         }
     }
 
