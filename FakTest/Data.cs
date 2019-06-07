@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -8,10 +9,12 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media.TextFormatting;
-
+using iText.IO.Image;
 using iText.Kernel.Pdf;
 using iText.Layout;
 using iText.Layout.Element;
+using iText.Layout.Layout;
+using iText.Layout.Properties;
 
 namespace FakTest
 {
@@ -532,6 +535,7 @@ namespace FakTest
 
 
             Transkacje.Add(counter, nowyRekordSprzedazy);
+            createFaktura(nowyRekordSprzedazy);
 
             KoszykSuma = 0;
             koszykPodatek = 0;
@@ -562,16 +566,15 @@ namespace FakTest
             Thread asortymenThread = new Thread(saveAsortyment);
             Thread transakcjeThread = new Thread(saveTransakcje);
             Thread klienciThread = new Thread(saveKlienci);
-            Thread pdfThread = new Thread(createPDF);
-
+            
             asortymenThread.Start();
             transakcjeThread.Start();
             klienciThread.Start();
-            pdfThread.Start();
             asortymenThread.Join();
             transakcjeThread.Join();
             klienciThread.Join();
-            pdfThread.Join();
+            
+            //createPDF("2019/06/01");
 
         }
 
@@ -622,18 +625,89 @@ namespace FakTest
         //--------------------------------------------------------------------
 
 
-        static void createPDF()
+        static void createPDF(string numer)
         {
             var exportFolder = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-            var exportFile = System.IO.Path.Combine(@"./Test.pdf");
-            string pdfFilePath = @".\PDF";
+            string nazwa = numer.Replace('/', '_');
+            var exportFile = System.IO.Path.Combine("./" + nazwa + ".pdf");
 
             using (var writer = new PdfWriter(exportFile))
             {
                 using (var pdf = new PdfDocument(writer))
                 {
-                    var doc = new Document(pdf);
-                    doc.Add(new Paragraph("Faktura"));
+                    var doc = new Document(pdf);;
+                    ImageData imageData = ImageDataFactory.Create("LOGO.png");
+                    Image image = new Image(imageData).ScaleAbsolute(100, 100).SetHorizontalAlignment(iText.Layout.Properties.HorizontalAlignment.RIGHT);
+                    doc.Add(image);
+                    doc.Add(new Paragraph("Faktura " + numer).SetHorizontalAlignment(iText.Layout.Properties.HorizontalAlignment.CENTER));
+
+                    var table = new Table(new float[] { 4, 4, 4, 4 });
+                    table.SetWidth(UnitValue.CreatePercentValue(100));
+                    table.AddHeaderCell(new Cell().Add(new Paragraph("Nr")));
+                    table.AddHeaderCell(new Cell().Add(new Paragraph("Produkt")));
+                    table.AddHeaderCell(new Cell().Add(new Paragraph("Cena")));
+                    table.AddHeaderCell(new Cell().Add(new Paragraph("Vat")));
+
+                    doc.Add(table);
+                    doc.Close();
+                }
+            }
+        }
+
+        public void createFaktura(Sprzedaz nowyRekordSprzedazy)
+        {
+            var exportFolder = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            string nazwa = nowyRekordSprzedazy.nr_dok.Replace('/', '_');
+            var exportFile = System.IO.Path.Combine("./" + nazwa + ".pdf");
+
+            Klienci.TryGetValue(KlientID, out Klient klient);
+
+            using (var writer = new PdfWriter(exportFile))
+            {
+                using (var pdf = new PdfDocument(writer))
+                {
+                    var doc = new Document(pdf); ;
+                    ImageData imageData = ImageDataFactory.Create("LOGO.png");
+                    Image image = new Image(imageData).ScaleAbsolute(100, 100).SetHorizontalAlignment(iText.Layout.Properties.HorizontalAlignment.RIGHT);
+
+                    doc.Add(image);
+                    var naglowek = new Paragraph("Faktura " + nowyRekordSprzedazy.nr_dok).SetRelativePosition(200, 0, 200, 0);
+                    doc.Add(naglowek);
+                    doc.Add(new Paragraph("Kupujacy:" + klient.nazwa));
+                    doc.Add(new Paragraph("Adres:" + klient.adres));
+                    doc.Add(new Paragraph("NIP/REGON:" + klient.NIP));
+                    doc.Add(new Paragraph("Data:" + nowyRekordSprzedazy.data));
+                    
+                    var table = new Table(new float[] { 2, 6, 4, 4});
+                    table.SetWidth(UnitValue.CreatePercentValue(100));
+                    table.AddHeaderCell(new Cell().Add(new Paragraph("Nr")));
+                    table.AddHeaderCell(new Cell().Add(new Paragraph("Produkt")));
+                    table.AddHeaderCell(new Cell().Add(new Paragraph("Cena")));
+                    table.AddHeaderCell(new Cell().Add(new Paragraph("Vat")));
+
+                    int numerator = 1;
+                    foreach (int id_prod in nowyRekordSprzedazy.tabIDs)
+                    {
+                        Asortyment.TryGetValue(id_prod, out Przedmiot rzecz);
+
+                        table.AddCell(new Cell().Add(new Paragraph(numerator.ToString())));
+                        table.AddCell(new Cell().Add(new Paragraph(rzecz.nazwa)));
+                        table.AddCell(new Cell().Add(new Paragraph(rzecz.cena.ToString())));
+                        table.AddCell(new Cell().Add(new Paragraph((rzecz.cena * rzecz.VAT / 100).ToString())));
+                        numerator++;
+                    }
+
+                    table.AddCell(new Cell().Add(new Paragraph("")));
+                    table.AddCell(new Cell().Add(new Paragraph("")));
+                    table.AddCell(new Cell().Add(new Paragraph(nowyRekordSprzedazy.kwotaNetto + "zl")));
+                    table.AddCell(new Cell().Add(new Paragraph(nowyRekordSprzedazy.podatekVat + "zl")));
+
+                    doc.Add(table);
+
+                    doc.Add(new Paragraph("Kwota netto:" + nowyRekordSprzedazy.kwotaNetto + "zl").SetRelativePosition(400, 0, 0, 0));
+                    doc.Add(new Paragraph("Podatek:" + nowyRekordSprzedazy.podatekVat + "zl").SetRelativePosition(400,0,0,0));
+
+                    doc.Close();
                 }
             }
         }
