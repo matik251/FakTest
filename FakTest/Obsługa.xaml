@@ -20,7 +20,7 @@
         <Button Content="{x:Static p:Resources.OW_ButtonShowTransactions}" Canvas.Left="48" Canvas.Top="190" Width="200" Height="100" Click="showTransactions"/>
 
         <Button Content="{x:Static p:Resources.OW_ButtonGenerateRaport}" Canvas.Left="310" Canvas.Top="80" Width="200" Height="100" Click="generateRaport"/>
-        <Button Content="{x:Static p:Resources.OW_ButtonGenerateJPK}" Canvas.Left="310" Canvas.Top="190" Width="200" Height="100" Click="generateJPK"/>
+        <Button Content="{x:Static p:Resources.OW_ButtonGenerateJPK}" Canvas.Left="310" Canvas.Top="190" Width="200" Height="100" Click="generateJPK" Visibility="Hidden"/>
 
         <TextBlock Canvas.Left="111" TextWrapping="Wrap" Text="{x:Static p:Resources.OW_BaseHeader}" Canvas.Top="50"/>
         <TextBlock Canvas.Left="395" TextWrapping="Wrap" Text="{x:Static p:Resources.OW_FinanceHeader}" Canvas.Top="50"/>

@@ -54,7 +54,7 @@ namespace FakTest
 
         private void generateRaport(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            _controler.generateReport();
         }
 
         private void generateJPK(object sender, RoutedEventArgs e)

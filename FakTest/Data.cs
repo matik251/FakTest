@@ -127,9 +127,11 @@ namespace FakTest
         public int KlientID = -1;
         //-----------------------------------------------------------------------------------------------------
         //Nazwy plikow zapisu
-        string asortymentFilePath = @".\Asortyment.csv";
-        string transakcjeFilePath = @".\Transkacje.csv";
-        string klienciFilePath = @".\Klienci.csv";
+        string asortymentFilePath = @".\Baza\Asortyment.csv";
+        string transakcjeFilePath = @".\Baza\Transkacje.csv";
+        string klienciFilePath = @".\Baza\Klienci.csv";
+        string fakturyPath = @".\Faktury\";
+        string raportyPath = @".\Raporty\";
 
         //-----------------------------------------------------------------------------------------------------
         //Zapis asortymentu
@@ -658,7 +660,7 @@ namespace FakTest
         {
             var exportFolder = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             string nazwa = nowyRekordSprzedazy.nr_dok.Replace('/', '_');
-            var exportFile = System.IO.Path.Combine("./" + nazwa + ".pdf");
+            var exportFile = System.IO.Path.Combine(fakturyPath + nazwa + ".pdf");
 
             Klienci.TryGetValue(KlientID, out Klient klient);
 
@@ -710,6 +712,62 @@ namespace FakTest
                     doc.Close();
                 }
             }
+        }
+
+        public void createReport()
+        {
+            var exportFolder = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+
+            var exportFile = System.IO.Path.Combine(raportyPath + DateTime.UtcNow.ToLocalTime().ToString("dd_MM_yyyy") + ".pdf");
+
+            Klienci.TryGetValue(KlientID, out Klient klient);
+
+            using (var writer = new PdfWriter(exportFile))
+            {
+                using (var pdf = new PdfDocument(writer))
+                {
+                    var doc = new Document(pdf); ;
+                    ImageData imageData = ImageDataFactory.Create("LOGO.png");
+                    Image image = new Image(imageData).ScaleAbsolute(100, 100).SetHorizontalAlignment(iText.Layout.Properties.HorizontalAlignment.CENTER);
+
+                    doc.Add(image);
+
+                    var table = new Table(new float[] { 1, 2, 1, 2, 2, 2, 2});
+                    table.SetWidth(UnitValue.CreatePercentValue(100));
+                    table.AddHeaderCell(new Cell().Add(new Paragraph("Nr")));
+                    table.AddHeaderCell(new Cell().Add(new Paragraph("Data")));
+                    table.AddHeaderCell(new Cell().Add(new Paragraph("Id")));
+                    table.AddHeaderCell(new Cell().Add(new Paragraph("NIP")));
+                    table.AddHeaderCell(new Cell().Add(new Paragraph("Produkty")));
+                    table.AddHeaderCell(new Cell().Add(new Paragraph("Netto")));
+                    table.AddHeaderCell(new Cell().Add(new Paragraph("VAT")));
+
+                    for (int id_sprzed = 0; id_sprzed < Transkacje.Count; id_sprzed++)
+                    {
+                        Transkacje.TryGetValue(id_sprzed, out Sprzedaz sprzedaz);
+
+                        table.AddCell(new Cell().Add(new Paragraph(id_sprzed.ToString())));
+                        table.AddCell(new Cell().Add(new Paragraph(sprzedaz.data.ToString())));
+                        table.AddCell(new Cell().Add(new Paragraph(sprzedaz.idFirmy.ToString())));
+                        table.AddCell(new Cell().Add(new Paragraph(sprzedaz.nipFirmy.ToString())));
+                        table.AddCell(new Cell().Add(new Paragraph(parsujIntTabStr(sprzedaz.tabIDs).Replace(",",", "))));
+                        table.AddCell(new Cell().Add(new Paragraph(sprzedaz.kwotaNetto.ToString())));
+                        table.AddCell(new Cell().Add(new Paragraph(sprzedaz.podatekVat.ToString())));
+                    }
+
+                    doc.Add(table);
+                    
+                    doc.Close();
+                }
+            }
+        }
+
+        public void generateReport()
+        {
+            Thread thread = new Thread(createReport);
+
+            thread.Start();
+            thread.Join();
         }
     }
 
