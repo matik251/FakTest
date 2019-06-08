@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
@@ -537,8 +538,22 @@ namespace FakTest
 
 
             Transkacje.Add(counter, nowyRekordSprzedazy);
-            createFaktura(nowyRekordSprzedazy);
+            string pdf = createFaktura(nowyRekordSprzedazy);
 
+            wyczyscKoszyk();
+
+            //Process myProcess = new Process();
+            //myProcess.StartInfo.FileName = "acroRd32.exe"; //not the full application path
+            pdf = AppDomain.CurrentDomain.BaseDirectory + pdf;
+            //pdf = "/A "  + pdf;
+            //myProcess.StartInfo.Arguments = pdf;
+            //myProcess.Start();
+            System.Diagnostics.Process.Start(pdf);
+
+        }
+
+        public void wyczyscKoszyk()
+        {
             KoszykSuma = 0;
             koszykPodatek = 0;
             KlientID = 0;
@@ -656,7 +671,7 @@ namespace FakTest
             }
         }
 
-        public void createFaktura(Sprzedaz nowyRekordSprzedazy)
+        public string createFaktura(Sprzedaz nowyRekordSprzedazy)
         {
             var exportFolder = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             string nazwa = nowyRekordSprzedazy.nr_dok.Replace('/', '_');
@@ -712,6 +727,8 @@ namespace FakTest
                     doc.Close();
                 }
             }
+
+            return exportFile;
         }
 
         public void createReport()

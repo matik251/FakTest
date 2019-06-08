@@ -142,6 +142,7 @@ namespace FakTest
 
             DodanieKlienta win = new DodanieKlienta(_controler);
             win.Show();
+            clearDataGrid(DataGridKoszyk);
             //this.Close();
 
         }
