@@ -32,7 +32,7 @@ namespace FakTest
             VAT = _vat;
         }
     }
-    
+
     public struct Sprzedaz
     {
         public int idFirmy;
@@ -191,22 +191,26 @@ namespace FakTest
             StreamWriter sw = File.CreateText(asortymentFilePath);
 
             sw.WriteLine(Asortyment.Count + ";");
+            try {
+                for (int i = 0; i < Asortyment.Count; i++)
+                {
+                    Asortyment.TryGetValue(i, out Przedmiot linia);
 
-            for (int i = 0; i < Asortyment.Count; i++)
-            {
-                Asortyment.TryGetValue(i, out Przedmiot linia);
+                    sw.Write(linia.nazwa + ",");
+                    //sw.Write(linia.cena + ",");
+                    temp = linia.cena.ToString();
+                    temp = zamiana(temp, ',', '.');
+                    sw.Write(temp + ",");
+                    sw.Write(linia.VAT + ";");
+                    sw.Write(System.Environment.NewLine);
+                }
 
-                sw.Write(linia.nazwa + ",");
-                //sw.Write(linia.cena + ",");
-                temp = linia.cena.ToString();
-                temp = zamiana(temp, ',', '.');
-                sw.Write(temp + ",");
-                sw.Write(linia.VAT + ";");
-                sw.Write(System.Environment.NewLine);
+                sw.Close();
             }
-
-            sw.Close();
-
+            catch (IOException e) {
+                MessageBox.Show("Blad zapisu asortymentu");
+                sw.Close();
+            }
         }
 
         public void loadAsortyment()
@@ -272,22 +276,27 @@ namespace FakTest
         {
             StreamWriter sw = File.CreateText(klienciFilePath);
 
-            sw.WriteLine(Klienci.Count + ";");
-
-            for (int i = 0; i < Klienci.Count; i++)
+            try
             {
-                Klienci.TryGetValue(i, out Klient linia);
+                sw.WriteLine(Klienci.Count + ";");
+                for (int i = 0; i < Klienci.Count; i++)
+                {
+                    Klienci.TryGetValue(i, out Klient linia);
 
-                sw.Write(linia.nazwa + ",");
-                sw.Write(linia.NIP + ",");
-                sw.Write(linia.telefon + ",");
-                sw.Write(linia.kod + ",");
-                sw.Write(linia.adres + ";");
-                sw.Write(System.Environment.NewLine);
+                    sw.Write(linia.nazwa + ",");
+                    sw.Write(linia.NIP + ",");
+                    sw.Write(linia.telefon + ",");
+                    sw.Write(linia.kod + ",");
+                    sw.Write(linia.adres + ";");
+                    sw.Write(System.Environment.NewLine);
+                }
+
+                sw.Close();
             }
-
-            sw.Close();
-
+            catch(IOException e){
+                MessageBox.Show("Blad zapisu klientow");
+                sw.Close();
+            }
         }
 
         public void loadKlienci()
@@ -414,35 +423,40 @@ namespace FakTest
             String temp;
 
             sw.WriteLine(Transkacje.Count + ";");
-
-            for (int i = 0; i < Transkacje.Count; i++)
+            try
             {
-                Transkacje.TryGetValue(i, out Sprzedaz linia);
-
-                sw.Write(linia.idFirmy + ",");
-                sw.Write(linia.nipFirmy + ",");
-                sw.Write(linia.adresFirmy + ",");
-                sw.Write(linia.nr_dok + ",");
-                sw.Write(linia.tabIDs.Length + "{");
-                //int[] temp = linia.tabIDs.ToArray();
-                int j = 0;
-                for (j = 0; j < (linia.tabIDs.Length); j++)
+                for (int i = 0; i < Transkacje.Count; i++)
                 {
-                    sw.Write(linia.tabIDs[j] + ",");
+                    Transkacje.TryGetValue(i, out Sprzedaz linia);
+
+                    sw.Write(linia.idFirmy + ",");
+                    sw.Write(linia.nipFirmy + ",");
+                    sw.Write(linia.adresFirmy + ",");
+                    sw.Write(linia.nr_dok + ",");
+                    sw.Write(linia.tabIDs.Length + "{");
+                    //int[] temp = linia.tabIDs.ToArray();
+                    int j = 0;
+                    for (j = 0; j < (linia.tabIDs.Length); j++)
+                    {
+                        sw.Write(linia.tabIDs[j] + ",");
+                    }
+                    sw.Write("}");
+                    sw.Write(linia.data + ",");
+
+                    temp = linia.kwotaNetto.ToString();
+                    temp = zamiana(temp, ',', '.');
+                    sw.Write(temp + ",");
+                    temp = linia.podatekVat.ToString();
+                    temp = zamiana(temp, ',', '.');
+                    sw.Write(temp + ";");
+                    sw.Write(System.Environment.NewLine);
                 }
-                sw.Write("}");
-                sw.Write(linia.data + ",");
-
-                temp = linia.kwotaNetto.ToString();
-                temp = zamiana(temp, ',', '.');
-                sw.Write(temp + ",");
-                temp = linia.podatekVat.ToString();
-                temp = zamiana(temp, ',', '.');
-                sw.Write(temp + ";");
-                sw.Write(System.Environment.NewLine);
+                sw.Close();
             }
-
-            sw.Close();
+            catch(IOException e){
+                MessageBox.Show("Blad zapisu transakcji");
+                sw.Close();
+            }
 
         }
 
