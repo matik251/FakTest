@@ -215,33 +215,40 @@ namespace FakTest
 
         public void loadAsortyment()
         {
-            if (Asortyment.Count == 0)
+            try
             {
-                string msg;
-                msg = "Wczytywanie";
-                //MessageBox.Show(msg);
-                StreamReader se = File.OpenText(asortymentFilePath);
-                int l = 0;
-                string length = se.ReadLine();
-                length = length.Substring(0, length.IndexOf(';'));
-                Int32.TryParse(length, out l);
-
-                string linia;
-
-                for (int i = 0; i < l; i++)
+                if (Asortyment.Count == 0)
                 {
-                    linia = se.ReadLine();
-                    Asortyment.Add(Asortyment.Count, parsujStrPrzedmiot(linia));
-                }
+                    string msg;
+                    msg = "Wczytywanie";
+                    //MessageBox.Show(msg);
+                    StreamReader se = File.OpenText(asortymentFilePath);
+                    int l = 0;
+                    string length = se.ReadLine();
+                    length = length.Substring(0, length.IndexOf(';'));
+                    Int32.TryParse(length, out l);
 
-                se.Close();
-                MessageBox.Show("Wczytano: " + l + " rekordow.");
+                    string linia;
+
+                    for (int i = 0; i < l; i++)
+                    {
+                        linia = se.ReadLine();
+                        Asortyment.Add(Asortyment.Count, parsujStrPrzedmiot(linia));
+                    }
+
+                    se.Close();
+                    MessageBox.Show("Wczytano: " + l + " rekordow.");
+                }
+                else
+                {
+                    string msg;
+                    msg = "Juz wczytano dane.";
+                    MessageBox.Show(msg);
+                }
             }
-            else
+            catch(IOException e)
             {
-                string msg;
-                msg = "Juz wczytano dane.";
-                MessageBox.Show(msg);
+                MessageBox.Show("Blad odczytu asortymentu");
             }
         }
 
@@ -301,33 +308,40 @@ namespace FakTest
 
         public void loadKlienci()
         {
-            if (Klienci.Count == 0)
+            try
             {
-                string msg;
-                msg = "Wczytywanie";
-                //MessageBox.Show(msg);
-                StreamReader se = File.OpenText(klienciFilePath);
-                int l = 0;
-                string length = se.ReadLine();
-                length = length.Substring(0, length.IndexOf(';'));
-                Int32.TryParse(length, out l);
-
-                string linia;
-
-                for (int i = 0; i < l; i++)
+                if (Klienci.Count == 0)
                 {
-                    linia = se.ReadLine();
-                    Klienci.Add(Klienci.Count, parsujStrKlient(linia));
-                }
+                    string msg;
+                    msg = "Wczytywanie";
+                    //MessageBox.Show(msg);
+                    StreamReader se = File.OpenText(klienciFilePath);
+                    int l = 0;
+                    string length = se.ReadLine();
+                    length = length.Substring(0, length.IndexOf(';'));
+                    Int32.TryParse(length, out l);
 
-                se.Close();
-                MessageBox.Show("Wczytano: " + l + " rekordow.");
+                    string linia;
+
+                    for (int i = 0; i < l; i++)
+                    {
+                        linia = se.ReadLine();
+                        Klienci.Add(Klienci.Count, parsujStrKlient(linia));
+                    }
+
+                    se.Close();
+                    MessageBox.Show("Wczytano: " + l + " rekordow.");
+                }
+                else
+                {
+                    string msg;
+                    msg = "Juz wczytano dane.";
+                    MessageBox.Show(msg);
+                }
             }
-            else
+            catch(IOException e)
             {
-                string msg;
-                msg = "Juz wczytano dane.";
-                MessageBox.Show(msg);
+                MessageBox.Show("Blad odczytu klientow");
             }
         }
         //-----------------------------------------------------------------------------------------------------
@@ -462,33 +476,41 @@ namespace FakTest
 
         public void loadTransakcje()
         {
-            if (Transkacje.Count == 0)
+            try
             {
-                string msg;
-                msg = "Wczytywanie";
-                //MessageBox.Show(msg);
-                StreamReader se = File.OpenText(transakcjeFilePath);
-                int l = 0;
-                string length = se.ReadLine();
-                length = length.Substring(0, length.IndexOf(';'));
-                Int32.TryParse(length, out l);
 
-                string linia;
-
-                for (int i = 0; i < l; i++)
+                if (Transkacje.Count == 0)
                 {
-                    linia = se.ReadLine();
-                    Transkacje.Add(Transkacje.Count, parsujstrSprzedaz(linia));
-                }
+                    string msg;
+                    msg = "Wczytywanie";
+                    //MessageBox.Show(msg);
+                    StreamReader se = File.OpenText(transakcjeFilePath);
+                    int l = 0;
+                    string length = se.ReadLine();
+                    length = length.Substring(0, length.IndexOf(';'));
+                    Int32.TryParse(length, out l);
 
-                se.Close();
-                MessageBox.Show("Wczytano: " + l + " rekordow.");
+                    string linia;
+
+                    for (int i = 0; i < l; i++)
+                    {
+                        linia = se.ReadLine();
+                        Transkacje.Add(Transkacje.Count, parsujstrSprzedaz(linia));
+                    }
+
+                    se.Close();
+                    MessageBox.Show("Wczytano: " + l + " rekordow.");
+                }
+                else
+                {
+                    string msg;
+                    msg = "Juz wczytano dane.";
+                    MessageBox.Show(msg);
+                }
             }
-            else
+            catch(IOException e)
             {
-                string msg;
-                msg = "Juz wczytano dane.";
-                MessageBox.Show(msg);
+                MessageBox.Show("Bląd ładowania transakcji");
             }
         }
 
