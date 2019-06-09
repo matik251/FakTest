@@ -113,7 +113,8 @@ namespace FakTest
 //-----------------------------------------------------------------------------------------------------
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Nie znaleziono podanego produktu");
+            szukaj();
+            //MessageBox.Show("Nie znaleziono podanego produktu");
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -186,6 +187,15 @@ namespace FakTest
             sumaKoszykaTextView.Text = _controler.KoszykSuma.ToString() + "zł";
             sumaVatTextView.Text = _controler.koszykPodatek.ToString() + "zł";
         }
- //-----------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------
+
+        public void szukaj()
+        {
+            string szukajStr = szukajka.Text;
+            _controler.asortymentIndeks.TryGetValue(szukajStr, out int indeks);
+            DataGridProduktow.SelectedIndex = indeks;
+        }
+
+//-----------------------------------------------------------------------------------------------------
     }
 }

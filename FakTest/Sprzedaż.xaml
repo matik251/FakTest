@@ -16,22 +16,11 @@
         Background="Azure" Margin="0,0,-22.2,0.4"
     >
 
-        <CheckBox Content="{x:Static p:Resources.SW_Option1}" Height="18" Canvas.Left="772" Canvas.Top="50" Width="81"/>
-        <CheckBox Content="{x:Static p:Resources.SW_Option2}" Height="18" Canvas.Left="772" Canvas.Top="80" Width="81"/>
-        <CheckBox Content="{x:Static p:Resources.SW_Option3}" Height="23" Canvas.Left="772" Canvas.Top="110" Width="170"/>
+        <Button Content="{x:Static p:Resources.SW_ButtonFinalize}" Canvas.Left="747" Canvas.Top="42" Width="210" Height="100" Click="finalizujBtnClk"/>
 
-        <Button Content="{x:Static p:Resources.SW_ButtonFinalize}" Canvas.Left="517" Canvas.Top="38" Width="210" Height="100" Click="finalizujBtnClk"/>
-
-        <ComboBox Height="20" Canvas.Left="116" Canvas.Top="114" Width="112">
-            <TextBlock><Run Text="Typ1"/></TextBlock>
-            <TextBlock><Run Text="Typ2"/></TextBlock>
-        </ComboBox>
-
-        <TextBox  Height="23" Canvas.Left="30" TextWrapping="Wrap" Text="{x:Static p:Resources.SW_SearchHeader}" Canvas.Top="77" Width="310"/>
-        <Button Content="{x:Static p:Resources.SW_ButtonSearch}" Canvas.Left="360" Canvas.Top="79" Width="75" Click="ButtonBase_OnClick"/>
-
-        <TextBlock Canvas.Left="30" TextWrapping="Wrap" Text="Typ produktu" Canvas.Top="114"/>
-        <TextBlock Canvas.Left="30" TextWrapping="Wrap" Text="Wyszukiwanie: nazwa Produktu lub id" Canvas.Top="55"/>
+        <TextBox Name="szukajka" Height="23" Canvas.Left="30" TextWrapping="Wrap" Text="{x:Static p:Resources.SW_SearchHeader}" Canvas.Top="116" Width="310"/>
+        <Button Content="{x:Static p:Resources.SW_ButtonSearch}" Canvas.Left="384" Canvas.Top="116" Width="75" Click="ButtonBase_OnClick"/>
+        <TextBlock Canvas.Left="30" TextWrapping="Wrap" Text="Wyszukiwanie: nazwa Produktu lub id" Canvas.Top="81"/>
 
         <Button Content="{x:Static p:Resources.U_ButtonBack}" Canvas.Left="31" Canvas.Top="24" Width="75" Click="Button_Click"/>
 
@@ -67,8 +56,10 @@
         <Button Content="{x:Static p:Resources.SW_ButtonAddProd}" Canvas.Left="491" Canvas.Top="299" Width="21" Height="21" Click="dodajDoKoszyka"/>
         <Button Content="{x:Static p:Resources.SW_ButtonRemoveProd}" Canvas.Left="491" Canvas.Top="325" Width="21" Height="21" Click="usunZKoszyka"/>
 
-        <TextBlock Canvas.Left="835" Name="sumaKoszykaTextView" TextWrapping="Wrap" Text="Suma = " Canvas.Top="455"/>
-        <TextBlock Canvas.Left="913" Name="sumaVatTextView" TextWrapping="Wrap" Text="Vat = " Canvas.Top="455"/>
+        <TextBlock Canvas.Left="653" Name="sumaKoszykaTextView" TextWrapping="Wrap" Text="0" Canvas.Top="68"/>
+        <TextBlock Canvas.Left="653" Name="sumaVatTextView" TextWrapping="Wrap" Text="0" Canvas.Top="103"/>
+        <TextBlock Canvas.Left="542" TextWrapping="Wrap" Text="Cena Netto= " Canvas.Top="68" Height="18"/>
+        <TextBlock Canvas.Left="542" TextWrapping="Wrap" Text="Podatek Vat= " Canvas.Top="103" Height="18"/>
 
 
     </Canvas>

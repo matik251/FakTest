@@ -118,6 +118,7 @@ namespace FakTest
     {
 
         public Dictionary<int, Przedmiot> Asortyment = new Dictionary<int, Przedmiot>();
+        public Dictionary<string, int> asortymentIndeks = new Dictionary<string, int>();
         public Dictionary<int, Sprzedaz> Transkacje = new Dictionary<int, Sprzedaz>();
         public Dictionary<int, Klient> Klienci = new Dictionary<int, Klient>();
 
@@ -231,9 +232,12 @@ namespace FakTest
                     string linia;
 
                     for (int i = 0; i < l; i++)
-                    {
+                    { 
                         linia = se.ReadLine();
-                        Asortyment.Add(Asortyment.Count, parsujStrPrzedmiot(linia));
+                        Przedmiot temp = parsujStrPrzedmiot(linia);
+                        int nr = Asortyment.Count;
+                        Asortyment.Add(nr, temp);
+                        asortymentIndeks.Add(temp.nazwa, nr);
                     }
 
                     se.Close();
