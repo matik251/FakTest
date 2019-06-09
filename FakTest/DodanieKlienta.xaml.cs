@@ -26,6 +26,11 @@ namespace FakTest
         public string _telefon { get; set; }
         public string _kod { get; set; }
         public string _adres { get; set; }
+        public bool _nazwaPop = false;
+        public bool _nipPop = false;
+        public bool _telefonPop = false;
+        public bool _kodPop = false;
+        public bool _adresPop = false;
 
         public DodanieKlienta(Controler controler)
         {
@@ -48,21 +53,22 @@ namespace FakTest
 
         private void Add_Client(object sender, RoutedEventArgs e)
         {
-            //TODO sprawdzanie regexem inputu
+            if(_nazwaPop && _nipPop && _telefonPop && _adresPop && _kodPop)
+            {
+                Klient _nowyKlient = new Klient(_nazwa, _nip, _telefon, _kod, _adres);
 
-            Klient _nowyKlient = new Klient(_nazwa, _nip, _telefon, _kod, _adres);
+                int qounter = _controler.Klienci.Count;
 
-            int qounter = _controler.Klienci.Count;
+                _controler.Klienci.Add(qounter, _nowyKlient);
 
-            _controler.Klienci.Add(qounter, _nowyKlient);
+                addLastElementToDataGrid();
 
-            addLastElementToDataGrid();
-
-            tb_nazwa.Text = "";
-            tb_nip.Text = "";
-            tb_telefon.Text = "";
-            tb_kod.Text = "";
-            tb_adres.Text = "";
+                tb_nazwa.Text = "";
+                tb_nip.Text = "";
+                tb_telefon.Text = "";
+                tb_kod.Text = "";
+                tb_adres.Text = "";
+            }
         }
 //-----------------------------------------------------------------------------------------------------
         public void addLastElementToDataGrid()
@@ -131,7 +137,6 @@ namespace FakTest
             
         }
 
-
  //-----------------------------------------------------------------------------------------------------
 
         public void verifyNazwa(object sender, RoutedEventArgs e)
@@ -145,10 +150,12 @@ namespace FakTest
                 if (!_controler.sprawdzenieRegex(tb_nazwa.Text))
                 {
                     tb_nazwa.Background = Brushes.Red;
+                    _nazwaPop = false;
                 }
                 else
                 {
                     tb_nazwa.Background = Brushes.GreenYellow;
+                    _nazwaPop = true;
                 }
             }
         }
@@ -163,10 +170,12 @@ namespace FakTest
                 if (!_controler.nipRegex(tb_nip.Text))
                 {
                     tb_nip.Background = Brushes.Red;
+                    _nipPop = false;
                 }
                 else
                 {
                     tb_nip.Background = Brushes.GreenYellow;
+                    _nipPop = true;
                 }
             }
         }
@@ -181,10 +190,12 @@ namespace FakTest
                 if (!_controler.kodPocztowyRegex(tb_kod.Text))
                 {
                     tb_kod.Background = Brushes.Red;
+                    _kodPop = false;
                 }
                 else
                 {
                     tb_kod.Background = Brushes.GreenYellow;
+                    _kodPop = true;
                 }
             }
         }
@@ -199,10 +210,12 @@ namespace FakTest
                 if (!_controler.telefonRegex(tb_telefon.Text))
                 {
                     tb_telefon.Background = Brushes.Red;
+                    _telefonPop = false;
                 }
                 else
                 {
                     tb_telefon.Background = Brushes.GreenYellow;
+                    _telefonPop = true;
                 }
             }
         }
@@ -217,10 +230,12 @@ namespace FakTest
                 if (!_controler.sprawdzenieRegex(tb_adres.Text))
                 {
                     tb_adres.Background = Brushes.Red;
+                    _adresPop = false;
                 }
                 else
                 {
                     tb_adres.Background = Brushes.GreenYellow;
+                    _adresPop = true;
                 }
             }
         }

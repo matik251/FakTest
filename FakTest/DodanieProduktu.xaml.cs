@@ -24,6 +24,9 @@ namespace FakTest
         public string _nazwa { get; set; }
         public decimal _cena { get; set; }
         public int _stawkaVat { get; set; }
+        public bool _nazwaPoprawna = false;
+        public bool _cenaPoprawna = false;
+        public bool _stawkaPoprawna = false;
 
         public DodanieProduktu(Controler controler)
         {
@@ -36,22 +39,27 @@ namespace FakTest
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            _controler.wyczyscKoszyk();
             this.Close();
         }
 
         private void Add_Product(object sender, RoutedEventArgs e)
         {
-            Przedmiot _nowyPrzedmiot = new Przedmiot(_nazwa,_cena,_stawkaVat);
+            if (_nazwaPoprawna && _cenaPoprawna && _stawkaPoprawna)
+            {
 
-            int qounter = _controler.Asortyment.Count;
+                Przedmiot _nowyPrzedmiot = new Przedmiot(_nazwa, _cena, _stawkaVat);
 
-            _controler.Asortyment.Add(qounter, _nowyPrzedmiot);
+                int qounter = _controler.Asortyment.Count;
 
-            addLastElementToDataGrid();
+                _controler.Asortyment.Add(qounter, _nowyPrzedmiot);
 
-            tb_nazwa.Text = "";
-            tb_cena.Text = "0.0";
-            tb_stawkaVAT.Text = "0";
+                addLastElementToDataGrid();
+
+                tb_nazwa.Text = "";
+                tb_cena.Text = "0.0";
+                tb_stawkaVAT.Text = "0";
+            }
         }
 
         public void addLastElementToDataGrid()
@@ -101,10 +109,12 @@ namespace FakTest
                 if (!_controler.sprawdzenieRegex(tb_nazwa.Text))
                 {
                     tb_nazwa.Background = Brushes.Red;
+                    _nazwaPoprawna = false;
                 }
                 else
                 {
                     tb_nazwa.Background = Brushes.GreenYellow;
+                    _nazwaPoprawna = true;
                 }
             }
         }
@@ -119,10 +129,12 @@ namespace FakTest
                 if (!_controler.cenaRegex(tb_cena.Text))
                 {
                     tb_cena.Background = Brushes.Red;
+                    _cenaPoprawna = false;
                 }
                 else
                 {
                     tb_cena.Background = Brushes.GreenYellow;
+                    _cenaPoprawna = true;
                 }
             }
         }
@@ -137,10 +149,12 @@ namespace FakTest
                 if (!_controler.vatRegex(tb_stawkaVAT.Text))
                 {
                     tb_stawkaVAT.Background = Brushes.Red;
+                    _stawkaPoprawna = false;
                 }
                 else
                 {
                     tb_stawkaVAT.Background = Brushes.GreenYellow;
+                    _stawkaPoprawna = true;
                 }
             }
         }
