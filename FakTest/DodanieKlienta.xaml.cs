@@ -116,10 +116,19 @@ namespace FakTest
 //-----------------------------------------------------------------------------------------------------
         public void ContinueTransaction(object sender, RoutedEventArgs e)
         {
-            _controler.KlientID = getZaznaczony(DataGridKlientow);
-            MessageBox.Show("KLientID: " + _controler.KlientID);
-            _controler.utworzTransakcje();
-            this.Close();
+            int klient = getZaznaczony(DataGridKlientow);
+            if (klient == -1)
+            {
+                MessageBox.Show("Nie wybrano klienta");
+            }
+            else
+            {
+                _controler.KlientID = getZaznaczony(DataGridKlientow);
+                MessageBox.Show("KLientID: " + _controler.KlientID);
+                _controler.utworzTransakcje();
+                this.Close();
+            }
+            
         }
 
 

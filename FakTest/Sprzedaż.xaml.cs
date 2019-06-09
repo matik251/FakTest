@@ -126,21 +126,28 @@ namespace FakTest
 
         public void finalizujBtnClk(object sender, RoutedEventArgs e)
         {
-            //Finalizowanie z wartosciami
             string msg = "";
-            foreach(int index in _controler.KoszykList)
+            //Finalizowanie z wartosciami
+            if (_controler.KoszykList.Count == 0)
             {
-                msg = msg + " " + index.ToString();        
+                MessageBox.Show("Koszyk jest pusty");
             }
-            msg = msg + Environment.NewLine + "Suma= " + _controler.KoszykSuma + "zł";
+            else
+            {
+                foreach (int index in _controler.KoszykList)
+                {
+                    msg = msg + " " + index.ToString();
+                }
+                msg = msg + Environment.NewLine + "Suma= " + _controler.KoszykSuma + "zł";
 
-            MessageBox.Show(msg);
+                MessageBox.Show(msg);
 
-            _controler.transakcjaWToku = true;
+                _controler.transakcjaWToku = true;
 
-            DodanieKlienta win = new DodanieKlienta(_controler);
-            win.Show();
-            clearDataGrid(DataGridKoszyk);
+                DodanieKlienta win = new DodanieKlienta(_controler);
+                win.Show();
+                clearDataGrid(DataGridKoszyk);
+            }
             //this.Close();
 
         }
