@@ -208,7 +208,7 @@ namespace FakTest
                 sw.Close();
             }
             catch (IOException e) {
-                MessageBox.Show("Blad zapisu asortymentu");
+                MessageBox.Show("Blad zapisu asortymentu " + e.ToString());
                 sw.Close();
             }
         }
