@@ -136,8 +136,6 @@ namespace FakTest
 
             MessageBox.Show(msg);
 
-            //TODO
-
             _controler.transakcjaWToku = true;
 
             DodanieKlienta win = new DodanieKlienta(_controler);

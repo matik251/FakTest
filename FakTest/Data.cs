@@ -640,9 +640,9 @@ namespace FakTest
             return vat.IsMatch(linia);
         }
         //--------------------------------------------------------------------
+        //PDFy do faktur oraz tworzenia raportów
 
-
-        static void createPDF(string numer)
+        static void createPDFDeprecated(string numer)
         {
             var exportFolder = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             string nazwa = numer.Replace('/', '_');
@@ -679,55 +679,61 @@ namespace FakTest
 
             Klienci.TryGetValue(KlientID, out Klient klient);
 
-            using (var writer = new PdfWriter(exportFile))
+            try
             {
-                using (var pdf = new PdfDocument(writer))
+                using (var writer = new PdfWriter(exportFile))
                 {
-                    var doc = new Document(pdf); ;
-                    ImageData imageData = ImageDataFactory.Create("LOGO.png");
-                    Image image = new Image(imageData).ScaleAbsolute(100, 100).SetHorizontalAlignment(iText.Layout.Properties.HorizontalAlignment.RIGHT);
-
-                    doc.Add(image);
-                    var naglowek = new Paragraph("Faktura " + nowyRekordSprzedazy.nr_dok).SetRelativePosition(200, 0, 200, 0);
-                    doc.Add(naglowek);
-                    doc.Add(new Paragraph("Kupujacy:" + klient.nazwa));
-                    doc.Add(new Paragraph("Adres:" + klient.adres));
-                    doc.Add(new Paragraph("NIP/REGON:" + klient.NIP));
-                    doc.Add(new Paragraph("Data:" + nowyRekordSprzedazy.data));
-                    
-                    var table = new Table(new float[] { 2, 6, 4, 4});
-                    table.SetWidth(UnitValue.CreatePercentValue(100));
-                    table.AddHeaderCell(new Cell().Add(new Paragraph("Nr")));
-                    table.AddHeaderCell(new Cell().Add(new Paragraph("Produkt")));
-                    table.AddHeaderCell(new Cell().Add(new Paragraph("Cena")));
-                    table.AddHeaderCell(new Cell().Add(new Paragraph("Vat")));
-
-                    int numerator = 1;
-                    foreach (int id_prod in nowyRekordSprzedazy.tabIDs)
+                    using (var pdf = new PdfDocument(writer))
                     {
-                        Asortyment.TryGetValue(id_prod, out Przedmiot rzecz);
+                        var doc = new Document(pdf); ;
+                        ImageData imageData = ImageDataFactory.Create("LOGO.png");
+                        Image image = new Image(imageData).ScaleAbsolute(100, 100).SetHorizontalAlignment(iText.Layout.Properties.HorizontalAlignment.RIGHT);
 
-                        table.AddCell(new Cell().Add(new Paragraph(numerator.ToString())));
-                        table.AddCell(new Cell().Add(new Paragraph(rzecz.nazwa)));
-                        table.AddCell(new Cell().Add(new Paragraph(rzecz.cena.ToString())));
-                        table.AddCell(new Cell().Add(new Paragraph((rzecz.cena * rzecz.VAT / 100).ToString())));
-                        numerator++;
+                        doc.Add(image);
+                        var naglowek = new Paragraph("Faktura " + nowyRekordSprzedazy.nr_dok).SetRelativePosition(200, 0, 200, 0);
+                        doc.Add(naglowek);
+                        doc.Add(new Paragraph("Kupujacy:" + klient.nazwa));
+                        doc.Add(new Paragraph("Adres:" + klient.adres));
+                        doc.Add(new Paragraph("NIP/REGON:" + klient.NIP));
+                        doc.Add(new Paragraph("Data:" + nowyRekordSprzedazy.data));
+
+                        var table = new Table(new float[] { 2, 6, 4, 4 });
+                        table.SetWidth(UnitValue.CreatePercentValue(100));
+                        table.AddHeaderCell(new Cell().Add(new Paragraph("Nr")));
+                        table.AddHeaderCell(new Cell().Add(new Paragraph("Produkt")));
+                        table.AddHeaderCell(new Cell().Add(new Paragraph("Cena")));
+                        table.AddHeaderCell(new Cell().Add(new Paragraph("Vat")));
+
+                        int numerator = 1;
+                        foreach (int id_prod in nowyRekordSprzedazy.tabIDs)
+                        {
+                            Asortyment.TryGetValue(id_prod, out Przedmiot rzecz);
+
+                            table.AddCell(new Cell().Add(new Paragraph(numerator.ToString())));
+                            table.AddCell(new Cell().Add(new Paragraph(rzecz.nazwa)));
+                            table.AddCell(new Cell().Add(new Paragraph(rzecz.cena.ToString())));
+                            table.AddCell(new Cell().Add(new Paragraph((rzecz.cena * rzecz.VAT / 100).ToString())));
+                            numerator++;
+                        }
+
+                        table.AddCell(new Cell().Add(new Paragraph("")));
+                        table.AddCell(new Cell().Add(new Paragraph("")));
+                        table.AddCell(new Cell().Add(new Paragraph(nowyRekordSprzedazy.kwotaNetto + "zl")));
+                        table.AddCell(new Cell().Add(new Paragraph(nowyRekordSprzedazy.podatekVat + "zl")));
+
+                        doc.Add(table);
+
+                        doc.Add(new Paragraph("Kwota netto:" + nowyRekordSprzedazy.kwotaNetto + "zl").SetRelativePosition(400, 0, 0, 0));
+                        doc.Add(new Paragraph("Podatek:" + nowyRekordSprzedazy.podatekVat + "zl").SetRelativePosition(400, 0, 0, 0));
+
+                        doc.Close();
                     }
-
-                    table.AddCell(new Cell().Add(new Paragraph("")));
-                    table.AddCell(new Cell().Add(new Paragraph("")));
-                    table.AddCell(new Cell().Add(new Paragraph(nowyRekordSprzedazy.kwotaNetto + "zl")));
-                    table.AddCell(new Cell().Add(new Paragraph(nowyRekordSprzedazy.podatekVat + "zl")));
-
-                    doc.Add(table);
-
-                    doc.Add(new Paragraph("Kwota netto:" + nowyRekordSprzedazy.kwotaNetto + "zl").SetRelativePosition(400, 0, 0, 0));
-                    doc.Add(new Paragraph("Podatek:" + nowyRekordSprzedazy.podatekVat + "zl").SetRelativePosition(400,0,0,0));
-
-                    doc.Close();
                 }
             }
-
+            catch (Exception e)
+            {
+                MessageBox.Show("Blad tworzenia pdf'a");
+            }
             return exportFile;
         }
 
@@ -739,43 +745,50 @@ namespace FakTest
 
             Klienci.TryGetValue(KlientID, out Klient klient);
 
-            using (var writer = new PdfWriter(exportFile))
+            try
             {
-                using (var pdf = new PdfDocument(writer))
+                using (var writer = new PdfWriter(exportFile))
                 {
-                    var doc = new Document(pdf); ;
-                    ImageData imageData = ImageDataFactory.Create("LOGO.png");
-                    Image image = new Image(imageData).ScaleAbsolute(100, 100).SetHorizontalAlignment(iText.Layout.Properties.HorizontalAlignment.CENTER);
-
-                    doc.Add(image);
-
-                    var table = new Table(new float[] { 1, 2, 1, 2, 2, 2, 2});
-                    table.SetWidth(UnitValue.CreatePercentValue(100));
-                    table.AddHeaderCell(new Cell().Add(new Paragraph("Nr")));
-                    table.AddHeaderCell(new Cell().Add(new Paragraph("Data")));
-                    table.AddHeaderCell(new Cell().Add(new Paragraph("Id")));
-                    table.AddHeaderCell(new Cell().Add(new Paragraph("NIP")));
-                    table.AddHeaderCell(new Cell().Add(new Paragraph("Produkty")));
-                    table.AddHeaderCell(new Cell().Add(new Paragraph("Netto")));
-                    table.AddHeaderCell(new Cell().Add(new Paragraph("VAT")));
-
-                    for (int id_sprzed = 0; id_sprzed < Transkacje.Count; id_sprzed++)
+                    using (var pdf = new PdfDocument(writer))
                     {
-                        Transkacje.TryGetValue(id_sprzed, out Sprzedaz sprzedaz);
+                        var doc = new Document(pdf); ;
+                        ImageData imageData = ImageDataFactory.Create("LOGO.png");
+                        Image image = new Image(imageData).ScaleAbsolute(100, 100).SetHorizontalAlignment(iText.Layout.Properties.HorizontalAlignment.CENTER);
 
-                        table.AddCell(new Cell().Add(new Paragraph(id_sprzed.ToString())));
-                        table.AddCell(new Cell().Add(new Paragraph(sprzedaz.data.ToString())));
-                        table.AddCell(new Cell().Add(new Paragraph(sprzedaz.idFirmy.ToString())));
-                        table.AddCell(new Cell().Add(new Paragraph(sprzedaz.nipFirmy.ToString())));
-                        table.AddCell(new Cell().Add(new Paragraph(parsujIntTabStr(sprzedaz.tabIDs).Replace(",",", "))));
-                        table.AddCell(new Cell().Add(new Paragraph(sprzedaz.kwotaNetto.ToString())));
-                        table.AddCell(new Cell().Add(new Paragraph(sprzedaz.podatekVat.ToString())));
+                        doc.Add(image);
+
+                        var table = new Table(new float[] { 1, 2, 1, 2, 2, 2, 2 });
+                        table.SetWidth(UnitValue.CreatePercentValue(100));
+                        table.AddHeaderCell(new Cell().Add(new Paragraph("Nr")));
+                        table.AddHeaderCell(new Cell().Add(new Paragraph("Data")));
+                        table.AddHeaderCell(new Cell().Add(new Paragraph("Id")));
+                        table.AddHeaderCell(new Cell().Add(new Paragraph("NIP")));
+                        table.AddHeaderCell(new Cell().Add(new Paragraph("Produkty")));
+                        table.AddHeaderCell(new Cell().Add(new Paragraph("Netto")));
+                        table.AddHeaderCell(new Cell().Add(new Paragraph("VAT")));
+
+                        for (int id_sprzed = 0; id_sprzed < Transkacje.Count; id_sprzed++)
+                        {
+                            Transkacje.TryGetValue(id_sprzed, out Sprzedaz sprzedaz);
+
+                            table.AddCell(new Cell().Add(new Paragraph(id_sprzed.ToString())));
+                            table.AddCell(new Cell().Add(new Paragraph(sprzedaz.data.ToString())));
+                            table.AddCell(new Cell().Add(new Paragraph(sprzedaz.idFirmy.ToString())));
+                            table.AddCell(new Cell().Add(new Paragraph(sprzedaz.nipFirmy.ToString())));
+                            table.AddCell(new Cell().Add(new Paragraph(parsujIntTabStr(sprzedaz.tabIDs).Replace(",", ", "))));
+                            table.AddCell(new Cell().Add(new Paragraph(sprzedaz.kwotaNetto.ToString())));
+                            table.AddCell(new Cell().Add(new Paragraph(sprzedaz.podatekVat.ToString())));
+                        }
+
+                        doc.Add(table);
+
+                        doc.Close();
                     }
-
-                    doc.Add(table);
-                    
-                    doc.Close();
                 }
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show("Bląd tworzenia PDF'a");
             }
         }
 
