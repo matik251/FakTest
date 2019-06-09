@@ -248,7 +248,7 @@ namespace FakTest
             }
             catch(IOException e)
             {
-                MessageBox.Show("Blad odczytu asortymentu");
+                MessageBox.Show("Blad odczytu asortymentu "+ e.ToString());
             }
         }
 
@@ -301,7 +301,7 @@ namespace FakTest
                 sw.Close();
             }
             catch(IOException e){
-                MessageBox.Show("Blad zapisu klientow");
+                MessageBox.Show("Blad zapisu klientow "+e.ToString());
                 sw.Close();
             }
         }
@@ -341,7 +341,7 @@ namespace FakTest
             }
             catch(IOException e)
             {
-                MessageBox.Show("Blad odczytu klientow");
+                MessageBox.Show("Blad odczytu klientow "+e.ToString());
             }
         }
         //-----------------------------------------------------------------------------------------------------
@@ -468,7 +468,7 @@ namespace FakTest
                 sw.Close();
             }
             catch(IOException e){
-                MessageBox.Show("Blad zapisu transakcji");
+                MessageBox.Show("Blad zapisu transakcji "+e.ToString());
                 sw.Close();
             }
 
@@ -510,7 +510,7 @@ namespace FakTest
             }
             catch(IOException e)
             {
-                MessageBox.Show("Bląd ładowania transakcji");
+                MessageBox.Show("Bląd ładowania transakcji "+ e.ToString());
             }
         }
 
@@ -768,7 +768,7 @@ namespace FakTest
             }
             catch (Exception e)
             {
-                MessageBox.Show("Blad tworzenia pdf'a");
+                MessageBox.Show("Blad tworzenia pdf'a "+e.ToString());
             }
             return exportFile;
         }
@@ -824,7 +824,7 @@ namespace FakTest
             }
             catch(Exception e)
             {
-                MessageBox.Show("Bląd tworzenia PDF'a");
+                MessageBox.Show("Bląd tworzenia PDF'a "+e.ToString());
             }
         }
 
