@@ -256,7 +256,7 @@
     <value>Typ produktu</value>
   </data>
   <data name="SW_SearchHeader" xml:space="preserve">
-    <value>Wyszukiwanie: nazwa Produktu lub id</value>
+    <value>Wpisz nazwe produktu</value>
   </data>
   <data name="SW_SellWindowHeader" xml:space="preserve">
     <value>Okno sprzedaży</value>
