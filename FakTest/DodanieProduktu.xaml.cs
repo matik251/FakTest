@@ -20,6 +20,7 @@ namespace FakTest
     public partial class DodanieProduktu : Window
     {
         Controler _controler;
+        Regexy rgx = new Regexy();
 
         public string _nazwa { get; set; }
         public decimal _cena { get; set; }
@@ -106,7 +107,7 @@ namespace FakTest
             }
             else
             {
-                if (!_controler.sprawdzenieRegex(tb_nazwa.Text))
+                if (!rgx.sprawdzenieRegex(tb_nazwa.Text))
                 {
                     tb_nazwa.Background = Brushes.Red;
                     _nazwaPoprawna = false;
@@ -126,7 +127,7 @@ namespace FakTest
             }
             else
             {
-                if (!_controler.cenaRegex(tb_cena.Text))
+                if (!rgx.cenaRegex(tb_cena.Text))
                 {
                     tb_cena.Background = Brushes.Red;
                     _cenaPoprawna = false;
@@ -146,7 +147,7 @@ namespace FakTest
             }
             else
             {
-                if (!_controler.vatRegex(tb_stawkaVAT.Text))
+                if (!rgx.vatRegex(tb_stawkaVAT.Text))
                 {
                     tb_stawkaVAT.Background = Brushes.Red;
                     _stawkaPoprawna = false;

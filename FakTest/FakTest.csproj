@@ -107,6 +107,7 @@
     <Compile Include="Obsługa.xaml.cs">
       <DependentUpon>Obsługa.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Regexy.cs" />
     <Compile Include="Sprzedaż.xaml.cs">
       <DependentUpon>Sprzedaż.xaml</DependentUpon>
     </Compile>

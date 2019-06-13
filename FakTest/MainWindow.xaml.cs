@@ -24,8 +24,9 @@ namespace FakTest
     public partial class MainWindow : Window
     {
 
-        FileHandler _fileHandler = new FileHandler();
+        FileHandler fh = new FileHandler();
         private Controler _controler;
+
 
         public MainWindow()
         {
@@ -95,7 +96,7 @@ namespace FakTest
                 transakcja.nip = linia.nipFirmy;
                 transakcja.adres = linia.adresFirmy;
                 transakcja.nr_fak = linia.nr_dok;
-                transakcja.id_prod = _controler.parsujIntTabStr(linia.tabIDs);
+                transakcja.id_prod = fh.parsujIntTabStr(linia.tabIDs);
                 transakcja.data = linia.data;
                 transakcja.netto = linia.kwotaNetto.ToString() + "zł";
                 transakcja.vat = linia.podatekVat.ToString() + "zł";

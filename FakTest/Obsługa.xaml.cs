@@ -20,6 +20,7 @@ namespace FakTest
     public partial class Obsługa : Window
     {
         Controler _controler;
+        PdfHandler pdfh = new PdfHandler();
 
         public Obsługa(Controler controler)
         {
@@ -54,7 +55,7 @@ namespace FakTest
 
         private void generateRaport(object sender, RoutedEventArgs e)
         {
-            _controler.generateReport();
+            pdfh.generateReport(_controler);
         }
 
         private void generateJPK(object sender, RoutedEventArgs e)

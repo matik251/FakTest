@@ -20,6 +20,7 @@ namespace FakTest
     public partial class DodanieKlienta : Window
     {
         Controler _controler;
+        Regexy rgx = new Regexy();
 
         public string _nazwa { get; set; }
         public string _nip { get; set; }
@@ -147,7 +148,7 @@ namespace FakTest
             }
             else
             {
-                if (!_controler.sprawdzenieRegex(tb_nazwa.Text))
+                if (!rgx.sprawdzenieRegex(tb_nazwa.Text))
                 {
                     tb_nazwa.Background = Brushes.Red;
                     _nazwaPop = false;
@@ -167,7 +168,7 @@ namespace FakTest
             }
             else
             {
-                if (!_controler.nipRegex(tb_nip.Text))
+                if (!rgx.nipRegex(tb_nip.Text))
                 {
                     tb_nip.Background = Brushes.Red;
                     _nipPop = false;
@@ -187,7 +188,7 @@ namespace FakTest
             }
             else
             {
-                if (!_controler.kodPocztowyRegex(tb_kod.Text))
+                if (!rgx.kodPocztowyRegex(tb_kod.Text))
                 {
                     tb_kod.Background = Brushes.Red;
                     _kodPop = false;
@@ -207,7 +208,7 @@ namespace FakTest
             }
             else
             {
-                if (!_controler.telefonRegex(tb_telefon.Text))
+                if (!rgx.telefonRegex(tb_telefon.Text))
                 {
                     tb_telefon.Background = Brushes.Red;
                     _telefonPop = false;
@@ -227,7 +228,7 @@ namespace FakTest
             }
             else
             {
-                if (!_controler.sprawdzenieRegex(tb_adres.Text))
+                if (!rgx.sprawdzenieRegex(tb_adres.Text))
                 {
                     tb_adres.Background = Brushes.Red;
                     _adresPop = false;
