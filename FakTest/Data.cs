@@ -131,56 +131,6 @@ namespace FakTest
         public int KlientID = -1;
         
         //-----------------------------------------------------------------------------------------------------
-
-        //-----------------------------------------------------------------------------------------------------
-        //Obsluga transakcji
-
-        public void utworzTransakcje()
-        {
-            int counter = Transkacje.Count;
-            DateTime data = DateTime.UtcNow.ToLocalTime();
-            string nr_fak = "0/0/0";
-            nr_fak = data.ToString("yyyy") + '/' + data.ToString("MM") + '/' + counter.ToString();
-            string czas = data.ToString("dd-MM-yyyy HH:mm:ss");
-            Klienci.TryGetValue(KlientID, out Klient linia);
-            Sprzedaz nowyRekordSprzedazy = new Sprzedaz(
-                KlientID,
-                linia.NIP,
-                linia.adres,
-                //"0/0/0",
-                nr_fak,
-                KoszykList.ToArray(),
-                //"03:06:2019",
-                czas,
-                KoszykSuma,
-                koszykPodatek
-                );
-
-
-            Transkacje.Add(counter, nowyRekordSprzedazy);
-            string pdf = pdfh.createFaktura(nowyRekordSprzedazy, this);
-
-            wyczyscKoszyk();
-
-            //Process myProcess = new Process();
-            //myProcess.StartInfo.FileName = "acroRd32.exe"; //not the full application path
-            pdf = AppDomain.CurrentDomain.BaseDirectory + pdf;
-            //pdf = "/A "  + pdf;
-            //myProcess.StartInfo.Arguments = pdf;
-            //myProcess.Start();
-            System.Diagnostics.Process.Start(pdf);
-
-        }
-
-        public void wyczyscKoszyk()
-        {
-            KoszykSuma = 0;
-            koszykPodatek = 0;
-            KlientID = 0;
-            KoszykList.Clear();
-        }
-
-        //-----------------------------------------------------------------------------------------------------
         //Obsluga ladowania i zapisu wielowatkowo
 
         public void loadData()
@@ -214,8 +164,6 @@ namespace FakTest
             //createPDF("2019/06/01");
 
         }
-
-        //-----------------------------------------------------------------------------------------------------
-    }
+}
 
 }

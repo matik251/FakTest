@@ -41,5 +41,13 @@ namespace FakTest
                 usunZKoszykCena(i, controler);
             }
         }
+
+        public void wyczyscKoszyk(Controler controler)
+        {
+            controler.KoszykSuma = 0;
+            controler.koszykPodatek = 0;
+            controler.KlientID = 0;
+            controler.KoszykList.Clear();
+        }
     }
 }

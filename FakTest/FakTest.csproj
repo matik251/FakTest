@@ -112,6 +112,7 @@
     <Compile Include="Sprzedaż.xaml.cs">
       <DependentUpon>Sprzedaż.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TransakcjeHandler.cs" />
     <Page Include="DodanieKlienta.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

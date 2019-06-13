@@ -21,6 +21,7 @@ namespace FakTest
     {
         Controler _controler;
         Regexy rgx = new Regexy();
+        KoszykHandler kh = new KoszykHandler();
 
         public string _nazwa { get; set; }
         public decimal _cena { get; set; }
@@ -40,7 +41,7 @@ namespace FakTest
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            _controler.wyczyscKoszyk();
+            kh.wyczyscKoszyk(_controler);
             this.Close();
         }
 

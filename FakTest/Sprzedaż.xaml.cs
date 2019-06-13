@@ -91,6 +91,9 @@ namespace FakTest
         {
             dataGrid.Items.Clear();
             dataGrid.Items.Refresh();
+            sumaKoszykaTextView.Text = "0 zł";
+            sumaVatTextView.Text = "0 zł";
+
         }
 
         public void fillDataGridWithListedItems(DataGrid dataGrid, List<int> zaznaczone)
@@ -149,6 +152,8 @@ namespace FakTest
                 DodanieKlienta win = new DodanieKlienta(_controler);
                 win.Show();
                 clearDataGrid(DataGridKoszyk);
+                _controler.transakcjaWToku = false;
+                
             }
             //this.Close();
 

@@ -21,6 +21,7 @@ namespace FakTest
     {
         Controler _controler;
         Regexy rgx = new Regexy();
+        TransakcjeHandler th = new TransakcjeHandler();
 
         public string _nazwa { get; set; }
         public string _nip { get; set; }
@@ -132,7 +133,7 @@ namespace FakTest
             {
                 _controler.KlientID = getZaznaczony(DataGridKlientow);
                 MessageBox.Show("KLientID: " + _controler.KlientID);
-                _controler.utworzTransakcje();
+                th.utworzTransakcje(_controler);
                 this.Close();
             }
             
