@@ -104,6 +104,7 @@
       <DependentUpon>DodanieTransakcji.xaml</DependentUpon>
     </Compile>
     <Compile Include="FileHandler.cs" />
+    <Compile Include="KoszykHandler.cs" />
     <Compile Include="Obsługa.xaml.cs">
       <DependentUpon>Obsługa.xaml</DependentUpon>
     </Compile>

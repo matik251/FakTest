@@ -131,39 +131,7 @@ namespace FakTest
         public int KlientID = -1;
         
         //-----------------------------------------------------------------------------------------------------
-        //Obsluga koszyka
 
-        public void dodajDoKoszykCena(int index)
-        {
-            Asortyment.TryGetValue(index, out Przedmiot linia);
-            KoszykSuma = KoszykSuma + linia.cena;
-            koszykPodatek = koszykPodatek + (linia.cena * linia.VAT / 100);
-        }
-
-        public void usunZKoszykCena(int index)
-        {
-            Asortyment.TryGetValue(index, out Przedmiot linia);
-            KoszykSuma = KoszykSuma - linia.cena;
-            koszykPodatek = koszykPodatek - (linia.cena * linia.VAT / 100);
-        }
-
-        public void addItemsToKoszyk(List<int> zaznaczone)
-        {
-            foreach (int nowa in zaznaczone)
-            {
-                KoszykList.Add(nowa);
-                dodajDoKoszykCena(nowa);
-            }
-        }
-
-        public void removeItemsFromKoszyk(List<int> zaznaczone)
-        {
-            foreach (int i in zaznaczone)
-            {
-                KoszykList.Remove(i);
-                usunZKoszykCena(i);
-            }
-        }
         //-----------------------------------------------------------------------------------------------------
         //Obsluga transakcji
 

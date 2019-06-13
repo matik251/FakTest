@@ -21,6 +21,7 @@ namespace FakTest
     public partial class Sprzedaż : Window
     {
         Controler _controler = new Controler();
+        KoszykHandler kh = new KoszykHandler();
 //-----------------------------------------------------------------------------------------------------
         public Sprzedaż(Controler controler)
         {
@@ -160,7 +161,7 @@ namespace FakTest
             zaznaczone = getZaznaczoneProdukty(DataGridProduktow);
             if (zaznaczone.Count != 0)
             {
-                _controler.addItemsToKoszyk(zaznaczone);
+                kh.addItemsToKoszyk(zaznaczone, _controler);
                 fillDataGridWithListedItems(DataGridKoszyk, zaznaczone);
                 zaznaczone = new List<int>();
             }
@@ -175,7 +176,7 @@ namespace FakTest
             if(zaznaczone.Count != 0)
             {
                 clearDataGrid(DataGridKoszyk);
-                _controler.removeItemsFromKoszyk(zaznaczone);
+                kh.removeItemsFromKoszyk(zaznaczone, _controler);
                 fillDataGridWithListedItems(DataGridKoszyk, _controler.KoszykList);
             }
             zaznaczone = new List<int>();
