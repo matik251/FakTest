@@ -505,6 +505,7 @@ namespace FakTest
 
                         doc.Add(new Paragraph("Kwota netto:" + nowyRekordSprzedazy.kwotaNetto + "zl").SetRelativePosition(400, 0, 0, 0));
                         doc.Add(new Paragraph("Podatek:" + nowyRekordSprzedazy.podatekVat + "zl").SetRelativePosition(400, 0, 0, 0));
+                        doc.Add(new Paragraph("PDF created with itext7 under AGPL license").SetFixedPosition(0,0,300));
 
                         doc.Close();
                     }
@@ -562,7 +563,8 @@ namespace FakTest
 
                         doc.Add(table);
 
-                        doc.Close();
+						doc.Add(new Paragraph("PDF created with itext7 under AGPL license").SetFixedPosition(0,0,300));
+						doc.Close();
                     }
                 }
             }
