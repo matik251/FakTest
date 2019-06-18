@@ -1,1 +1,8 @@
 C:\Users\Matik\source\repos\FakTest\FakTest\bin
+*.cache
+*.pdf
+*.csv
+*.dll
+*.exe
+FakTest/bin/
+FakTest/obj/
